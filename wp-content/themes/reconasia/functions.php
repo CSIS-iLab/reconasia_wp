@@ -124,16 +124,6 @@ function reconasia_theme_support() {
 	add_theme_support( 'editor-color-palette' );
 	add_theme_support( 'disable-custom-gradients' );
 
-	/*
-	 * Adds starter content to highlight the theme on fresh sites.
-	 * This is done conditionally to avoid loading the starter content on every
-	 * page load, as it is a one-off operation only needed once in the customizer.
-	 */
-	if ( is_customize_preview() ) {
-		require get_template_directory() . '/inc/starter-content.php';
-		add_theme_support( 'starter-content', reconasia_get_starter_content() );
-	}
-
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
@@ -152,6 +142,8 @@ add_action( 'after_setup_theme', 'reconasia_theme_support' );
  * REQUIRED FILES
  * Include required files.
  */
+require get_template_directory() . '/inc/template-functions.php';
+
 require get_template_directory() . '/inc/template-tags.php';
 
 // Handle SVG icons.
@@ -162,18 +154,6 @@ require get_template_directory() . '/classes/class-csis-script-loader.php';
 
 // Custom CSS.
 require get_template_directory() . '/inc/custom-css.php';
-
-// Disable default taxonomies.
-require get_template_directory() . '/inc/disable-default-taxonomies.php';
-
-// Issues Custom Post Type.
-require get_template_directory() . '/inc/cpt-issues.php';
-
-// Series Custom Taxonomy.
-require get_template_directory() . '/inc/tax-series.php';
-
-// Breadcrumbs.
-require get_template_directory() . '/inc/breadcrumbs.php';
 
 // Custom Blocks.
 require get_template_directory() . '/inc/custom-blocks.php';
@@ -238,11 +218,14 @@ function reconasia_register_scripts() {
 		// wp_script_add_data( 'reconasia-iframeResizer', 'async', true );
 	}
 
-	wp_enqueue_script( 'reconasia-vendor-js', get_template_directory_uri() . '/assets/js/vendor.min.js', array(), $theme_version, true );
-	wp_script_add_data( 'reconasia-vendor-js', 'async', true );
+	wp_enqueue_script( 'reconasia-js-vendor', get_template_directory_uri() . '/assets/js/vendor.min.js', array(), $theme_version, true );
+	wp_script_add_data( 'reconasia-js-vendor', 'async', true );
 
-	wp_enqueue_script( 'reconasia-custom-js', get_template_directory_uri() . '/assets/js/custom.min.js', array(), $theme_version, true );
-	wp_script_add_data( 'reconasia-custom-js', 'defer', true );
+	wp_enqueue_script( 'reconasia-js-skip-link', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.min.js', array(), $theme_version, true );
+	wp_script_add_data( 'reconasia-js-skip-link', 'async', true );
+
+	wp_enqueue_script( 'reconasia-js-bundle', get_template_directory_uri() . '/assets/js/bundle.min.js', array(), $theme_version, true );
+	wp_script_add_data( 'reconasia-js-bundle', 'defer', true );
 
 }
 

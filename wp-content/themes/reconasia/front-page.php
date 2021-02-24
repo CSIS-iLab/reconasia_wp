@@ -17,20 +17,20 @@ get_header();
 	<?php
 
   $args = array(
-    'post_type' => 'issues',
+    'post_type' => 'post',
     'post_status' => 'publish',
     'posts_per_page' => 5
   );
 
-  $issues = new WP_Query( $args );
+  $posts = new WP_Query( $args );
 
-	if ( $issues->have_posts() ) {
+	if ( $posts->have_posts() ) {
 
-		while ( $issues->have_posts() ) {
-			$issues->the_post();
+		while ( $posts->have_posts() ) {
+			$posts->the_post();
 
-			if ($issues->current_post === 0) {
-				get_template_part( 'template-parts/block-issues-featured' );
+			if ($posts->current_post === 0) {
+				get_template_part( 'template-parts/block', get_post_type() );
 			} else {
 				get_template_part( 'template-parts/block', get_post_type() );
 			}
@@ -42,66 +42,6 @@ get_header();
 
 	?>
 	</section>
-
-	<?php
-
-	$series = get_field('featured_series');
-
-	if ( $series ) {
-
-		$args = array(
-			'posts_per_page' => 4,
-			'tax_query' => array(
-        array(
-            'taxonomy' => 'series',
-            'field'    => 'term_id',
-            'terms'    => $series->term_id,
-        ),
-    ),
-		);
-
-		$seriesPosts = new WP_Query( $args );
-
-		if ( $seriesPosts->have_posts() ) { ?>
-
-			<aside class="home__series">
-				<h2 class="home__series-title"><?php echo esc_html( $series->name ); ?></h2>
-				<p class="home__series-desc"><?php echo esc_html( $series->description ); ?></p>
-
-				<?php
-					$archive_text = get_field('archive_link_text', 'series_' . $series->term_id);
-					$archive_url = get_field('archive_url', 'series_' . $series->term_id);
-
-					if ( !$archive_url ) {
-						$archive_url = get_term_link( $series );
-						$archive_text = 'Read More';
-					}
-
-					$image = get_field('image', 'series_' . $series->term_id);
-					$size = 'full';
-					if ( $image ) {
-						echo '<a href="' . $archive_url . '" class="home__series-img">' . wp_get_attachment_image( $image, $size ) . '</a>';
-					}
-
-					echo '<div class="home__series-articles">';
-
-					while ( $seriesPosts->have_posts() ) {
-						$seriesPosts->the_post();
-
-						get_template_part( 'template-parts/block', get_post_type() );
-					}
-
-					wp_reset_postdata();
-
-					echo '</div>';
-
-					echo '<a href="' . $archive_url . '" class="home__series-archive">' . $archive_text . reconasia_get_svg( 'arrow-right') . '</a>';
-				?>
-			</aside>
-		<?php
-		}
-	}
-	?>
 
 </main><!-- #site-content -->
 

@@ -125,52 +125,62 @@ function reconasia_site_description( $echo = true ) {
  */
 
 /**
- * Displays the post meta, including the issue number, post date, and whether it is a Reconnecting Asia original.
+ * Displays the page's formatted title.
  *
- * @param array $args Arguments including whether to show the issue prefix or display Reconnecting Asia text.
  *
- * @return string $html The HTML to display.
+ * @return string $html The formatted page title.
  */
-function reconasia_post_meta( array $options = array()
-) {
+function reconasia_formatted_title( $post_id = false ) {
+	$formatted_title = get_field('formatted_title', $post_id);
+
+	if ( is_archive() ) {
+		$object = get_queried_object();
+		$formatted_title = get_field( 'formatted_title', $object->name );
+	}
+
+	if ( !$formatted_title ) {
+		return;
+	}
+
+	printf( '<h1 class="entry-header__title">' . esc_html__( '%1$s', 'reconasia' ) . '</h1>', $formatted_title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+
+/**
+ * Displays the post's publish date.
+ *
+ *
+ * @return string $html The post date.
+ */
+function reconasia_posted_on( $date_format = null ) {
 
 	// Require post ID.
 	if ( ! get_the_ID() ) {
 		return;
 	}
 
-	$args = array_merge(array(
-		'show_issue' => true,
-		'show_date' => true,
-		'show_reconasia_original' => true,
-	 	'show_issue_prefix' => false
-	), $options);
+	$date = get_option( 'date_format' );
 
-	$issue_output = '';
-	$date_output = '';
-	$reconasia_output = '';
-
-	if ( $args['show_issue'] ) {
-		$issue = reconasia_get_post_issue( array('has_prefix' => $args['show_issue_prefix'] ) );
-
-		if ( $issue ) {
-			$issue_output = '<li class="post-meta__issue">' . $issue . '</li>';
-		}
+	if  ( $date_format ) {
+		$date = $date_format;
 	}
 
-	if ( $args['show_date'] ) {
-		$date_output = '<li class="post-meta__date">' . get_the_time( get_option( 'date_format' ) ) . '</li>';
-	}
+	echo '<div class="post-meta post-meta__date">' . get_the_time( $date ) . '</div>';
+}
 
-	if ( $args['show_reconasia_original'] ) {
-		$reconasia_output = reconasia_get_reconasia_original();
-	}
+/**
+ * Displays the post's publish date.
+ *
+ *
+ * @return string $html The post date.
+ */
+function reconasia_last_updated() {
 
-	if ( $issue_output === '' && $date_output === '' && $reconasia_output === '' ) {
+	// Require post ID.
+	if ( ! get_the_ID() ) {
 		return;
 	}
 
-	echo '<div class="post-meta"><ul class="post-meta__top">' . $issue_output . $date_output . '</ul>' . $reconasia_output . '</div>';
+	echo '<div class="post-meta post-meta__date"><span class="post-meta__label">Last Updated</span> ' . get_the_modified_time( get_option( 'date_format' ) ) . '</div>';
 }
 
 /**
@@ -179,16 +189,16 @@ function reconasia_post_meta( array $options = array()
  */
 function reconasia_authors() {
 	if ( function_exists( 'coauthors' ) ) {
-    $authors = coauthors( ', ', ', ', null, null, false );
+    $authors = coauthors_links( ', ', ', ', null, null, false );
 	} else {
 		$authors = get_the_author();
 	}
 
-	if ( !$authors || get_field( 'hide_authors' ) ) {
+	if ( !$authors ) {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__authors"><span class="post-meta__label">Written by</span> <span class="post-meta__value">' . $authors . '</span></div>';
+	echo '<div class="post-meta post-meta__authors">' . $authors . '</div>';
 }
 
 if (! function_exists('reconasia_authors_list_extended')) :
@@ -199,289 +209,105 @@ if (! function_exists('reconasia_authors_list_extended')) :
 	{
 		global $post;
 
+		if ( 'post' !== get_post_type() ) {
+			return;
+		}
+
 		if (function_exists('coauthors_posts_links')) {
-			$authors = '<h2 class="heading">Authors</h2>';
+			$authors = '<h2 class="section__heading">Authors</h2>';
 
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
 
-				if ( $coauthor->website ) {
-					$name = '<a href="' . $coauthor->website . '">' . $coauthor->display_name . '</a>';
-				}
+				$authors .= '<div class="post__authors-author"><h3 class="post__authors-author-name">' . $name . '</h3><p class="post__authors-author-bio">' . $name . ' ' . $coauthor->description . '</p>';
 
-				$authors .= '<p class="post__authors-author">' . $name . ' ' . $coauthor->description . '</p>';
+				if ( $coauthor->website ) {
+					$authors .= '<a href="' . $coauthor->website . '" class="post__authors-author-link">Learn More ' . reconasia_get_svg( 'arrow-external' ) .'</a></div>';
+				} else {
+					$authors .= '</div>';
+				}
 			}
 		} else {
 			$authors = the_author_posts_link();
 		}
-		return '<div class="post__authors">' . $authors . '</div>';
+		return '<div class="post__authors"><hr class="post__authors-divider alignfull">' . $authors . '</div>';
 	}
 endif;
 
 /**
- * Get post issue number.
+ * Displays the post's categories.
  *
- * Gets the issue number for the given post.
  *
- * @return string Issue Number.
+ * @return string $html The categories.
  */
-if ( ! function_exists('reconasia_get_post_issue') ) {
+if (! function_exists('reconasia_display_categories')) :
+	function reconasia_display_categories() {
 
-	function reconasia_get_post_issue( $args = array("is_link" => true, "has_prefix" => false ) ) {
-
-		if ( 'issues' === get_post_type() ) {
-			$number = get_field( 'issue_number' );
-		} else {
-			$issue = get_field( 'issue' );
-			$number = get_field( 'issue_number', $issue->ID );
-		}
-
-		if ( !$number ) {
+		// Require post ID.
+		if ( ! get_the_ID() ) {
 			return;
 		}
 
-		$prefix = '';
-		if ( $args['has_prefix'] ) {
-			$prefix = '<span class="post-meta__label">From</span> ';
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list(', ');
+
+		if ('Uncategorized' === $categories_list) {
+				return;
 		}
 
-		if ( !$args['is_link'] ) {
-			return $prefix. '<span class="post-meta__value">Issue ' . $number . '</span>';
+		// Always display "Event" for events
+		if ( 'event' === get_post_type() ) {
+			$categories_list = 'Event';
 		}
 
-		return '<a href="' . esc_url( get_permalink( $issue->ID ) ) . '" class="post-meta__value">Issue ' . $number . '</a>';
-	}
-}
-
-/**
- * Gets ReconAsia Original meta if it applies.
- *
- * @return string ReconAsia Original.
- */
-if ( ! function_exists('reconasia_get_reconasia_original') ) {
-
-	function reconasia_get_reconasia_original() {
-
-		if ( 'post' !== get_post_type() ) {
-			return;
+		if ( $categories_list ) {
+			/* translators: 1: list of categories. */
+			printf( '<div class="post-meta post-meta__categories">' . esc_html__( '%1$s', 'reconasia' ) . '</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
+	}
+endif;
 
-		$is_original = get_field( 'is_reconasia_original' );
+/**
+ * Displays the post's categories.
+ *
+ *
+ * @return string $html The categories.
+ */
+if (! function_exists('reconasia_display_tags')) :
+	function reconasia_display_tags() {
 
-		if ( !$is_original ) {
-			return;
+		/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_tag_list('<ul class="post-meta__tags"><li>', '</li><li>', '</li></ul>');
+
+		if ( $tags_list ) {
+			/* translators: 1: list of tags. */
+			printf( '<div class="entry__tags">' . esc_html__( '%1$s', 'reconasia' ) . '</div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
-
-		return '<div class="post-meta__original">ReconAsia Original</div>';
 	}
-}
+endif;
 
 /**
- * Gets iLab Language for posts.
+ * Displays the AddToAny Share Links.
  *
- * @return string iLab Language.
+ *
+ * @return string $html The share links.
  */
-if ( ! function_exists('reconasia_get_ilab_language') ) {
+if (! function_exists('reconasia_share')) :
+	function reconasia_share() {
 
-	function reconasia_get_ilab_language() {
+		if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) {
+			// Make sure that we're sharing the archive page and not just the most recent post in that archive.
+			if ( is_home() || is_archive() ) {
 
-		if ( 'post' !== get_post_type() ) {
-			return;
+				ADDTOANY_SHARE_SAVE_KIT( array(
+						'linkname' => is_home() ? get_bloginfo( 'description' ) : wp_title( '', false ),
+						'linkurl'  => esc_url_raw( home_url( $_SERVER['REQUEST_URI'] ) ),
+				) );
+
+			} else {
+				ADDTOANY_SHARE_SAVE_KIT();
+			}
 		}
-
-		$include_lang = get_field( 'include_ilab_language' );
-
-		if ( !$include_lang ) {
-			return;
-		}
-
-		return '<div class="post__ilab"><h2 class="heading">Development & Design</h2><p>This CSIS<span style="font-style: italic; ">Mag</span> article is a product of the <a href="https://www.csis.org/programs/dracopoulos-ideas-lab">Andreas C. Dracopoulos iDeas Lab</a>, the in-house digital, multimedia, and design agency at the Center for Strategic and International Studies.</p></div>';
 	}
-}
+endif;
 
-/**
- * Gets Post Notes if notes field is filled out.
- *
- * @return string Post Notes.
- */
-if ( ! function_exists('reconasia_get_notes') ) {
-
-	function reconasia_get_notes() {
-
-		if ( 'post' !== get_post_type() ) {
-			return;
-		}
-
-		$notes = get_field( 'notes' );
-
-		if ( !$notes ) {
-			return;
-		}
-
-		return '<div class="post__notes"><h2 class="heading">Notes</h2>' . $notes . '</div>';
-	}
-}
-
-/**
- * Classes
- */
-/**
- * Add No-JS Class.
- * If we're missing JavaScript support, the HTML element will have a no-js class.
- */
-function reconasia_no_js_class() {
-
-	?>
-	<script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
-	<?php
-
-}
-
-add_action( 'wp_head', 'reconasia_no_js_class' );
-
-/**
- * Add conditional body classes.
- *
- * @param array $classes Classes added to the body tag.
- *
- * @return array $classes Classes added to the body tag.
- */
-function reconasia_body_classes( $classes ) {
-
-	global $post;
-	$post_type = isset( $post ) ? $post->post_type : false;
-
-	// Check whether we're singular.
-	if ( is_singular() ) {
-		$classes[] = 'singular';
-	}
-
-	// Check whether the current page should have an overlay header.
-	if ( is_page_template( array( 'templates/template-cover.php' ) ) ) {
-		$classes[] = 'overlay-header';
-	}
-
-	// Check whether the current page has full-width content.
-	if ( is_page_template( array( 'templates/template-full-width.php' ) ) ) {
-		$classes[] = 'has-full-width-content';
-	}
-
-	// Check for enabled search.
-	if ( true === get_theme_mod( 'enable_header_search', true ) ) {
-		$classes[] = 'enable-search-modal';
-	}
-
-	// Check for post thumbnail.
-	if ( is_singular() && has_post_thumbnail() ) {
-		$classes[] = 'has-post-thumbnail';
-	} elseif ( is_singular() ) {
-		$classes[] = 'missing-post-thumbnail';
-	}
-
-	// Check whether we're in the customizer preview.
-	if ( is_customize_preview() ) {
-		$classes[] = 'customizer-preview';
-	}
-
-	// Check if posts have single pagination.
-	if ( is_single() && ( get_next_post() || get_previous_post() ) ) {
-		$classes[] = 'has-single-pagination';
-	} else {
-		$classes[] = 'has-no-pagination';
-	}
-
-	// Slim page template class names (class = name - file suffix).
-	if ( is_page_template() ) {
-		$classes[] = basename( get_page_template_slug(), '.php' );
-	}
-
-	// Page has light theme
-	if ( is_single() && 'issues' === $post_type ) {
-		$classes[] = 'theme--light';
-	}
-
-	if ( get_field( 'use_light_theme' ) ) {
-		$classes[] = 'theme--light';
-	}
-
-	return $classes;
-
-}
-
-add_filter( 'body_class', 'reconasia_body_classes' );
-
-/**
- * Archives
- */
-/**
- * Filters the archive title and styles the word before the first colon.
- *
- * @param string $title Current archive title.
- *
- * @return string $title Current archive title.
- */
-function reconasia_get_the_archive_title( $title ) {
-
-	$regex = apply_filters(
-		'reconasia_get_the_archive_title_regex',
-		array(
-			'pattern'     => '/(\A[^\:]+\:)/',
-			'replacement' => '<span class="color-accent">$1</span>',
-		)
-	);
-
-	if ( empty( $regex ) ) {
-
-		return $title;
-
-	}
-
-	return preg_replace( $regex['pattern'], $regex['replacement'], $title );
-
-}
-
-add_filter( 'get_the_archive_title', 'reconasia_get_the_archive_title' );
-
-/**
- * Miscellaneous
- */
-/**
- * Toggle animation duration in milliseconds.
- *
- * @return integer Duration in milliseconds
- */
-function reconasia_toggle_duration() {
-	/**
-	 * Filters the animation duration/speed used usually for submenu toggles.
-	 *
-	 * @since 1.0
-	 *
-	 * @param integer $duration Duration in milliseconds.
-	 */
-	$duration = apply_filters( 'reconasia_toggle_duration', 250 );
-
-	return $duration;
-}
-
-/**
- * Get unique ID.
- *
- * This is a PHP implementation of Underscore's uniqueId method. A static variable
- * contains an integer that is incremented with each call. This number is returned
- * with the optional prefix. As such the returned value is not universally unique,
- * but it is unique across the life of the PHP process.
- *
- * @see wp_unique_id() Themes requiring WordPress 5.0.3 and greater should use this instead.
- *
- * @staticvar int $id_counter
- *
- * @param string $prefix Prefix for the returned ID.
- * @return string Unique ID.
- */
-function reconasia_unique_id( $prefix = '' ) {
-	static $id_counter = 0;
-	if ( function_exists( 'wp_unique_id' ) ) {
-		return wp_unique_id( $prefix );
-	}
-	return $prefix . (string) ++$id_counter;
-}
