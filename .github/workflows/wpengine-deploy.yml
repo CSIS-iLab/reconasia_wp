@@ -21,11 +21,11 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install dependencies
-        working-directory: ./wp-content/themes/csisstarter
+        working-directory: ./wp-content/themes/reconasia
         run: npm ci
 
       - name: Build
-        working-directory: ./wp-content/themes/csisstarter
+        working-directory: ./wp-content/themes/reconasia
         run: npm run build
 
       - name: Git fetch
@@ -36,7 +36,7 @@ jobs:
           WPE_ENVIRONMENT_NAME: ${{ secrets.WPENGINE_PROD_ENV_NAME }}
           WPE_SSH_KEY_PRIVATE: ${{ secrets.WPE_SSH_KEY_PRIVATE }}
           WPE_SSH_KEY_PUBLIC: ${{ secrets.WPE_SSH_KEY_PUBLIC }}
-          WPE_ENVIRONMENT: "production"
+          WPE_ENVIRONMENT: "development"
           WPE_LOCAL_BRANCH: "main"
           WPE_GIT_INCLUDE: ".github/wpe-git-include.txt"
           WPE_GIT_EXCLUDE: ".github/wpe-git-exclude.txt"
