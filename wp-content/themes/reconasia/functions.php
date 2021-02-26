@@ -190,12 +190,6 @@ function reconasia_register_styles() {
 		wp_enqueue_style( 'reconasia-style-post-blocks', get_stylesheet_directory_uri() . '/assets/css/blocks/post.min.css', array(), $theme_version );
 	}
 
-	if ( 'issues' === get_post_type() ) {
-		wp_enqueue_style( 'reconasia-style-issues', get_stylesheet_directory_uri() . '/assets/css/pages/issues.min.css', array(), $theme_version );
-
-		wp_enqueue_style( 'reconasia-style-issues-blocks', get_stylesheet_directory_uri() . '/assets/css/blocks/issues.min.css', array(), $theme_version );
-	}
-
 	// Add print CSS.
 	wp_enqueue_style( 'reconasia-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
 
@@ -398,19 +392,6 @@ function reconasia_block_editor_settings() {
 add_action( 'after_setup_theme', 'reconasia_block_editor_settings' );
 
 /**
- * Overwrite default more tag with styling and screen reader markup.
- *
- * @param string $html The default output HTML for the more tag.
- *
- * @return string $html
- */
-function reconasia_read_more_tag( $html ) {
-	return preg_replace( '/<a(.*)>(.*)<\/a>/iU', sprintf( '<div class="read-more-button-wrap"><a$1><span class="faux-button">$2</span> <span class="screen-reader-text">"%1$s"</span></a></div>', get_the_title( get_the_ID() ) ), $html );
-}
-
-add_filter( 'the_content_more_link', 'reconasia_read_more_tag' );
-
-/**
  * Enqueues scripts for customizer controls & settings.
  *
  * @since 1.0.0
@@ -590,12 +571,6 @@ function reconasia_get_elements_array() {
 	*/
 	return apply_filters( 'reconasia_get_elements_array', $elements );
 }
-
-/** Modify Excerpt */
-function new_excerpt_more($more) {
-    return '...';
-}
-add_filter('excerpt_more', 'new_excerpt_more');
 
 /** Modify Excerpt Classes */
 function reconasia_filter_excerpt ($post_excerpt) {

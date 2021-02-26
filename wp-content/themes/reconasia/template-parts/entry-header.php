@@ -26,11 +26,6 @@ if ( 'issues' === get_post_type() ) {
 	<div class="single__header-wrapper">
 
 		<?php
-			reconasia_post_meta( array(
-				 'show_reconasia_original' => $show_reconasia_original,
-				 'show_issue_prefix' => $show_issue_prefix
-				)
-			);
 
 			the_title( '<h1 class="single__title">', '</h1>' );
 

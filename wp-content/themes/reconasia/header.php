@@ -36,8 +36,6 @@
 
 			<header id="site-header" class="header" role="banner">
 
-				<?php echo reconasia_breadcrumbs(); ?>
-
-				<a href="<?php echo get_home_url(); ?>" class="header__logo" title="Go home"><?php include( get_template_directory() . '/assets/static/reconasia-logo.svg'); ?></a>
+				<a href="<?php echo get_home_url(); ?>" class="header__logo" title="Go home">ReconAsia</a>
 
 			</header><!-- #site-header -->

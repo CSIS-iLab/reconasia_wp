@@ -30,9 +30,7 @@
 	<footer class="single__footer">
 		<?php get_template_part( 'template-parts/featured-image-caption' ); ?>
 		<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
-		<?php echo reconasia_get_notes(); ?>
 		<?php echo reconasia_authors_list_extended(); ?>
-		<?php echo reconasia_get_ilab_language(); ?>
 	</footer>
 
 </article><!-- .post -->
