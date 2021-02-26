@@ -39,11 +39,11 @@ $ npm start
 
 ### CI/CD
 
-TravisCI will automatically run when pull requests are submitted. If successful:
+GitHub Actions will automatically build & deploy the theme to either the development, staging, or production environment on WPE depending on the settings specified in the deployment workflow.
 
-- Pull requests into `development` will be deployed to the [WP Engine Development Environment](https://reconasiadev.wpengine.com/). The Development environment should be used to demo new features to programs. Once approved, a pull request should be submitted to `main`.
+- The `WPE_ENVIRONMENT_NAME: ${{ secrets.WPENGINE_DEV_ENV_NAME }}` setting will be deployed to the [WP Engine Development Environment](https://reconasiadev.wpengine.com/). The Development environment should be used to demo new features to programs.
 
-- Pull requests in `main` will be deployed to the [WP Engine Staging Environment](http://reconasiastaging.wpengine.com/). The Staging environment should be used as a launchpad to add new features to Production.
+- The `WPE_ENVIRONMENT_NAME: ${{ secrets.WPENGINE_PROD_ENV_NAME }}` setting will be deployed to the [WP Engine Production Environment](http://reconasia.wpengine.com/).
 
 ### See More Commands
 
