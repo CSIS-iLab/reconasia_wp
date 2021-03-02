@@ -128,3 +128,10 @@
   padding-right: var(--container-padding);
   padding-left: var(--container-padding);
 }
+
+@mixin effect-style-elevation-medium {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 9px rgba(0, 0, 0, 0.06);
+}
+@mixin effect-style-elevation-large {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1), 0 5px 20px rgba(0, 0, 0, 0.1);
+}

@@ -4,221 +4,213 @@
 /*==============================
 =          Placeholders        =
 ==============================*/
-
-%font-heading-5-xl {
-  font-family: $font__minion-display;
-  font-weight: 500;
-  @include font-size(40px);
-  line-height: 1.15;
-
-  @include breakpoint('medium') {
-    @include font-size(52px);
-  }
-
-  @include breakpoint('large') {
-    @include font-size(64px);
-  }
-}
-
-%font-heading-4-xl-serif {
-  font-family: $font__minion-display;
-  font-weight: 500;
-  @include font-size(32px);
-  line-height: 1.15;
-
-  @include breakpoint('medium') {
-    @include font-size(36px);
-  }
-
-  @include breakpoint('large') {
-    @include font-size(40px);
-  }
-}
-
-%font-heading-4-xl-sans {
-  @include font-size(34px);
-  font-family: $font__source;
-  font-weight: bold;
-  line-height: 1.15;
-
-  @include breakpoint('medium') {
-    @include font-size(36px);
-  }
-
-  @include breakpoint('large') {
-    @include font-size(40px);
-  }
-}
-
-%font-heading-3-xl-serif {
-  @include font-size(28px);
-  font-family: $font__minion-display;
-  font-weight: 500;
-  line-height: 1.15;
-
-  @include breakpoint('medium') {
-    @include font-size(30px);
-  }
-
-  @include breakpoint('large') {
-    @include font-size(32px);
-  }
-}
-
-%font-heading-2-xl-serif {
-  @include font-size(25px);
-  font-family: $font__minion-display;
-  font-weight: 500;
-  line-height: 1.15;
-
-  @include breakpoint('medium') {
-    @include font-size(28px);
-  }
-}
-
-%font-heading-xl-serif {
-  @include font-size(22px);
-  font-family: $font__minion-display;
-  font-weight: 500;
-  line-height: 1.15;
-
-  @include breakpoint('medium') {
-    @include font-size(24px);
-  }
-}
-
-%font-heading-xl-sans {
-  @include font-size(22px);
-  font-family: $font__source;
-  font-weight: 600;
-  line-height: 1.15;
-
-  @include breakpoint('medium') {
-    @include font-size(24px);
-  }
-}
-
-%font-heading-lg-serif {
-  @include font-size(20px);
-  font-family: $font__minion-display;
-  font-weight: 500;
+%text-style-heading-medium {
+  font-size: 20px;
+  font-family: $font__lato;
+  font-weight: normal;
   line-height: 1.15;
 }
 
-%font-heading-lg-sans {
-  @include font-size(19px);
-  font-family: $font__source;
-  font-weight: 600;
+%text-style-heading-large {
+  font-size: 24px;
+  font-family: $font__lato;
+  font-weight: normal;
   line-height: 1.15;
-
-  @include breakpoint('medium') {
-    @include font-size(20px);
-  }
 }
 
-%font-heading-md-serif {
-  @include font-size(18px);
-  font-family: $font__minion-display;
+%text-style-heading-large-strong {
+  @extend %text-style-heading-large;
+  font-weight: 700;
+}
+
+%text-style-heading-large-strong-caps {
+  @extend %text-style-heading-large-strong;
+  text-transform: uppercase;
+}
+
+%text-style-heading-large-serif-bold {
+  font-size: 24px;
+  font-family: $font__merriweather;
   font-weight: 700;
   line-height: 1.15;
 }
 
-%font-heading-md-sans {
-  @include font-size(18px);
-  font-family: $font__source;
-  font-weight: 600;
+%text-style-heading-x-large {
+  font-size: 32px;
+  font-family: $font__merriweather;
+  font-weight: normal;
   line-height: 1.15;
 }
-
-%font-heading-sm-serif {
-  @include font-size(16px);
-  font-family: $font__minion-display;
+%text-style-heading-x-large-strong {
+  @extend %text-style-heading-x-large;
   font-weight: 700;
+}
+
+%text-style-heading-2-x-large {
+  font-size: 42px;
+  font-family: $font__merriweather;
+  font-weight: normal;
   line-height: 1.15;
 }
 
-%font-heading-sm-sans {
-  @include font-size(16px);
-  font-family: $font__source;
-  font-weight: bold;
-  line-height: 1.35;
+%text-style-heading-2-x-large-strong {
+  @extend %text-style-heading-2-x-large;
+  font-weight: 700;
 }
 
-%font-body-lg-post {
-  @include font-size(18px);
-  font-family: $font__minion-caption;
-  font-weight: 400;
-  line-height: 1.5;
-
-  @include breakpoint('medium') {
-    @include font-size(20px);
-    line-height: 1.6;
-  }
+%text-style-heading-3-x-large {
+  font-size: 48px;
+  font-family: $font__merriweather;
+  font-weight: normal;
+  line-height: 1.08;
 }
 
-%font-body-md {
-  @include font-size(17px);
-  font-family: $font__minion-caption;
-  font-weight: 400;
-  line-height: 1.35;
-
-  @include breakpoint('medium') {
-    @include font-size(18px);
-  }
+%text-style-heading-3-x-large-strong {
+  @extend %text-style-heading-3-x-large;
+  font-weight: 700;
 }
 
-%font-body-sm {
-  @include font-size(15px);
-  font-family: $font__source;
-  line-height: 1.35;
-
-  @include breakpoint('medium') {
-    @include font-size(16px);
-  }
-}
-
-%font-body-xs {
-  @include font-size(14px);
-  font-family: $font__source;
-  line-height: 1.35;
-}
-
-%font-body-2-xs {
-  @include font-size(13px);
-  font-family: $font__source;
-  line-height: 1.35;
-}
-
-%font-label-lg {
-  @include font-size(15px);
-  font-family: $font__source;
-  line-height: 1;
-
-  @include breakpoint('medium') {
-    @include font-size(16px);
-  }
-}
-
-%font-label-sm {
-  @include font-size(14px);
-  font-family: $font__source;
+%text-style-label-x-small {
+  font-size: 12px;
+  font-family: $font__lato;
+  font-weight: normal;
   line-height: 1.15;
+  letter-spacing: 0.02em;
 }
 
-%font-button {
-  @include font-size(14px);
-  font-family: $font__source;
-  font-weight: 600;
-  line-height: 1;
+%text-style-label-x-small-strong {
+  @extend %text-style-label-x-small;
+  font-weight: 700;
 }
 
-%font-quote {
-  @include font-size(22px);
-  font-family: $font__minion-display;
-  font-weight: 500;
-  line-height: 1.35;
+%text-style-label-x-small-strong-caps {
+  @extend %text-style-label-x-small-strong;
+  text-transform: uppercase;
+}
 
-  @include breakpoint('medium') {
-    @include font-size(24px);
-  }
+%text-style-label-small {
+  font-size: 14px;
+  font-family: $font__lato;
+  font-weight: normal;
+  line-height: 1.15;
+  letter-spacing: 0.015em;
+}
+
+%text-style-label-small-strong {
+  @extend %text-style-label-small;
+  font-weight: 700;
+}
+
+%text-style-label-small-strong-caps {
+  @extend %text-style-label-small-strong;
+  text-transform: uppercase;
+}
+
+%text-style-label-medium {
+  font-size: 16px;
+  font-family: $font__lato;
+  font-weight: normal;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+%text-style-label-medium-strong {
+  @extend %text-style-label-medium;
+  font-weight: 700;
+}
+
+%text-style-label-large {
+  font-size: 18px;
+  font-family: $font__lato;
+  font-weight: normal;
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+}
+
+%text-style-label-large-strong {
+  @extend %text-style-label-large;
+  font-weight: 700;
+}
+
+%text-style-label-large-caps {
+  @extend %text-style-label-large;
+  text-transform: uppercase;
+}
+
+%text-style-label-3-x-large {
+  font-size: 42px;
+  font-family: $font__public;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+%text-style-paragraph-small-short {
+  font-size: 14px;
+  font-family: $font__lato;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+%text-style-paragraph-small-long {
+  @extend %text-style-paragraph-small-short;
+  line-height: 1.6;
+}
+
+%text-style-paragraph-medium-short {
+  font-size: 16px;
+  font-family: $font__lato;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+%text-style-paragraph-medium-short-caps {
+  @extend %text-style-paragraph-medium-short;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+%text-style-paragraph-medium-long {
+  @extend %text-style-paragraph-medium-short;
+  line-height: 1.6;
+}
+
+%text-style-paragraph-large-short {
+  font-size: 18px;
+  font-family: $font__merriweather;
+  font-weight: normal;
+  line-height: 1.3;
+  letter-spacing: 0.005em;
+}
+
+%text-style-paragraph-large-short-sans {
+  font-size: 18px;
+  font-family: $font__lato;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+%text-style-paragraph-large-long {
+  @extend %text-style-paragraph-large-short;
+  line-height: 1.6;
+}
+
+%text-style-paragraph-x-large-short {
+  font-size: 22px;
+  font-family: $font__merriweather;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+%text-style-paragraph-x-large-short-sans {
+  font-size: 22px;
+  font-family: $font__lato;
+  font-weight: normal;
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+}
+
+%text-style-paragraph-x-large-long {
+  @extend %text-style-paragraph-x-large-short;
+  line-height: 1.6;
 }
