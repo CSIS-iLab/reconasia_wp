@@ -27,16 +27,16 @@
   align-items: start;
   max-width: $size__content-max-width;
   margin: rem(12) auto 0;
-  @extend %font-body-sm;
-  color: $color-text-gray-70;
+  @extend %text-style-paragraph-medium-short;
+  color: $color-black-165;
 
   &::after {
     content: '';
     display: block;
     width: rem(40);
-    height: 2px;
+    height: 1px;
     margin-top: rem(12);
-    background: $color-black-125;
+    background: $color-border-dark-130;
   }
 }
 
@@ -60,20 +60,28 @@
 .wp-block-lazyblock-post-audio,
 .wp-block-lazyblock-post-video:not(.alignfull):not(.aligncenter),
 .wp-block-lazyblock-post-interactive:not(.alignfull):not(.alignwide):not(.aligncenter) {
+  @include breakpoint('medium') {
+    max-width: 38vw;
+  }
+
   @include breakpoint('large') {
-    max-width: 50vw;
+    max-width: 350px;
   }
 
   @include breakpoint('xlarge') {
-    max-width: 432px;
+    max-width: 380px;
+  }
+
+  @include breakpoint('xxlarge') {
+    max-width: 400px;
   }
 }
 
 .csis-block--small,
 .wp-block-lazyblock-post-stat,
 .wp-block-lazyblock-post-publication {
-  @include breakpoint('large') {
-    max-width: 300px;
+  @include breakpoint('small') {
+    max-width: 200px;
   }
 }
 
@@ -96,24 +104,31 @@
   float: none;
 
   @include breakpoint('small') {
+    --margin-text-side: 6vw;
     --padding-sides: var(--container-padding);
+    max-width: 38vw;
     padding: 0 var(--padding-sides);
   }
 
   @include breakpoint('medium') {
-    --margin-text-side: #{rem(32)};
     --padding-sides: 0;
-    max-width: 50%;
     margin-top: 0;
+    max-width: 50%;
   }
 
   @include breakpoint('large') {
-    --margin-text-side: #{rem(40)};
-    --margin-gutter-side: #{rem(-128)};
+    --margin-text-side: #{rem(48)};
+    --margin-gutter-side: -6vw;
+    max-width: 350px;
   }
 
   @include breakpoint('xlarge') {
-    --margin-text-side: #{rem(48)};
+    max-width: 380px;
+  }
+
+  @include breakpoint('xxlarge') {
+    --margin-text-side: #{rem(56)};
+    max-width: 400px;
   }
 
   figcaption {
@@ -129,7 +144,7 @@
     margin-right: var(--margin-text-side);
     margin-left: var(--margin-gutter-side, 0);
 
-    @include breakpoint('medium') {
+    @include breakpoint('small') {
       float: left;
     }
   }
@@ -139,7 +154,7 @@
     margin-right: var(--margin-gutter-side, 0);
     margin-left: var(--margin-text-side);
 
-    @include breakpoint('medium') {
+    @include breakpoint('small') {
       float: right;
     }
   }
