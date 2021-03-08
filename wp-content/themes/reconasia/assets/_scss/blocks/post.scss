@@ -34,7 +34,7 @@
     content: '';
     display: block;
     width: rem(40);
-    height: 1px;
+    height: rem(1px);
     margin-top: rem(12);
     background: $color-border-dark-130;
   }
@@ -65,15 +65,15 @@
   }
 
   @include breakpoint('large') {
-    max-width: 350px;
+    max-width: rem(350px);
   }
 
   @include breakpoint('xlarge') {
-    max-width: 380px;
+    max-width: rem(380px);
   }
 
   @include breakpoint('xxlarge') {
-    max-width: 400px;
+    max-width: rem(400px);
   }
 }
 
@@ -81,7 +81,7 @@
 .wp-block-lazyblock-post-stat,
 .wp-block-lazyblock-post-publication {
   @include breakpoint('small') {
-    max-width: 200px;
+    max-width: rem(200px);
   }
 }
 
@@ -119,16 +119,16 @@
   @include breakpoint('large') {
     --margin-text-side: #{rem(48)};
     --margin-gutter-side: -6vw;
-    max-width: 350px;
+    max-width: rem(350px);
   }
 
   @include breakpoint('xlarge') {
-    max-width: 380px;
+    max-width: rem(380px);
   }
 
   @include breakpoint('xxlarge') {
     --margin-text-side: #{rem(56)};
-    max-width: 400px;
+    max-width: rem(400px);
   }
 
   figcaption {
