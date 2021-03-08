@@ -128,3 +128,13 @@
   padding-right: var(--container-padding);
   padding-left: var(--container-padding);
 }
+
+// Returns the z-index given an element.
+@mixin z-index($key) {
+  z-index: z-index($key);
+}
+
+// Returns the box-shadow given a shadow-size.
+@mixin shadow($key) {
+  box-shadow: box-shadow($key);
+}
