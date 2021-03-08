@@ -4,12 +4,18 @@
 
 /*----------  Colors  ----------*/
 $color-white-100: rgba(255, 255, 255, 1);
+$color-white-115: rgba(255, 255, 255, 0.15);
+$color-white-130: rgba(255, 255, 255, 0.3);
 $color-white-140: rgba(255, 255, 255, 0.65);
+$color-white-150: rgba(255, 255, 255, 0.5);
 $color-white-165: rgba(255, 255, 255, 0.65);
 $color-white-190: rgba(255, 255, 255, 0.9);
 
 $color-black-100: rgba(0, 0, 0, 1);
+$color-black-115: rgba(0, 0, 0, 0.15);
+$color-black-130: rgba(0, 0, 0, 0.3);
 $color-black-140: rgba(0, 0, 0, 0.4);
+$color-black-150: rgba(0, 0, 0, 0.5);
 $color-black-165: rgba(0, 0, 0, 0.65);
 $color-black-190: rgba(0, 0, 0, 0.9);
 
@@ -34,13 +40,13 @@ $color-accent-light-primary-300: rgba(180, 208, 208, 1);
 
 $color-accent-dark-primary-400: rgba(106, 190, 176, 1);
 
-$color-border-light-115: rgba(255, 255, 255, 0.15);
-$color-border-light-130: rgba(255, 255, 255, 0.3);
-$color-border-light-150: rgba(255, 255, 255, 0.5);
+$color-border-light-115: $color-white-115;
+$color-border-light-130: $color-white-130;
+$color-border-light-150: $color-white-150;
 
-$color-border-dark-115: rgba(0, 0, 0, 0.15);
-$color-border-dark-130: rgba(0, 0, 0, 0.3);
-$color-border-dark-150: rgba(0, 0, 0, 0.5);
+$color-border-dark-115: $color-black-115;
+$color-border-dark-130: $color-black-130;
+$color-border-dark-150: $color-black-150;
 
 /*----------  Fonts  ----------*/
 $font__merriweather: 'Merriweather', serif;
