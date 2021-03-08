@@ -4,7 +4,16 @@
 
 /*----------  Colors  ----------*/
 $color-white-100: rgba(255, 255, 255, 1);
+$color-white-140: rgba(255, 255, 255, 0.65);
+$color-white-165: rgba(255, 255, 255, 0.65);
+$color-white-190: rgba(255, 255, 255, 0.9);
+
 $color-black-100: rgba(0, 0, 0, 1);
+$color-black-140: rgba(0, 0, 0, 0.4);
+$color-black-165: rgba(0, 0, 0, 0.65);
+$color-black-190: rgba(0, 0, 0, 0.9);
+
+$color-link-primary-200: rgba(22, 126, 130, 1);
 
 $color-dark-pattern-bg: $color-black-100;
 
@@ -24,18 +33,6 @@ $color-accent-light-primary-200: rgba(61, 130, 131, 1);
 $color-accent-light-primary-300: rgba(180, 208, 208, 1);
 
 $color-accent-dark-primary-400: rgba(106, 190, 176, 1);
-
-$color-text-link-primary-200: rgba(22, 126, 130, 1);
-
-$color-text-white-100: $color-white-100;
-$color-text-white-140: rgba(255, 255, 255, 0.65);
-$color-text-white-165: rgba(255, 255, 255, 0.65);
-$color-text-white-190: rgba(255, 255, 255, 0.9);
-
-$color-text-black-100: $color-black-100;
-$color-text-black-140: rgba(0, 0, 0, 0.4);
-$color-text-black-165: rgba(0, 0, 0, 0.65);
-$color-text-black-190: rgba(0, 0, 0, 0.9);
 
 $color-border-light-115: rgba(255, 255, 255, 0.15);
 $color-border-light-130: rgba(255, 255, 255, 0.3);
