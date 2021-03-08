@@ -129,9 +129,12 @@
   padding-left: var(--container-padding);
 }
 
-@mixin effect-style-elevation-medium {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 9px rgba(0, 0, 0, 0.06);
+// Returns the z-index given an element.
+@mixin z-index($key) {
+  z-index: z-index($key);
 }
-@mixin effect-style-elevation-large {
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1), 0 5px 20px rgba(0, 0, 0, 0.1);
+
+// Returns the box-shadow given a shadow-size.
+@mixin shadow($key) {
+  box-shadow: box-shadow($key);
 }
