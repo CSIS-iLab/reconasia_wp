@@ -10,17 +10,17 @@
   }
 
   .single__title {
-    @extend %font-heading-5-xl;
+    // @extend %font-heading-5-xl;
   }
 
   .issue__overview {
     flex: 0 0 auto;
     width: 100%;
     padding: rem(12) 0 rem(20);
-    color: $color-text-gray-10;
-    @extend %font-label-lg;
-    background: $color-primary-darkest;
-    @include full-width-background($color-primary-darkest);
+    // color: $color-text-gray-10;
+    // @extend %font-label-lg;
+    // background: $color-primary-darkest;
+    // @include full-width-background($color-primary-darkest);
 
     @include breakpoint('small') {
       padding-bottom: rem(24);
@@ -47,8 +47,8 @@
     &-title {
       position: relative;
       margin-bottom: rem(8);
-      color: $color-text-gray-05;
-      @extend %font-heading-md-sans;
+      // color: $color-text-gray-05;
+      // @extend %font-heading-md-sans;
       letter-spacing: 0.02em;
       text-transform: uppercase;
 
@@ -119,19 +119,19 @@
         left: 0;
         width: 2px;
         height: rem(40);
-        background: $color-black-125;
+        background: $color-black-130;
       }
     }
   }
 
   .single__content {
     padding-top: rem(40);
-    color: $color-text-gray-90;
-    @extend %font-body-md;
+    // color: $color-text-gray-90;
+    // @extend %font-body-md;
 
     @include breakpoint('large') {
       box-sizing: content-box;
-      max-width: $size__issues-content-max-width;
+      // max-width: $size__issues-content-max-width;
       margin: 0 auto;
       padding-top: rem(48);
     }
@@ -145,9 +145,9 @@
       bottom: rem(59);
       left: rem(84);
       display: block;
-      color: $color-white-150;
+      color: $color-white-130;
       @include font-size(14px);
-      font-family: $font__source;
+      // font-family: $font__source;
       line-height: 1;
       letter-spacing: 0.07em;
       text-transform: uppercase;
@@ -171,7 +171,7 @@
 
       &::after {
         --right: calc(8px + 32px);
-        --background: #{$color-black-125};
+        --background: #{$color-black-130};
         width: rem(40);
       }
     }
@@ -198,7 +198,7 @@
 
   &__summary {
     grid-area: summary;
-    color: $color-text-gray-90;
+    // color: $color-text-gray-90;
   }
 
   &__caption {

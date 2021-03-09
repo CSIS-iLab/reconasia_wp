@@ -39,7 +39,7 @@
       transform 0.3s ease-in-out;
 
     &:hover {
-      background: $color-primary-darkest;
+      // background: $color-primary-darkest;
     }
 
     &[aria-expanded='false'] {
@@ -51,8 +51,8 @@
     }
 
     &[aria-expanded='true'] {
-      color: $color-text-ltblue-100;
-      background: $color-primary-darkest;
+      // color: $color-text-ltblue-100;
+      // background: $color-primary-darkest;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
       transform: scale(1.25);
 

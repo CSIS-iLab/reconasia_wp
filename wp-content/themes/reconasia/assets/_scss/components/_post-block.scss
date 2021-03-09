@@ -6,17 +6,17 @@
 
     a {
       &:visited {
-        color: $color-text-gray-70;
+        // color: $color-text-gray-70;
       }
 
       &:hover {
-        color: $color-primary-base;
+        // color: $color-primary-base;
       }
     }
   }
 
   &__excerpt {
-    @extend %font-body-md;
+    // @extend %font-body-md;
   }
 
   .featured-media a {

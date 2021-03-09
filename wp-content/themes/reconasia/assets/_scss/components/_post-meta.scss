@@ -9,7 +9,7 @@
 
   &__top {
     display: flex;
-    @extend %font-label-lg;
+    // @extend %font-label-lg;
   }
 
   &__issue .post-meta__value,
@@ -39,13 +39,13 @@
   }
 
   &__authors {
-    @extend %font-body-sm;
+    // @extend %font-body-sm;
   }
 
   &__original {
     margin-top: rem(4);
     font-weight: 600;
-    @extend %font-label-lg;
+    // @extend %font-label-lg;
     letter-spacing: 0.02em;
     text-transform: uppercase;
   }

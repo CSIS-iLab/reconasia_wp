@@ -48,7 +48,7 @@ $block: '.csis-block';
   #{$block}__title {
     grid-area: title;
     margin-bottom: rem(16);
-    @extend %font-heading-lg-sans;
+    // @extend %font-heading-lg-sans;
   }
 
   #{$block}__meta {

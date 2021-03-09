@@ -73,13 +73,13 @@
     &-title {
       grid-area: title;
       margin-bottom: rem(12);
-      @extend %font-heading-3-xl-serif;
+      // @extend %font-heading-3-xl-serif;
     }
 
     &-desc {
       grid-area: desc;
       margin-bottom: rem(24);
-      @extend %font-body-md;
+      // @extend %font-body-md;
     }
 
     &-img {
@@ -103,8 +103,8 @@
       max-width: fit-content;
       margin: 0 0 0 auto;
       padding: rem(8) 0 rem(12) rem(16);
-      color: $color-text-gray-70;
-      @extend %font-button;
+      // color: $color-text-gray-70;
+      // @extend %font-button;
       text-transform: uppercase;
 
       @include full-width-background($color-white-100, 'left', false);
@@ -133,7 +133,7 @@
     &:not(:last-child) {
       margin-bottom: rem(16);
       padding-bottom: rem(16);
-      border-bottom: 1px solid $color-black-125;
+      border-bottom: 1px solid $color-black-130;
     }
 
     > *:not(:last-child) {
@@ -141,7 +141,7 @@
     }
 
     .post-block__title {
-      @extend %font-heading-xl-sans;
+      // @extend %font-heading-xl-sans;
     }
   }
 }

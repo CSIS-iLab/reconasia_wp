@@ -15,19 +15,19 @@
   .blockquote {
     &__content {
       margin-bottom: rem(8);
-      @extend %font-quote;
+      // @extend %font-quote;
     }
 
     &__author {
-      color: $color-text-gray-70;
-      @extend %font-heading-sm-sans;
+      // color: $color-text-gray-70;
+      // @extend %font-heading-sm-sans;
       font-style: normal;
     }
 
     &__author-info {
       display: block;
-      color: $color-text-gray-50;
-      @extend %font-body-xs;
+      // color: $color-text-gray-50;
+      // @extend %font-body-xs;
     }
   }
 

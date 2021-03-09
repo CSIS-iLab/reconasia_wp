@@ -21,13 +21,17 @@ function runESLint() {
     failAfterError = true
   }
 
-  let stream = src([config.assets + config.js.src + '/**/*.js', '!node_modules/**']).pipe(
-    eslint({
-			failAfterError: failAfterError,
-			fix: autoFix,
-		})
-	)
-	.pipe(eslint.format())
+  let stream = src([
+    config.assets + config.js.src + '/**/*.js',
+    '!node_modules/**',
+  ])
+    .pipe(
+      eslint({
+        failAfterError,
+        fix: autoFix,
+      })
+    )
+    .pipe(eslint.format())
 
   if (autoFix) {
     stream = stream.pipe(dest(config.assets + config.js.src))

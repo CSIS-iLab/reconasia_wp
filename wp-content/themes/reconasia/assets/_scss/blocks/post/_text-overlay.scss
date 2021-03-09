@@ -22,7 +22,7 @@
 
     &--dark {
       --bg-fallback: #{$color-white-130};
-      --text: #{$color-text-gray-90};
+      --text: #{$color-white-115};
     }
 
     &--left {
@@ -45,7 +45,7 @@
     height: 100%;
     padding: var(--padding-top) var(--padding-sides);
     color: var(--text);
-    @extend %font-body-lg-post;
+    // @extend %font-body-lg-post;
 
     @include breakpoint('small') {
       --padding-sides: #{rem(24)};
