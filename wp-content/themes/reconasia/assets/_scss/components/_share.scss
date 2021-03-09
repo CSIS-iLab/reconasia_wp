@@ -31,11 +31,11 @@
     transition: background 0.3s ease-in-out;
   }
 
-  @each $company, $color in $social {
-    .a2a_button_#{$company}:hover .a2a_svg {
-      background: $color !important;
-      opacity: 1 !important;
-    }
+  // @each $company, $color in $social {
+  //   .a2a_button_#{$company}:hover .a2a_svg {
+  //     background: $color !important;
+  //     opacity: 1 !important;
+  //   }
   }
 
   /* stylelint-disable-next-line */
