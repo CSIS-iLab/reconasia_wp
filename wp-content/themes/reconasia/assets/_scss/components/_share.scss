@@ -15,12 +15,12 @@
     }
 
     &:hover path {
-      fill: $color-text-gray-05;
+      // fill: $color-text-gray-05;
     }
 
     path {
       transition: fill 0.3s ease-in-out;
-      fill: $color-text-gray-70;
+      // fill: $color-text-gray-70;
     }
   }
 
@@ -60,7 +60,7 @@
     &::before {
       content: 'Share';
       margin-right: rem(12);
-      color: $color-text-gray-50;
+      // color: $color-text-gray-50;
       @extend %font-label-lg;
       font-weight: 600;
       text-transform: uppercase;
@@ -78,7 +78,7 @@
 
       /* stylelint-disable-next-line */
       path {
-        fill: $color-text-gray-10;
+        // fill: $color-text-gray-10;
       }
 
       /* stylelint-disable-next-line */

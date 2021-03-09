@@ -4,7 +4,9 @@ const { dest, src } = require('gulp')
 const styleLint = require('gulp-stylelint')
 
 // Flags whether we compress the output etc
+/* eslint-disable */
 const isProduction = process.env.NODE_ENV === 'production'
+/* eslint-enable */
 
 /*----------  StyleLint  -----------*/
 function stylelint() {
@@ -20,7 +22,7 @@ function stylelint() {
 
   let stream = src(config.assets + config.sass.src + '/**/*.scss').pipe(
     styleLint({
-      failAfterError: failAfterError,
+      failAfterError,
       reporters: [{ formatter: 'string', console: true }],
       fix: autoFix,
     })

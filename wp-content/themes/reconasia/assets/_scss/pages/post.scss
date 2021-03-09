@@ -25,7 +25,7 @@
       to bottom,
       $color-white-130,
       $color-white-130 40%,
-      $color-black-125 40%
+      $color-black-130 40%
     );
     /* stylelint-enable */
   }
@@ -42,21 +42,21 @@
   margin-left: auto;
 
   a:not([class]) {
-    @include link-underline($color-primary-base);
+    // @include link-underline($color-primary-base);
 
     &:hover {
-      color: $color-primary-base;
+      // color: $color-primary-base;
     }
 
     &:visited {
-      color: $color-text-gray-70;
+      // color: $color-text-gray-70;
     }
   }
 }
 
 .single__content {
   padding-top: rem(32);
-  color: $color-text-gray-90;
+  // color: $color-text-gray-90;
   @extend %font-body-lg-post;
 
   @include breakpoint('small') {
@@ -95,7 +95,7 @@
       width: 2px;
       height: rem(48);
       margin: 0 auto rem(12);
-      background: $color-text-gray-30;
+      // background: $color-text-gray-30;
     }
   }
 
@@ -177,6 +177,6 @@
     margin-top: rem(48);
     margin-bottom: rem(32);
     padding-top: rem(24);
-    border-top: 1px solid $color-black-125;
+    border-top: 1px solid $color-black-130;
   }
 }

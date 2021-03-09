@@ -17,7 +17,7 @@
   grid-template-columns: 1fr;
   padding-top: var(--padding-top);
   padding-bottom: var(--padding-bottom);
-  color: $color-text-gray-05;
+  // color: $color-text-gray-05;
   @extend %font-body-sm;
   background: $gradient;
   @include full-width-background($gradient);
@@ -63,7 +63,7 @@
 
     &,
     &:visited {
-      color: $color-text-gray-10;
+      // color: $color-text-gray-10;
     }
   }
 
@@ -100,7 +100,7 @@
   &__copyright {
     grid-area: copyright;
     margin-top: rem(8);
-    color: $color-text-ltblue-80;
+    // color: $color-text-ltblue-80;
     @extend %font-body-2-xs;
 
     @include breakpoint($break: 'medium', $until: 'large') {
@@ -109,7 +109,7 @@
     }
 
     a {
-      @include link-underline($color-text-ltblue-100);
+      // @include link-underline($color-text-ltblue-100);
     }
   }
 

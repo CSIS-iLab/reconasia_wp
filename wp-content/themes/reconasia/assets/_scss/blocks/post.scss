@@ -28,7 +28,7 @@
   max-width: $size__content-max-width;
   margin: rem(12) auto 0;
   @extend %text-style-paragraph-medium-short;
-  color: $color-black-165;
+  // color: $color-black-165;
 
   &::after {
     content: '';
@@ -36,7 +36,7 @@
     width: rem(40);
     height: rem(1px);
     margin-top: rem(12);
-    background: $color-border-dark-130;
+    // background: $color-border-dark-130;
   }
 }
 

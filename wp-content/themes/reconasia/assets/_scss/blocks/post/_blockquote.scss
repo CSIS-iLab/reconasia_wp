@@ -19,14 +19,14 @@
     }
 
     &__author {
-      color: $color-text-gray-70;
+      // color: $color-text-gray-70;
       @extend %font-heading-sm-sans;
       font-style: normal;
     }
 
     &__author-info {
       display: block;
-      color: $color-text-gray-50;
+      // color: $color-text-gray-50;
       @extend %font-body-xs;
     }
   }

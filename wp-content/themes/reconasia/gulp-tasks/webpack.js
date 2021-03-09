@@ -9,10 +9,12 @@ const webpack = require('webpack')
 const rename = require('gulp-rename') // Renames files E.g. style.css -> style.min.css.
 
 // Flags whether we compress the output etc
+/* eslint-disable */
 const isProduction = process.env.NODE_ENV === 'production'
+/* eslint-enable */
 
 const jsFiles = []
-for (var i = 0; i <= config.js.entry.length - 1; i++) {
+for (let i = 0; i <= config.js.entry.length - 1; i++) {
   jsFiles.push(config.assets + config.js.src + '/' + config.js.entry[i])
 }
 

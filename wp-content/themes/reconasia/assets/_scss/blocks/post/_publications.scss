@@ -21,7 +21,7 @@
 
     &__title {
       margin-bottom: rem(4);
-      color: $color-text-gray-90;
+      // color: $color-text-gray-90;
       @extend %font-heading-sm-sans;
 
       a {
@@ -29,14 +29,14 @@
 
         /* stylelint-disable-next-line */
         &:hover {
-          color: $color-primary-base;
+          // color: $color-primary-base;
         }
       }
     }
 
     &__desc {
       grid-column: 2;
-      color: $color-text-gray-70;
+      // color: $color-text-gray-70;
       @extend %font-body-xs;
     }
   }

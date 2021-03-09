@@ -103,7 +103,7 @@
       max-width: fit-content;
       margin: 0 0 0 auto;
       padding: rem(8) 0 rem(12) rem(16);
-      color: $color-text-gray-70;
+      // color: $color-text-gray-70;
       @extend %font-button;
       text-transform: uppercase;
 
@@ -133,7 +133,7 @@
     &:not(:last-child) {
       margin-bottom: rem(16);
       padding-bottom: rem(16);
-      border-bottom: 1px solid $color-black-125;
+      border-bottom: 1px solid $color-black-130;
     }
 
     > *:not(:last-child) {
