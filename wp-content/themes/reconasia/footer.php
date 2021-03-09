@@ -12,11 +12,15 @@
  */
 
 ?>
+	<style>
+	@import 'assets/_scss/layout/_footer.scss';
+	</style>
 			<footer id="site-footer" class="footer" role="contentinfo">
 				<a href="https://www.csis.org" class="footer__logo"><?php include( get_template_directory() . '/assets/static/csis-logo.svg'); ?></a>
 
 				<?php dynamic_sidebar( 'sidebar-1' ); ?>
 				<?php dynamic_sidebar( 'sidebar-2' ); ?>
+				<?php dynamic_sidebar( 'sidebar-3' ); ?>
 
 				<div class="footer__contact">
 					<address class="footer__address">
@@ -26,7 +30,7 @@
 
 					<p class="footer__phone">(202) 887-0200</p>
 
-					<?php dynamic_sidebar( 'social-share' ); ?>
+					<!-- Social share icons -->
 				</div>
 
 
