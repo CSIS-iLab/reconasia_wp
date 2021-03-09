@@ -5,7 +5,7 @@
     &__title {
       max-width: $size__content-max-width;
       margin: 0 auto rem(12);
-      @extend %font-heading-md-sans;
+      // @extend %font-heading-md-sans;
 
       @include breakpoint('large') {
         text-align: center;

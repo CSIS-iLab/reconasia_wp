@@ -14,12 +14,12 @@
 
   &__heading {
     margin-bottom: rem(16);
-    @extend %font-heading-4-xl-serif;
+    // @extend %font-heading-4-xl-serif;
   }
 
   &__meta {
     margin-bottom: rem(4);
-    @extend %font-label-lg;
+    // @extend %font-label-lg;
     font-weight: 600;
   }
 
@@ -41,7 +41,7 @@
   }
 
   &__section-link {
-    @extend %font-button;
+    // @extend %font-button;
     text-transform: uppercase;
   }
 }

@@ -2,17 +2,17 @@
 
 .wp-block-lazyblock-post-stat {
   .csis-block__desc {
-    @extend %font-body-md;
+    // @extend %font-body-md;
   }
 
   .stat {
     display: block;
-    @extend %font-heading-4-xl-sans;
+    // @extend %font-heading-4-xl-sans;
   }
 
   .csis-block__source {
     // color: $color-text-gray-50;
-    @extend %font-body-xs;
+    // @extend %font-body-xs;
 
     &::before {
       content: '';

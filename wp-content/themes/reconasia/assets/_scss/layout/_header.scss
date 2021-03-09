@@ -41,7 +41,7 @@
       width: 100%;
       margin: rem(4) 0;
       // color: var(--breadcrumbs-color);
-      @extend %font-label-sm;
+      // @extend %font-label-sm;
       font-weight: 600;
       text-transform: uppercase;
 
@@ -81,10 +81,10 @@
     }
 
     .breadcrumbs__active {
-      @include link-underline(
-        // $color: var(--breadcrumbs-color),
-        $hideOnHover: false
-      );
+      // @include link-underline(
+      //   $color: var(--breadcrumbs-color),
+      //   $hideOnHover: false
+      // );
     }
   }
 }

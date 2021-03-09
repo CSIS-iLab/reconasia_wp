@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 .single__title {
-  @extend %font-heading-4-xl-sans;
+  // @extend %font-heading-4-xl-sans;
 }
 
 .single__header {
@@ -57,7 +57,7 @@
 .single__content {
   padding-top: rem(32);
   // color: $color-text-gray-90;
-  @extend %font-body-lg-post;
+  // @extend %font-body-lg-post;
 
   @include breakpoint('small') {
     padding-top: rem(40);
@@ -78,7 +78,7 @@
 
   h2 {
     --heading-margin-top: #{rem(48)};
-    @extend %font-heading-3-xl-serif;
+    // @extend %font-heading-3-xl-serif;
     text-align: center;
 
     @include breakpoint('medium') {
@@ -101,27 +101,27 @@
 
   h3 {
     --heading-margin-top: #{rem(40)};
-    @extend %font-heading-2-xl-serif;
+    // @extend %font-heading-2-xl-serif;
   }
 
   h4 {
     --heading-margin-top: #{rem(32)};
-    @extend %font-heading-xl-serif;
+    // @extend %font-heading-xl-serif;
   }
 
   h5 {
-    @extend %font-heading-lg-serif;
+    // @extend %font-heading-lg-serif;
   }
 
   h6 {
-    @extend %font-heading-md-serif;
+    // @extend %font-heading-md-serif;
   }
 
   ul,
   ol {
     margin: rem(8) 0 rem(24);
     padding-left: rem(48);
-    @extend %font-body-lg-post;
+    // @extend %font-body-lg-post;
     line-height: 1.4 !important;
   }
 
@@ -132,7 +132,7 @@
 
 .single__footer {
   margin-top: rem(80);
-  @extend %font-body-sm;
+  // @extend %font-body-sm;
 
   &::before {
     content: '';
@@ -150,7 +150,7 @@
   .heading {
     margin-bottom: rem(8);
     color: $color-black-100;
-    @extend %font-heading-md-sans;
+    // @extend %font-heading-md-sans;
     text-transform: uppercase;
   }
 }
@@ -158,7 +158,7 @@
 .post {
   .post-meta__authors {
     margin-top: rem(12);
-    @extend %font-label-sm;
+    // @extend %font-label-sm;
 
     @include breakpoint('medium') {
       margin-left: calc(60px + 1.5rem);

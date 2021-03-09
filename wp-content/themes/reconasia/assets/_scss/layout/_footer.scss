@@ -18,7 +18,7 @@
   padding-top: var(--padding-top);
   padding-bottom: var(--padding-bottom);
   // color: $color-text-gray-05;
-  @extend %font-body-sm;
+  // @extend %font-body-sm;
   background: $gradient;
   @include full-width-background($gradient);
 
@@ -101,7 +101,7 @@
     grid-area: copyright;
     margin-top: rem(8);
     // color: $color-text-ltblue-80;
-    @extend %font-body-2-xs;
+    // @extend %font-body-2-xs;
 
     @include breakpoint($break: 'medium', $until: 'large') {
       margin-right: auto;

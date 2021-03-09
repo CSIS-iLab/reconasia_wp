@@ -23,7 +23,7 @@
       --line-height: #{rem(10)};
       position: relative;
       // color: var(--page-excerpt);
-      @extend %font-body-lg-post;
+      // @extend %font-body-lg-post;
 
       &::before {
         content: '';
@@ -39,7 +39,7 @@
   .featured-media__caption {
     margin-bottom: rem(12);
     // color: $color-text-gray-70;
-    @extend %font-body-sm;
+    // @extend %font-body-sm;
 
     &::after {
       content: '';
