@@ -14,6 +14,9 @@ get_header();
 
 <main id="site-content" role="main">
 	<section class="home__recent">
+		<h2 class="home__recent-section-title">Recent Posts
+		<?php echo reconasia_get_svg('arrow-external') ?>
+		</h2>
 	<?php
 
   $args = array(

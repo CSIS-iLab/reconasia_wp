@@ -2,7 +2,10 @@
 
 .post-block {
   &__title {
-    color: $color-black-100;
+    margin-top: rem(32);
+    margin-bottom: rem(16);
+    color: $color-white-190;
+    @extend %text-style-heading-large-serif-bold;
 
     a {
       &:visited {
@@ -16,7 +19,9 @@
   }
 
   &__excerpt {
-    // @extend %font-body-md;
+    margin-bottom: rem(8);
+    color: $color-white-190;
+    @extend %text-style-paragraph-large-short-sans;
   }
 
   .featured-media a {

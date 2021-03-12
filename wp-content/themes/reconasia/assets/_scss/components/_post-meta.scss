@@ -29,17 +29,26 @@
   }
 
   &__date:not(:only-child) {
-    margin-left: rem(8);
+    // margin-left: rem(8);
+    color: $color-white-165;
+    @extend %text-style-label-small-strong;
 
-    &::before {
-      content: '|';
-      margin-right: rem(8);
-      color: var(--post-meta-divider);
-    }
+    // &::before {
+    //   content: '|';
+    //   margin-right: rem(8);
+    //   color: var(--post-meta-divider);
+    // }
+  }
+
+  &__categories {
+    color: $color-accent-dark-primary-400;
+    text-transform: uppercase;
+    @extend %text-style-label-small-strong;
   }
 
   &__authors {
-    // @extend %font-body-sm;
+    color: $color-white-190;
+    @extend %text-style-paragraph-small-short;
   }
 
   &__original {
@@ -49,4 +58,5 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
   }
+
 }

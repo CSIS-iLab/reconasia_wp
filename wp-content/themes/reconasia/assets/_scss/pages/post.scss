@@ -156,13 +156,16 @@
 }
 
 .post {
+  // for testing purpose
+  // background-color: $color-bg-dark-200;
+
   .post-meta__authors {
     margin-top: rem(12);
     // @extend %font-label-sm;
 
-    @include breakpoint('medium') {
-      margin-left: calc(60px + 1.5rem);
-    }
+    // @include breakpoint('medium') {
+    //   margin-left: calc(60px + 1.5rem);
+    // }
 
     .post-meta__label {
       display: block;
@@ -178,5 +181,22 @@
     margin-bottom: rem(32);
     padding-top: rem(24);
     border-top: 1px solid $color-black-130;
+  }
+
+  &-categories {
+
+    @include breakpoint('small') {
+      display: inline-flex;
+    }
+
+    li:not(:last-child) {  
+      &::after {
+        content: '';
+        margin-right: rem(10);
+        margin-left: rem(10);
+        border: 1px solid $color-border-light-130;
+      }
+    }
+
   }
 }

@@ -2,13 +2,17 @@
 @use '../components/home-issue-block';
 
 .home {
+  .container {
+    // for testing purpose
+    background-color: $color-bg-dark-200;
+  }
+
   #site-content {
     display: grid;
     grid-gap: rem(48);
     align-items: start;
     margin-top: rem(16);
     margin-bottom: rem(48);
-
     @include breakpoint('large') {
       grid-auto-columns: 2fr 1fr;
       margin-top: rem(24);
@@ -28,6 +32,11 @@
       max-width: 800px;
       margin-right: auto;
       margin-left: auto;
+    }
+
+    &-section-title {
+      color: $color-white-190;
+      @extend %text-style-heading-large-strong;
     }
   }
 
@@ -69,6 +78,7 @@
     @include breakpoint('xlarge') {
       --padding-top: #{rem(32)};
     }
+
 
     &-title {
       grid-area: title;
@@ -133,7 +143,7 @@
     &:not(:last-child) {
       margin-bottom: rem(16);
       padding-bottom: rem(16);
-      border-bottom: 1px solid $color-black-130;
+      border-bottom: 1px solid $color-border-light-130;
     }
 
     > *:not(:last-child) {
