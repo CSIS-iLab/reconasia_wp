@@ -23,19 +23,41 @@
 		<?php wp_head(); ?>
 
 	</head>
-
+	<style>
+	@import 'assets/_scss/layout/_header.scss';
+	</style>
 	<body <?php body_class(); ?>>
 
 		<?php
 		wp_body_open();
 		?>
-
 		<?php reconasia_get_svg_icons(); ?>
 
 		<div class="container">
 
 			<header id="site-header" class="header" role="banner">
 
-				<a href="<?php echo get_home_url(); ?>" class="header__logo" title="Go home">ReconAsia</a>
+				<a href="<?php echo get_home_url(); ?>" class="header__logo" title="Go home"><?php include( get_template_directory() . '/assets/static/csisra-logo.svg'); ?></a>
+
+				<div class="topnav" id="myTopnav">
+				<a href="#news">Topics</a>
+				<a href="#contact">Maps & Data</a>
+				<a href="#about">About</a>
+				<a href="#about"><?php echo reconasia_get_svg( 'search' ); ?></a>
+				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+					Hamburger
+				</a>
+				</div>
 
 			</header><!-- #site-header -->
+
+			<script>
+			function myFunction() {
+				var x = document.getElementById("myLinks");
+				if (x.style.display === "block") {
+					x.style.display = "none";
+				} else {
+					x.style.display = "block";
+				}
+			}
+			</script>
