@@ -302,6 +302,19 @@ function reconasia_sidebar_registration() {
 		)
 	);
 
+	// Footer #3.
+	register_sidebar(
+		array_merge(
+			$footer_shared_args,
+			array(
+				'name'        => __( 'Footer #3', 'reconasia' ),
+				'id'          => 'sidebar-3',
+				'description' => __( 'Widgets in this area will be displayed in the third column in the footer.', 'reconasia' ),
+			)
+		)
+	);
+	
+
 	// Social Share
 	register_sidebar(
 		array(
