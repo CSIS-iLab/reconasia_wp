@@ -14,4 +14,24 @@
       margin-top: rem(32);
     }
   }
+
+  .post-meta {
+    color: var(--post-meta);
+
+    &__categories {
+      color: $color-accent-dark-primary-400;
+      text-transform: uppercase;
+      @extend %text-style-label-small-strong;
+    }
+  }
+
+  .post-block {
+    &__title {
+      color: $color-black-190;
+    }
+
+    &__excerpt {
+      color: $color-black-165;
+    }
+  }
 }
