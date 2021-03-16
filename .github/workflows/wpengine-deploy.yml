@@ -25,7 +25,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        working-directory: ./wp-content/themes/csisstarter
+        working-directory: ./wp-content/themes/reconasia
         run: npm run build
 
       - name: Git fetch
