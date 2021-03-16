@@ -157,13 +157,7 @@
 
 .post {
   .post-meta__authors {
-    // margin-top: rem(12);
     text-transform: capitalize;
-    // @extend %font-label-sm;
-
-    // @include breakpoint('medium') {
-    //   margin-left: calc(60px + 1.5rem);
-    // }
 
     .post-meta__label {
       display: block;
@@ -175,6 +169,7 @@
   }
 
   &-categories {
+    white-space: nowrap;
     @include breakpoint('small') {
       display: inline-flex;
     }
