@@ -1,156 +1,154 @@
 @use 'abstracts' as *;
 
-// .header {
-//   position: relative;
-//   z-index: 10;
-//   background-color: $color-bg-dark-290;
-
-//   &__logo {
-//     position: relative;
-//     z-index: 1;
-//     display: block;
-//     width: fit-content;
-//     margin: 0 auto;
-//     // color: var(--logo-color);
-//     text-align: center;
-
-//     svg {
-//       width: rem(200);
-//       height: var(--logo-height);
-//       transition: filter 0.3s ease-in-out;
-//     }
-
-//     &:hover {
-//       // color: var(--logo-color);
-
-//       svg {
-//         filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
-//       }
-//     }
-//   }
-
-//   &__nav {
-//     position: absolute;
-//     top: 0;
-//     bottom: 0;
-//     display: flex;
-//     align-items: center;
-//     width: 100%;
-
-//     ul {
-//       display: flex;
-//       width: 100%;
-//       margin: rem(4) 0;
-//       // color: var(--breadcrumbs-color);
-//       // @extend %font-label-sm;
-//       font-weight: 600;
-//       text-transform: uppercase;
-
-//       @include breakpoint($break: 'medium', $dir: 'max-width') {
-//         justify-content: space-between;
-//       }
-//     }
-
-//     li {
-//       position: relative;
-//       margin: 0 rem(12);
-//       transition: box-shadow 0.3s ease-in-out;
-
-//       @include breakpoint('medium') {
-//         margin: 0 rem(8);
-//       }
-
-//       &:not(:first-of-type) {
-//         margin-left: rem(14px);
-
-//         /* stylelint-disable-next-line */
-//         &::before {
-//           @include breakpoint('medium') {
-//             content: '/';
-//             position: absolute;
-//             left: rem(-14);
-//             // color: var(--breadcrumbs-divider);
-//           }
-//         }
-//       }
-//     }
-
-//     a {
-//       &:hover {
-//         // color: var(--breadcrumbs-color-hover);
-//       }
-//     }
-
-//     .breadcrumbs__active {
-//       // @include link-underline(
-//       //   $color: var(--breadcrumbs-color),
-//       //   $hideOnHover: false
-//       // );
-//     }
-//   }
-// }
-.header {
+header {
+  width: 100%;
+  height: rem(64);
   color: $color-white-190;
-  font-family: $font__lato;
+  text-align: center;
   background-color: $color-bg-dark-290;
+  @extend %text-style-label-large-caps;
+}
 
-  &__logo + .svg {
-    width: rem(200);
-  }
+.header__logo {
+  margin-left: 4rem !important;
+}
+
+.header__logo,
+.header__search-icon {
+  display: block;
+  margin: auto;
+}
+
+.nav-toggle {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 1em;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  position: relative;
+  display: block;
+  width: 2em;
+  height: 2px;
+  background: $color-white-150;
+  border-radius: 2px;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: relative;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
 }
 
 nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.nav-ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style-type: none;
-  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
   width: 100%;
+  text-align: left;
+  background: $color-bg-dark-200;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
 }
 
-.nav-ul li a {
-  display: none;
-  padding: rem(10) rem(20);
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.nav-ul.show {
-  display: flex;
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
 }
 
-.hamburger {
-  display: block;
-  color: $color-white-190;
-  font-size: 20px;
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
+nav a {
+  color: $color-white-150;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
 }
 
-.hamburger:focus {
-  outline: none;
+nav a:hover {
+  color: #000;
 }
 
-@include breakpoint('large') {
-  .nav {
-    flex-wrap: nowrap;
-  }
-  
-  .nav-ul {
-    display: inline-block;
-    flex-direction: row;
-  }
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
 
-  .hamburger {
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen and (min-width: 800px) {
+  .nav-toggle-label {
     display: none;
   }
 
-  .nav-ul li a {
-    display: block;
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
   }
+  
+  .logo {
+    grid-column: 2 / 3;
+  }
+  
+  nav {
+    // all: unset; /* this causes issues with Edge, since it's unsupported */
+    
+    position: relative;
+    top: initial;
+    left: initial;
+    display: flex;
+    grid-column: 3 / 4;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: left;
+    background: none;
+    transform: scale(1, 1);
+    transition: none;
+    /* end Edge support stuff */
+  }
+  
+  nav ul {
+    display: flex;
+  }
+  
+  nav li {
+    margin-bottom: 0;
+    margin-left: 3em;
+  }
+  
+  nav a {
+    position: relative;
+    opacity: 1;
+  }
+
 }
+
