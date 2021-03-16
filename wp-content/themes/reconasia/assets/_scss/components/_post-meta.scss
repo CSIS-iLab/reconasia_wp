@@ -29,25 +29,21 @@
   }
 
   &__date:not(:only-child) {
-    // margin-left: rem(8);
-    color: $color-white-165;
+    margin-top: rem(4);
+    color: $color-black-165;
     @extend %text-style-label-small-strong;
-
-    // &::before {
-    //   content: '|';
-    //   margin-right: rem(8);
-    //   color: var(--post-meta-divider);
-    // }
   }
 
   &__categories {
-    color: $color-accent-dark-primary-400;
+    margin-top: rem(8);
+    margin-bottom: rem(24);
+    color: $color-link-primary-200;
     text-transform: uppercase;
     @extend %text-style-label-small-strong;
   }
 
   &__authors {
-    color: $color-white-190;
+    color: $color-black-190;
     @extend %text-style-paragraph-small-short;
   }
 

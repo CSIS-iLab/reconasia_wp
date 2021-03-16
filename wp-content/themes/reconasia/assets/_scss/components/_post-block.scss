@@ -1,27 +1,31 @@
 @use 'abstracts' as *;
 
 .post-block {
+  margin-top: rem(40);
+
   &__title {
-    margin-top: rem(32);
-    margin-bottom: rem(16);
-    color: $color-white-190;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: $color-black-190;
     @extend %text-style-heading-large-serif-bold;
 
-    a {
-      &:visited {
-        // color: $color-text-gray-70;
-      }
-
-      &:hover {
-        // color: $color-primary-base;
-      }
-    }
   }
 
   &__excerpt {
-    margin-bottom: rem(8);
-    color: $color-white-190;
+    margin-top: rem(8);
+    margin-bottom: rem(16);
+    color: $color-black-165;
     @extend %text-style-paragraph-large-short-sans;
+  }
+
+  &--post {
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-black-200;
+    }
+
+    > *:not(:last-child) {
+      margin-bottom: rem(8);
+    }
   }
 
   .featured-media a {

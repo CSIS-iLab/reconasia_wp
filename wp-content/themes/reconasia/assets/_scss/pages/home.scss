@@ -2,10 +2,10 @@
 @use '../components/home-issue-block';
 
 .home {
-  .container {
-    // for testing purpose
-    background-color: $color-bg-dark-200;
-  }
+  // .container {
+  //   // for testing purpose
+  //   background-color: $color-bg-dark-200;
+  // }
 
   #site-content {
     display: grid;
@@ -139,19 +139,20 @@
     }
   }
 
-  .post-block--post {
-    &:not(:last-child) {
-      margin-bottom: rem(16);
-      padding-bottom: rem(16);
-      border-bottom: 1px solid $color-border-light-130;
-    }
+  .post-block {
+    @include breakpoint('xlarge') {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
 
-    > *:not(:last-child) {
-      margin-bottom: rem(8);
-    }
-
-    .post-block__title {
-      // @extend %font-heading-xl-sans;
+      &-right {
+        width: 35%;
+        margin-left: rem(32);
+      }
+      
+      &-left {
+        width: 65%;
+      }
     }
   }
 }
