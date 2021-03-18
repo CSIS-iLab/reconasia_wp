@@ -113,7 +113,7 @@
   @include breakpoint('medium') {
     --padding-sides: 0;
     max-width: 50%;
-    margin-top: 0;
+    margin-top: rem(16);
   }
 
   @include breakpoint('large') {

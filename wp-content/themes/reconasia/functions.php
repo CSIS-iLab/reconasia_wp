@@ -313,7 +313,7 @@ function reconasia_sidebar_registration() {
 			)
 		)
 	);
-	
+
 
 	// Social Share
 	register_sidebar(
@@ -339,13 +339,12 @@ function reconasia_block_editor_styles() {
 
 	// Enqueue the editor styles.
 	wp_enqueue_style( 'reconasia-block-editor-styles', get_theme_file_uri( '/assets/css/editor-style-block.css' ), $css_dependencies, wp_get_theme()->get( 'Version' ), 'all' );
-	wp_style_add_data( 'reconasia-block-editor-styles', 'rtl', 'replace' );
 
 	// Add inline style from the Customizer.
 	wp_add_inline_style( 'reconasia-block-editor-styles', reconasia_get_customizer_css( 'block-editor' ) );
 
 	// Enqueue the editor script.
-	wp_enqueue_script( 'reconasia-block-editor-script', get_theme_file_uri( '/assets/js/editor-script-block.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
+	// wp_enqueue_script( 'reconasia-block-editor-script', get_theme_file_uri( '/assets/js/editor-script-block.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
 }
 
 add_action( 'enqueue_block_editor_assets', 'reconasia_block_editor_styles', 1, 1 );

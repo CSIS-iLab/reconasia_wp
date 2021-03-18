@@ -1,52 +1,38 @@
 @use '../abstracts' as *;
 
 .wp-block-lazyblock-blockquote {
-  padding-left: 1rem;
-
-  &::before {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 10px;
-    margin-bottom: rem(16);
-    background: $color-black-100;
+  .csis-block--blockquote {
+    padding: rem(16) rem(16) rem(32);
+    background: $color-bg-dark-200;
   }
 
   .blockquote {
+    &__arrows {
+      width: 46px;
+      height: 23px;
+      margin-bottom: rem(12);
+    }
+
     &__content {
-      margin-bottom: rem(8);
-      // @extend %font-quote;
+      margin-bottom: rem(12);
+      color: $color-white-190;
+      @extend %text-style-paragraph-large-short-sans;
     }
 
     &__author {
-      // color: $color-text-gray-70;
-      // @extend %font-heading-sm-sans;
+      color: $color-white-165;
+      @extend %text-style-label-small;
       font-style: normal;
-    }
-
-    &__author-info {
-      display: block;
-      // color: $color-text-gray-50;
-      // @extend %font-body-xs;
+      text-transform: uppercase;
     }
   }
 
   /*----------  Center Variation  ----------*/
   &.aligncenter {
-    @include breakpoint('small') {
-      padding-left: 0;
-    }
-
     @include breakpoint('medium') {
-      display: grid;
-      grid-gap: rem(32);
-      grid-template-columns: repeat(2, auto);
-    }
-
-    &::before {
-      @include breakpoint('medium') {
-        margin-top: 10px;
-      }
+      max-width: rem(350);
+      margin-right: auto;
+      margin-left: auto;
     }
   }
 }
