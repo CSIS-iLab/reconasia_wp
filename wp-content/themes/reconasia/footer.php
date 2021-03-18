@@ -24,15 +24,15 @@
 
 				<!-- Social Share -->
 				<div class="footer__social">
-					<p class="footer__social-header">
+					<span class="footer__social-header">
 						Follow Us
-					</p>
+					</span>
 					<div class="footer__social-icons">
-						<a href="https://www.facebook.com/reconnasia/" class="footer__facebook-icon"><?php echo reconasia_get_svg( 'facebook' ); ?></a>
-						<a href="https://twitter.com/ReconAsia" class="footer__twitter-icon"><?php echo reconasia_get_svg( 'twitter' ); ?></a>
-						<a href="https://www.linkedin.com/company/csis/" class="footer__linkedin-icon"><?php echo reconasia_get_svg( 'linkedin' ); ?></a>
-						<a href="https://www.instagram.com/csis/" class="footer__instagram-icon"><?php echo reconasia_get_svg( 'instagram' ); ?></a>
-						<a href="https://www.youtube.com/channel/UCr5jq6MC_VCe1c5ciIZtk_w" class="footer__youtube-icon"><?php echo reconasia_get_svg( 'youtube' ); ?></a>
+						<a href="https://www.facebook.com/reconnasia/" class="footer__facebook-icon" aria-label="Visit the Reconnecting Asia Facebook page"><?php echo reconasia_get_svg( 'facebook' ); ?></a>
+						<a href="https://twitter.com/ReconAsia" class="footer__twitter-icon" aria-label="Visit the Reconnecting Asia Twitter page"><?php echo reconasia_get_svg( 'twitter' ); ?></a>
+						<a href="https://www.linkedin.com/company/csis/" class="footer__linkedin-icon" aria-label="Visit the CSIS LinkedIn page"><?php echo reconasia_get_svg( 'linkedin' ); ?></a>
+						<a href="https://www.instagram.com/csis/" class="footer__instagram-icon" aria-label="Visit the CSIS Instagram page"><?php echo reconasia_get_svg( 'instagram' ); ?></a>
+						<a href="https://www.youtube.com/channel/UCr5jq6MC_VCe1c5ciIZtk_w" class="footer__youtube-icon" aria-label="Visit the CSIS YouTube page"><?php echo reconasia_get_svg( 'youtube' ); ?></a>
 					</div>
 				</div>
 
