@@ -16,6 +16,52 @@
   }
 }
 
-.caption__source {
-  // color: $color-text-gray-50;
+/* Images */
+.wp-block-image {
+  &.alignfull,
+  &.alignwide,
+  .aligncenter {
+    margin-top: rem(32);
+    margin-bottom: rem(32);
+  }
+
+  .alignleft {
+    margin-right: var(--margin-text-side);
+    margin-left: var(--margin-gutter-side, 0);
+  }
+
+  .alignright {
+    margin-right: var(--margin-gutter-side, 0);
+    margin-left: var(--margin-text-side);
+  }
+}
+
+/* Captions */
+.wp-block-image figcaption {
+  max-width: $size__content-max-width;
+  margin: rem(12) auto 0;
+  @extend %text-style-paragraph-medium-short;
+  color: $color-black-165;
+
+  &::after {
+    content: '';
+    display: block;
+    width: rem(40);
+    height: rem(1px);
+    margin-top: rem(12);
+    background: $color-border-dark-130;
+  }
+}
+
+.wp-block-image {
+  &.alignfull figcaption,
+  &.alignwide figcaption {
+    padding-right: var(--container-padding);
+    padding-left: var(--container-padding);
+
+    @include breakpoint(720px) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
 }
