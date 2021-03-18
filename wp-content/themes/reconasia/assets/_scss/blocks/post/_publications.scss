@@ -1,11 +1,27 @@
 @use '../abstracts' as *;
 
 .wp-block-lazyblock-post-publication {
+  --margin-text-side: auto;
+  --margin-gutter-side: auto;
+  max-width: 240px !important; // Override the alignment max-width
+
   .csis-block--publication {
     display: grid;
     grid-column-gap: rem(16);
     grid-row-gap: 0;
     grid-template-columns: min-content auto;
+
+    &:hover {
+      .csis-block__title,
+      .csis-block__desc {
+        color: $color-link-primary-200;
+      }
+
+      .btn--dark {
+        color: $color-white-100;
+        background: $color-link-primary-200;
+      }
+    }
   }
 
   .csis-block {
@@ -21,8 +37,8 @@
 
     &__title {
       margin-bottom: rem(4);
-      // color: $color-text-gray-90;
-      // @extend %font-heading-sm-sans;
+      color: $color-black-190;
+      @extend %text-style-label-large-strong;
 
       a {
         box-shadow: none;
@@ -36,8 +52,9 @@
 
     &__desc {
       grid-column: 2;
-      // color: $color-text-gray-70;
-      // @extend %font-body-xs;
+      color: $color-black-165;
+      @extend %text-style-label-medium;
+      transition: 0.3s ease-in-out;
     }
   }
 }

@@ -54,12 +54,27 @@
   }
 }
 
+.btn--dark {
+  color: $color-white-190;
+  background: $color-bg-dark-400;
+
+  &:hover {
+    color: $color-white-100;
+    background: $color-link-primary-200;
+  }
+
+  &:focus {
+    color: $color-link-primary-200;
+    background: $color-bg-light-200;
+  }
+}
+
 .btn--circle {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 32px;
-  height: 32px;
+  width: rem(32);
+  height: rem(32);
   padding: 0;
   border-radius: 50%;
 }
