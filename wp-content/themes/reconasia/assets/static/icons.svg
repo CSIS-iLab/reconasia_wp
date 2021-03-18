@@ -56,5 +56,9 @@
 <symbol id="icon-3-arrows" viewBox="0 0 46 23">
 <path d="M13.846 11.875L0 0v22.5l13.846-10.625z" fill="#B4D0D0"/><path d="M29.692 11.875L15.846 0v22.5l13.846-10.625z" fill="#6ABEB0"/><path d="M45.538 11.875L31.692 0v22.5l13.846-10.625z" fill="#2C6565"/>
 </symbol>
+<symbol id="icon-chevron-right" viewBox="0 0 7 12">
+<title>Chevron Right</title>
+<path d="M6.637 6.176l-5.61 5.61-.942-.944 4.667-4.666L.085 1.509l.943-.943 5.61 5.61z" />
+</symbol>
 </defs>
 </svg>
