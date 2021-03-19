@@ -1,5 +1,7 @@
 @use '../abstracts' as *;
 
+@use '../blocks/post/definition-list';
+
 .single {
   // .container {
   //   @include breakpoint('large') {
