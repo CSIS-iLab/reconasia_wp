@@ -314,7 +314,6 @@ function reconasia_sidebar_registration() {
 		)
 	);
 
-
 	// Social Share
 	register_sidebar(
 		array(
