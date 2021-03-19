@@ -20,11 +20,6 @@
   background: $gradient;
   @include full-width-background($gradient);
 
-  &__newsletter-desc,
-  &__copyright {
-    color: $color-white-165;
-  }
-
   @include breakpoint('small') {
     grid-template-areas:
       'logo logo'
@@ -45,12 +40,6 @@
       'csisdesc newsletter social'
       'copyright copyright copyright';
     grid-template-columns: 2fr 1fr 1fr;
-
-    &__desc-line {
-      width: rem(100);
-      margin-bottom: rem(16);
-      border-bottom: 1px solid $color-border-light-115;
-    }
   }
 
   a {
@@ -73,7 +62,21 @@
     margin-bottom: rem(24);
 
     @include breakpoint('large') {
-      margin-bottom: rem(16);
+      position: relative;
+      margin-bottom: rem(32);
+    }
+
+    &::after {
+      @include breakpoint('large') {
+        content: '';
+        position: absolute;
+        top: calc(100% + #{rem(16)});
+        left: 0;
+        display: block;
+        width: rem(100);
+        margin-bottom: rem(16);
+        border-bottom: 1px solid $color-border-light-115;
+      }
     }
   }
 
@@ -101,7 +104,7 @@
       padding-left: rem(24);
     }
   }
-  
+
   &__social-icons {
     color: $color-white-165;
     @include font-size(28px);
@@ -122,6 +125,11 @@
     }
   }
 
+  &__newsletter-desc,
+  &__copyright {
+    color: $color-white-165;
+  }
+
   &__newsletter,
   &__social {
     text-align: center;
@@ -134,7 +142,7 @@
   &__newsletter-header {
     margin-bottom: rem(8);
   }
-  
+
   &__newsletter-header,
   &__social-header {
     font-weight: 700;

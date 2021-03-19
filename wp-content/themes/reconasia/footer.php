@@ -15,9 +15,8 @@
 			<footer id="site-footer" class="footer" role="contentinfo">
 				<a href="https://www.csis.org" class="footer__logo"><?php include( get_template_directory() . '/assets/static/csis-logo.svg'); ?></a>
 
-				<div class=footer__desc>
+				<div class="footer__desc">
 					<?php dynamic_sidebar( 'sidebar-1' ); ?>
-					<div class="footer__desc-line"></div>
 					<?php dynamic_sidebar( 'sidebar-2' ); ?>
 				</div>
 				<?php dynamic_sidebar( 'sidebar-3' ); ?>
