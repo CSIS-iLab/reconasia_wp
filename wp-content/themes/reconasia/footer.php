@@ -15,18 +15,24 @@
 			<footer id="site-footer" class="footer" role="contentinfo">
 				<a href="https://www.csis.org" class="footer__logo"><?php include( get_template_directory() . '/assets/static/csis-logo.svg'); ?></a>
 
-				<?php dynamic_sidebar( 'sidebar-1' ); ?>
-				<?php dynamic_sidebar( 'sidebar-2' ); ?>
+				<div class="footer__desc">
+					<?php dynamic_sidebar( 'sidebar-1' ); ?>
+					<?php dynamic_sidebar( 'sidebar-2' ); ?>
+				</div>
+				<?php dynamic_sidebar( 'sidebar-3' ); ?>
 
-				<div class="footer__contact">
-					<address class="footer__address">
-						1616 Rhode Island Ave NW<br />
-						Washington, DC 20036
-					</address>
-
-					<p class="footer__phone">(202) 887-0200</p>
-
-					<?php dynamic_sidebar( 'social-share' ); ?>
+				<!-- Social Share -->
+				<div class="footer__social">
+					<span class="footer__social-header">
+						Follow Us
+					</span>
+					<div class="footer__social-icons">
+						<a href="https://www.facebook.com/reconnasia/" class="footer__facebook-icon" aria-label="Visit the Reconnecting Asia Facebook page"><?php echo reconasia_get_svg( 'facebook' ); ?></a>
+						<a href="https://twitter.com/ReconAsia" class="footer__twitter-icon" aria-label="Visit the Reconnecting Asia Twitter page"><?php echo reconasia_get_svg( 'twitter' ); ?></a>
+						<a href="https://www.linkedin.com/company/csis/" class="footer__linkedin-icon" aria-label="Visit the CSIS LinkedIn page"><?php echo reconasia_get_svg( 'linkedin' ); ?></a>
+						<a href="https://www.instagram.com/csis/" class="footer__instagram-icon" aria-label="Visit the CSIS Instagram page"><?php echo reconasia_get_svg( 'instagram' ); ?></a>
+						<a href="https://www.youtube.com/channel/UCr5jq6MC_VCe1c5ciIZtk_w" class="footer__youtube-icon" aria-label="Visit the CSIS YouTube page"><?php echo reconasia_get_svg( 'youtube' ); ?></a>
+					</div>
 				</div>
 
 
@@ -37,7 +43,7 @@
 						_x( 'Y', 'copyright date format', 'reconasia' )
 					);
 					?>
-					Center for Strategic and International Studies.<br />All rights reserved. <a href="https://www.csis.org/privacy-policy">Privacy Policy</a>
+					Center for Strategic and International Studies. All rights reserved. <a href="https://www.csis.org/privacy-policy">Privacy Policy</a>
 				</p><!-- .footer-copyright -->
 
 			</footer><!-- #site-footer -->
