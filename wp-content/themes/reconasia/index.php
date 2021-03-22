@@ -21,7 +21,26 @@ get_header();
 
 	<?php
 
+<<<<<<< HEAD
 		get_template_part( 'template-parts/entry-header' );
+=======
+	reconasia_pagination_number_of_posts();
+
+	if ( is_archive() ) {
+		if ( have_posts() ) {
+			$i = 0;
+
+			while ( have_posts() ) {
+				the_post();
+
+				if ($i == 0) {
+					get_template_part( 'template-parts/block-issues-featured' );
+				} else {
+					get_template_part( 'template-parts/block', get_post_type() );
+				}
+
+				$i++;
+>>>>>>> Add total results pagination function
 
 		if ( have_posts() ) {
 
@@ -33,6 +52,12 @@ get_header();
 			}
 			wp_reset_postdata();
 		}
+<<<<<<< HEAD
+=======
+	}
+
+	get_template_part( 'template-parts/pagination' );
+>>>>>>> Add total results pagination function
 	?>
 
 </main><!-- #site-content -->

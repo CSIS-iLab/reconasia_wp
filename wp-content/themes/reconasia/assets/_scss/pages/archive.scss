@@ -1,3 +1,29 @@
 @use '../abstracts' as *;
 
 @use '../components/entry-header';
+
+.archive {
+  #site-content {
+    max-width: 800px;
+    margin: rem(16) auto rem(48);
+
+    @include breakpoint('large') {
+      margin-top: rem(24);
+    }
+
+    @include breakpoint('xlarge') {
+      margin-top: rem(32);
+    }
+  }
+}
+
+.pagination {
+  &__results {
+    margin-top: rem(32);
+    margin-bottom: rem(32);
+    padding-bottom: rem(8);
+    color: $color-black-190;
+    @extend %text-style-label-medium;
+    border-bottom: 1px solid $color-border-dark-130;
+  }
+}
