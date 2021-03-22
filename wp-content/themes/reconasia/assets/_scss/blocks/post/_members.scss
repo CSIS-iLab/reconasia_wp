@@ -4,7 +4,6 @@
   a:not([class]) {
     max-width: fit-content;
     color: $color-link-primary-200;
-    @extend %text-style-paragraph-medium-short-caps;
 
     &:hover {
       color: $color-bg-dark-100;
@@ -29,6 +28,10 @@
       column-gap: rem(48);
     }
 
+    a:not([class]) {
+      @extend %text-style-paragraph-medium-short-caps;
+    }
+
     /* stylelint-disable-next-line */
     .members__item + .members__item {
       margin-top: rem(16);
@@ -44,6 +47,10 @@
 
     @include breakpoint('medium') {
       row-gap: rem(32);
+    }
+
+    a:not([class]) {
+      @extend %text-style-label-x-small-strong-caps;
     }
 
     .members__item {
