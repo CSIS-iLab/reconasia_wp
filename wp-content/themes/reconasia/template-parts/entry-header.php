@@ -22,15 +22,20 @@ if ( $template === 'templates/template-no-image.php' ){
 
 		the_title( '<h1 class="single__title">', '</h1>' );
 
+
+
 		reconasia_page_desc();
 
-		reconasia_authors();
+		if ( is_single() ) {
 
-		reconasia_posted_on();
+			reconasia_authors();
 
+			reconasia_posted_on();
 
-		if ( !$isNoImageTemplate ) {
-			get_template_part( 'template-parts/featured-image' );
+			if ( !$isNoImageTemplate ) {
+				get_template_part( 'template-parts/featured-image' );
+			}
+
 		}
 	?>
 
