@@ -23,9 +23,9 @@
 
 				<!-- Social Share -->
 				<div class="footer__social">
-					<span class="footer__social-header">
+					<h2 class="footer__social-header">
 						Follow Us
-					</span>
+					</h2>
 					<div class="footer__social-icons">
 						<a href="https://www.facebook.com/reconnasia/" class="footer__facebook-icon" aria-label="Visit the Reconnecting Asia Facebook page"><?php echo reconasia_get_svg( 'facebook' ); ?></a>
 						<a href="https://twitter.com/ReconAsia" class="footer__twitter-icon" aria-label="Visit the Reconnecting Asia Twitter page"><?php echo reconasia_get_svg( 'twitter' ); ?></a>
