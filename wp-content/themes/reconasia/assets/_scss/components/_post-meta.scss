@@ -1,8 +1,6 @@
 @use 'abstracts' as *;
 
 .post-meta {
-  color: var(--post-meta);
-
   &__label {
     font-style: italic;
   }
@@ -39,6 +37,15 @@
     margin-bottom: rem(24);
     color: $color-link-primary-200;
     @extend %text-style-label-small-strong;
+
+    a:not(:last-of-type) {  
+      &::after {
+        content: '';
+        margin-left: rem(10);
+        // background-color: $color-border-dark-130;
+        border-right: 1px solid $color-border-dark-130;
+      }
+    }
   }
 
   &__authors {
@@ -52,37 +59,37 @@
   of this element, so it should be handled in the _post-meta.scss
   file.
   */
-  .post-categories {
-    li {
-      margin-top: rem(4);
-    }
-    @include breakpoint('small') {
-      li {
-        margin-top: 0;
-      }
-    }
+  // .post-categories {
+  //   li {
+  //     margin-top: rem(4);
+  //   }
+  //   @include breakpoint('small') {
+  //     li {
+  //       margin-top: 0;
+  //     }
+  //   }
 
-    li:not(:last-child) {  
-      &::after {
-        content: '';
-        border-right: 1px solid $color-border-dark-130;
-      }
-    }
-  }
+  //   li:not(:last-child) {  
+  //     &::after {
+  //       content: '';
+  //       border-right: 1px solid $color-border-dark-130;
+  //     }
+  //   }
+  // }
 
-  &-categories {
-    white-space: nowrap;
-    @include breakpoint('small') {
-      display: inline-flex;
-    }
+  // &-categories {
+  //   white-space: nowrap;
+  //   @include breakpoint('small') {
+  //     display: inline-flex;
+  //   }
 
-    li:not(:last-child) {  
-      &::after {
-        content: '';
-        margin-right: rem(10);
-        margin-left: rem(10);
-        border-right: 1px solid $color-black-200;
-      }
-    }
-  }
+  //   li:not(:last-child) {  
+  //     &::after {
+  //       content: '';
+  //       margin-right: rem(10);
+  //       margin-left: rem(10);
+  //       border-right: 1px solid $color-black-200;
+  //     }
+  //   }
+  // }
 }

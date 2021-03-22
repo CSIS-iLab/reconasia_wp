@@ -130,10 +130,29 @@
   }
 }
 
-// TODO: make sure this doesn't effect the first post block.
 .post {
   .post-meta__authors {
     margin-top: rem(12);
     background: $color-black-130;
+    // @extend %font-label-sm;
+
+    // @include breakpoint('medium') {
+    //   margin-left: calc(60px + 1.5rem);
+    // }
+
+    .post-meta__label {
+      display: block;
+      margin-bottom: rem(4);
+      font-weight: 600;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+  }
+
+  &__authors {
+    margin-top: rem(48);
+    margin-bottom: rem(32);
+    padding-top: rem(24);
+    border-top: 1px solid $color-black-130;
   }
 }

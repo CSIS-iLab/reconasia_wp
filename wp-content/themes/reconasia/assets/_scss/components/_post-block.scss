@@ -1,9 +1,33 @@
 @use 'abstracts' as *;
 
 .post-block {
+  display: grid;
+  grid-template-areas:
+    'img'
+    'title'
+    'excerpt'
+    'authors'
+    'date'
+    'categories';
+  grid-template-columns: 1fr;
   margin-top: rem(40);
+  margin-right: auto;
+  margin-left: auto;
+
+  @include breakpoint('medium') {
+    grid-template-areas:
+      'title img'
+      'excerpt img'
+      'authors img'
+      'date img'
+      'categories img';
+    grid-template-columns: minmax(2fr, 3fr) max-content;
+    grid-template-rows: max-content max-content max-content max-content auto;
+    column-gap: rem(32);
+  }
 
   &__title {
+    grid-area: title;
     margin-top: 0;
     margin-bottom: 0;
     color: $color-black-190;
@@ -11,10 +35,27 @@
   }
 
   &__excerpt {
+    grid-area: excerpt;
     margin-top: rem(8);
     margin-bottom: rem(16);
     color: $color-black-165;
     @extend %text-style-paragraph-large-short-sans;
+  }
+
+  &__img {
+    grid-area: img;
+  }
+
+  .post-meta__authors {
+    grid-area: authors;
+  }
+
+  .post-meta__date {
+    grid-area: date;
+  }
+
+  .post-meta__categories {
+    grid-area: categories;
   }
 
   &--post {
