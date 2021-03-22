@@ -1,6 +1,9 @@
 @use '../abstracts' as *;
 
 @use '../blocks/post/definition-list';
+@use '../blocks/post/gray-section';
+@use '../blocks/post/members';
+@use '../blocks/post/partners';
 
 .single {
   // .container {
@@ -64,7 +67,6 @@
   }
 }
 
-.issues-template-default,
 .post-template-default {
   .single__header {
     display: flex;
