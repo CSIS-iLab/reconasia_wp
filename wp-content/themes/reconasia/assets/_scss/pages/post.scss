@@ -1,40 +1,5 @@
 @use '../abstracts' as *;
 
-.single__title {
-  // @extend %font-heading-4-xl-sans;
-}
-
-.single__header {
-  @include breakpoint('medium') {
-    min-height: 540px;
-  }
-
-  @include breakpoint('xlarge') {
-    min-height: 640px;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: rem(-48);
-    left: 50%;
-    width: 2px;
-    height: 80px;
-    /* stylelint-disable */
-    background-image: linear-gradient(
-      to bottom,
-      $color-white-130,
-      $color-white-130 40%,
-      $color-black-130 40%
-    );
-    /* stylelint-enable */
-  }
-
-  .single__excerpt {
-    line-height: 1.35 !important;
-  }
-}
-
 .single__content,
 .single__footer {
   max-width: $size__content-max-width;
@@ -157,13 +122,6 @@
 
 .post {
   .post-meta__authors {
-    margin-top: rem(12);
-    // @extend %font-label-sm;
-
-    @include breakpoint('medium') {
-      margin-left: calc(60px + 1.5rem);
-    }
-
     .post-meta__label {
       display: block;
       margin-bottom: rem(4);

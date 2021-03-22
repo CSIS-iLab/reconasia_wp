@@ -117,8 +117,8 @@
 }
 
 @mixin csis-block-full-width-wrapper {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  @include vw100;
+  margin-left: calc(50% - (50vw - var(--scrollbarHalf)));
 }
 
 @mixin csis-block-full-width-content {
