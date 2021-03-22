@@ -35,14 +35,28 @@
 }
 
 .post-template-template-no-image .single__header {
-  padding-bottom: rem(56);
-
-  @include breakpoint('large') {
-    padding-bottom: rem(64);
-  }
+  max-width: 100%;
 
   @include breakpoint('xlarge') {
-    padding-bottom: rem(80);
+    padding-bottom: rem(56);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    height: 1px;
+    margin-top: rem(16);
+    background: $color-accent-light-primary-100;
+
+    @include breakpoint('large') {
+      margin-top: rem(24);
+    }
+  }
+
+  > * {
+    max-width: $size__content-max-width;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .single__title {
