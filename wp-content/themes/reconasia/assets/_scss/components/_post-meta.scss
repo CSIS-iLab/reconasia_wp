@@ -7,13 +7,82 @@
     font-style: italic;
   }
 
+  &__top {
+    display: flex;
+    // @extend %font-label-lg;
+  }
+
+  &__issue .post-meta__value {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  &__issue {
+    .post-meta__label {
+      text-transform: lowercase;
+    }
+
+    .post-meta__value {
+      font-weight: 600;
+    }
+  }
+
+  // TODO: get clarification for the add the letter-spacing to the placeholder
   &__date {
     --post-meta: #{$color-black-165};
-    @extend %text-style-label-x-small-strong-caps;
+    margin-left: rem(4);
+    @extend %text-style-label-small-strong-caps;
+  }
+  // TODO: Let's ask Christina in the Recon Asia slack channel if this should have a hover state.
+  &__categories {
+    margin-top: rem(8);
+    margin-bottom: rem(24);
+    color: $color-link-primary-200;
+    @extend %text-style-label-small-strong;
   }
 
   &__authors {
     --post-meta: #{$color-black-190};
-    @extend %text-style-paragraph-small-short;
+    @extend %text-style-label-x-small-strong-caps;
+  }
+
+  /*
+  The margin won't matter once the display categories function
+  is updated and the pseudo element should happen on all instances
+  of this element, so it should be handled in the _post-meta.scss
+  file.
+  */
+  .post-categories {
+    li {
+      margin-top: rem(4);
+    }
+    @include breakpoint('small') {
+      li {
+        margin-top: 0;
+      }
+    }
+
+    li:not(:last-child) {  
+      &::after {
+        content: '';
+        border-right: 1px solid $color-border-dark-130;
+      }
+    }
+  }
+
+  &-categories {
+    white-space: nowrap;
+    @include breakpoint('small') {
+      display: inline-flex;
+    }
+
+    li:not(:last-child) {  
+      &::after {
+        content: '';
+        margin-right: rem(10);
+        margin-left: rem(10);
+        border-right: 1px solid $color-black-200;
+      }
+    }
   }
 }

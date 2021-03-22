@@ -29,6 +29,11 @@
       margin-right: auto;
       margin-left: auto;
     }
+
+    &-section-title {
+      color: $color-white-190;
+      @extend %text-style-heading-large-strong;
+    }
   }
 
   &__series {
@@ -143,5 +148,26 @@
     // .post-block__title {
     //   // @extend %font-heading-xl-sans;
     // }
+  }
+
+
+  /*
+  We need to make sure this doesn't effect the first post block.
+  */
+  .post-block {
+    @include breakpoint('xlarge') {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+
+      &-right {
+        width: 35%;
+        margin-left: rem(32);
+      }
+      
+      &-left {
+        width: 65%;
+      }
+    }
   }
 }

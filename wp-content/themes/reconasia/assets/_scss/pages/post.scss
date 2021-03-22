@@ -114,6 +114,25 @@
     display: block;
     width: rem(40);
     height: 2px;
+    margin: 0 auto rem(44);
+    background: $color-black-100;
+  }
+
+  p + p {
+    margin-top: 1rem;
+  }
+
+  .heading {
+    margin-bottom: rem(8);
+    color: $color-black-100;
+    // @extend %font-heading-md-sans;
+    text-transform: uppercase;
+  }
+}
+
+// TODO: make sure this doesn't effect the first post block.
+.post {
+  .post-meta__authors {
     margin-top: rem(12);
     background: $color-black-130;
   }
