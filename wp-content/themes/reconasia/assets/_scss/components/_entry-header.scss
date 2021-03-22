@@ -1,0 +1,69 @@
+@use '../abstracts' as *;
+
+.entry-header {
+  --header-margin-bottom: #{rem(32)};
+  $cutout-width: 45px;
+
+  position: relative;
+  max-width: $size__content-max-width;
+  margin: 0 auto calc(var(--header-margin-bottom) + #{$cutout-width});
+  padding: rem(24) 0 rem(32);
+  text-align: center;
+
+  @include breakpoint('medium') {
+    --header-margin-bottom: #{rem(40)};
+    padding-bottom: rem(40);
+  }
+
+  @include breakpoint('large') {
+    padding-top: rem(16);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    @include z-index(postBG);
+    display: block;
+    @include csis-block-full-width-wrapper();
+    background: url('../../img/geo_bg.png'),
+      linear-gradient(180deg, #1e2429 0%, rgba(26, 36, 40, 0.88) 100%);
+    background-repeat: repeat;
+    background-size: cover;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 30px ($cutout-width / 2) 0;
+    border-style: solid;
+    border-color: $color-page-header-triangle transparent transparent
+      transparent;
+    transform: translate(-50%, 0);
+  }
+
+  &__title {
+    margin-bottom: rem(16);
+    color: $color-white-190;
+    @extend %text-style-heading-3-x-large;
+
+    &-label {
+      display: block;
+      margin-bottom: rem(8);
+      color: $color-accent-dark-primary-400;
+      @extend %text-style-label-x-small-strong-caps;
+    }
+  }
+
+  &__desc {
+    color: $color-white-190;
+    @extend %text-style-paragraph-large-short-sans;
+  }
+}

@@ -176,7 +176,7 @@ wp_enqueue_style( 'reconasia-fonts', 'https://fonts.googleapis.com/css2?family=L
 		wp_enqueue_style( 'reconasia-style-home', get_stylesheet_directory_uri() . '/assets/css/pages/home.min.css', array(), $theme_version );
 	}
 
-	if ( is_archive() ) {
+	if ( is_archive() || is_search() ) {
 		wp_enqueue_style( 'reconasia-style-archive', get_stylesheet_directory_uri() . '/assets/css/pages/archive.min.css', array(), $theme_version );
 	}
 
@@ -188,7 +188,7 @@ wp_enqueue_style( 'reconasia-fonts', 'https://fonts.googleapis.com/css2?family=L
 		wp_enqueue_style( 'reconasia-style-page', get_stylesheet_directory_uri() . '/assets/css/pages/page.min.css', array(), $theme_version );
 	}
 
-	if ( 'post' === get_post_type() ) {
+	if ( 'post' === get_post_type() && is_single() ) {
 		wp_enqueue_style( 'reconasia-style-post', get_stylesheet_directory_uri() . '/assets/css/pages/post.min.css', array(), $theme_version );
 
 		wp_enqueue_style( 'reconasia-style-post-blocks', get_stylesheet_directory_uri() . '/assets/css/blocks/post.min.css', array(), $theme_version );

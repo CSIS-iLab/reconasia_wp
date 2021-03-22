@@ -1,64 +1,62 @@
 @use '../abstracts' as *;
 
-.single {
-  &__header {
-    --page-desc-color: #{$color-accent-dark-primary-400};
-    position: relative;
-    max-width: $size__content-max-width;
-    margin: 0 auto rem(56);
-    padding: rem(40) 0;
-    text-align: center;
+.entry-header {
+  --page-desc-color: #{$color-accent-dark-primary-400};
+  position: relative;
+  max-width: $size__content-max-width;
+  margin: 0 auto rem(56);
+  padding: rem(40) 0;
+  text-align: center;
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      @include z-index(postBG);
-      display: block;
-      @include csis-block-full-width-wrapper();
-      background: $gradient-post-header;
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    @include z-index(postBG);
+    display: block;
+    @include csis-block-full-width-wrapper();
+    background: $gradient-post-header;
+  }
 
-    .post-template-default & {
-      @include breakpoint('large') {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto max-content max-content auto;
-        max-width: 100%;
-        column-gap: rem(48);
-      }
-
-      @include breakpoint('xlarge') {
-        column-gap: rem(56);
-      }
-    }
-
-    .post-template-template-no-image & {
+  .post-template-default & {
+    @include breakpoint('large') {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto max-content max-content auto;
       max-width: 100%;
+      column-gap: rem(48);
+    }
 
-      @include breakpoint('xlarge') {
-        padding-bottom: rem(56);
+    @include breakpoint('xlarge') {
+      column-gap: rem(56);
+    }
+  }
+
+  .post-template-template-no-image & {
+    max-width: 100%;
+
+    @include breakpoint('xlarge') {
+      padding-bottom: rem(56);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      margin-top: rem(16);
+      background: $color-accent-light-primary-100;
+
+      @include breakpoint('large') {
+        margin-top: rem(24);
       }
+    }
 
-      &::after {
-        content: '';
-        display: block;
-        height: 1px;
-        margin-top: rem(16);
-        background: $color-accent-light-primary-100;
-
-        @include breakpoint('large') {
-          margin-top: rem(24);
-        }
-      }
-
-      > * {
-        max-width: $size__content-max-width;
-        margin-right: auto;
-        margin-left: auto;
-      }
+    > * {
+      max-width: $size__content-max-width;
+      margin-right: auto;
+      margin-left: auto;
     }
   }
 

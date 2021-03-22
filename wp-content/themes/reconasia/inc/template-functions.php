@@ -276,13 +276,11 @@ add_filter( 'wp_nav_menu_items','reconasia_add_search_box', 10, 2 );
  */
 function reconasia_archive_titles( $title ) {
     if( is_category() ) {
-        $title = single_cat_title( '<span class="archive-label">Category:</span> ', false );
+        $title = single_cat_title( '<span class="entry-header__title-label">Topic</span> ', false );
     } elseif( is_tag() ) {
-        $title = single_tag_title( '<span class="archive-label">Keyword:</span> ', false );
+        $title = single_tag_title( '<span class="entry-header__title-label">Tag</span> ', false );
     } elseif( is_author() ) {
-        $title = '<span class="archive-label">Author:</span> ' . get_the_author();
-    } elseif ( is_tax( 'system' ) ) {
-        $title = single_term_title( '', false );
+        $title = '<span class="entry-header__title-label">Author</span> ' . get_the_author();
     }
     return $title;
 }
