@@ -198,7 +198,7 @@ function reconasia_authors() {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__authors">' . $authors . '</div>';
+	echo '<div class="post-meta post-meta__authors"><span>By </span>' . $authors . '</div>';
 }
 
 if (! function_exists('reconasia_authors_list_extended')) :
@@ -249,7 +249,7 @@ if (! function_exists('reconasia_display_categories')) :
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list(', ');
+		$categories_list = get_the_category_list(' ');
 
 		if ('Uncategorized' === $categories_list) {
 				return;

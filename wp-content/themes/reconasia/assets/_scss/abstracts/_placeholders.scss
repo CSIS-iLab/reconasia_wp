@@ -101,6 +101,7 @@
 
 %text-style-label-small-strong-caps {
   @extend %text-style-label-small-strong;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
