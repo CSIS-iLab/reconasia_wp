@@ -29,7 +29,7 @@
   /*----------  Center Variation  ----------*/
   &.aligncenter {
     @include breakpoint('medium') {
-      max-width: rem(350);
+      max-width: rem(360);
       margin-right: auto;
       margin-left: auto;
     }
