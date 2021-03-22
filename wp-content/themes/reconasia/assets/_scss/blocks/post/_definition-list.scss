@@ -17,6 +17,7 @@
     }
 
     &__definition {
+      color: $color-black-190;
       @extend %text-style-paragraph-large-long;
     }
   }
