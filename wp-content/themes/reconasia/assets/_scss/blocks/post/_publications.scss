@@ -28,8 +28,8 @@
     &:focus-within {
       background: $color-bg-light-300;
 
-      * {
-        outline: 0;
+      *:focus {
+        outline: 1px solid $color-link-primary-200;
       }
 
       .btn--dark {
