@@ -38,7 +38,7 @@
   .members__list--has-image {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(#{rem(260)}, 1fr));
-    margin: rem(16) 0 rem(16);
+    margin: rem(8) 0 rem(16);
     column-gap: rem(40);
     row-gap: rem(24);
 
