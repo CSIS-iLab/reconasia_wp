@@ -21,16 +21,15 @@
 
     &__author {
       color: $color-white-165;
-      @extend %text-style-label-small;
+      @extend %text-style-paragraph-medium-short-caps;
       font-style: normal;
-      text-transform: uppercase;
     }
   }
 
   /*----------  Center Variation  ----------*/
   &.aligncenter {
     @include breakpoint('medium') {
-      max-width: rem(350);
+      max-width: rem(360);
       margin-right: auto;
       margin-left: auto;
     }
