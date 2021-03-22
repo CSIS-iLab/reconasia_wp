@@ -10,7 +10,7 @@
   text-transform: uppercase;
   background: var(--btn-bg, transparent);
   border: 1px solid var(--btn-border, transparent);
-  border-radius: 3px;
+  border-radius: 2px;
   transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
 
   &:focus {
@@ -53,6 +53,8 @@
   }
 
   &--outline {
+    border-radius: 0;
+
     &-dark {
       --btn-color: #{$color-black-190};
       --btn-border: #{$color-black-190};
@@ -104,8 +106,8 @@
   }
 
   &--dark {
-    --btn-color: #{$color-white-190};
-    --btn-bg: #{$color-bg-dark-400};
+    --btn-color: #{$color-white-100};
+    --btn-bg: #{$color-bg-dark-300};
 
     &:hover {
       --btn-color: #{$color-white-100};

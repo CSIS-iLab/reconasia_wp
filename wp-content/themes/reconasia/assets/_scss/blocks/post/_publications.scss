@@ -10,6 +10,8 @@
     grid-column-gap: rem(16);
     grid-row-gap: 0;
     grid-template-columns: min-content auto;
+    padding-bottom: rem(16);
+    transition: background 0.3s ease-in-out;
 
     &:hover {
       .csis-block__title,
@@ -20,6 +22,19 @@
       .btn--dark {
         color: $color-white-100;
         background: $color-link-primary-200;
+      }
+    }
+
+    &:focus-within {
+      background: $color-bg-light-300;
+
+      * {
+        outline: 0;
+      }
+
+      .btn--dark {
+        --btn-color: #{$color-black-165};
+        --btn-bg: transparent;
       }
     }
   }
