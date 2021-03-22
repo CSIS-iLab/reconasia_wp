@@ -311,3 +311,20 @@ if (! function_exists('reconasia_share')) :
 	}
 endif;
 
+/**
+ * Displays Page Description.
+ *
+ *
+ * @return string $html The description.
+ */
+if (! function_exists('reconasia_page_desc')) :
+	function reconasia_page_desc() {
+		$description = get_field( 'description' );
+
+		if ( !$description ) {
+			return;
+		}
+
+		printf( '<p class="single__desc">' . esc_html__( '%1$s', 'reconasia' ) . '</p>', $description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+endif;

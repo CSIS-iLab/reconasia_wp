@@ -1,5 +1,82 @@
 @use '../abstracts' as *;
 
+.single__header {
+  --page-desc-color: #{$color-accent-dark-primary-400};
+
+  .post-meta__authors {
+    --post-meta: #{$color-white-190};
+    margin-bottom: rem(8);
+  }
+
+  .post-meta__date {
+    --post-meta: #{$color-white-165};
+  }
+}
+
+.post-template-default {
+  .single__header {
+    @include breakpoint('large') {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto max-content max-content auto;
+      max-width: 100%;
+      column-gap: rem(48);
+    }
+
+    @include breakpoint('xlarge') {
+      column-gap: rem(56);
+    }
+  }
+
+  .single__title {
+    align-self: end;
+    margin-bottom: rem(24);
+  }
+}
+
+.post-template-template-no-image .single__header {
+  padding-bottom: rem(56);
+
+  @include breakpoint('large') {
+    padding-bottom: rem(64);
+  }
+
+  @include breakpoint('xlarge') {
+    padding-bottom: rem(80);
+  }
+
+  .single__title {
+    @include breakpoint('medium') {
+      margin-bottom: rem(16);
+    }
+  }
+}
+
+.featured-media {
+  grid-column: 2;
+  grid-row: 1 / 5;
+  margin: rem(40) 0 0;
+
+  @include breakpoint('large') {
+    margin-top: 0;
+  }
+}
+
+.featured-media__caption {
+  margin-bottom: rem(12);
+  // color: $color-text-gray-70;
+  // @extend %font-body-sm;
+
+  &::after {
+    content: '';
+    display: block;
+    width: rem(40);
+    height: 2px;
+    margin-top: rem(12);
+    background: $color-black-130;
+  }
+}
+
 .single__content,
 .single__footer {
   max-width: $size__content-max-width;
@@ -20,18 +97,6 @@
 }
 
 .single__content {
-  padding-top: rem(32);
-  // color: $color-text-gray-90;
-  // @extend %font-body-lg-post;
-
-  @include breakpoint('small') {
-    padding-top: rem(40);
-  }
-
-  @include breakpoint('medium') {
-    padding-top: rem(48);
-  }
-
   h2,
   h3,
   h4,
@@ -117,24 +182,5 @@
     color: $color-black-100;
     // @extend %font-heading-md-sans;
     text-transform: uppercase;
-  }
-}
-
-.post {
-  .post-meta__authors {
-    .post-meta__label {
-      display: block;
-      margin-bottom: rem(4);
-      font-weight: 600;
-      font-style: normal;
-      text-transform: uppercase;
-    }
-  }
-
-  &__authors {
-    margin-top: rem(48);
-    margin-bottom: rem(32);
-    padding-top: rem(24);
-    border-top: 1px solid $color-black-130;
   }
 }

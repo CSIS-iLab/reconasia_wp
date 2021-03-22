@@ -22,9 +22,7 @@ if ( $template === 'templates/template-no-image.php' ){
 
 		the_title( '<h1 class="single__title">', '</h1>' );
 
-		if ( has_excerpt() && is_singular() ) {
-			the_excerpt();
-		}
+		reconasia_page_desc();
 
 		reconasia_authors();
 
