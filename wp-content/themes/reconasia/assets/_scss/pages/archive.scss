@@ -2,21 +2,6 @@
 
 @use '../components/entry-header';
 
-.archive {
-  #site-content {
-    max-width: 800px;
-    margin: rem(16) auto rem(48);
-
-    @include breakpoint('large') {
-      margin-top: rem(24);
-    }
-
-    @include breakpoint('xlarge') {
-      margin-top: rem(32);
-    }
-  }
-}
-
 .pagination {
   &,
   &__results {
