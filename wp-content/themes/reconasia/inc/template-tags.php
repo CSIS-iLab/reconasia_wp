@@ -198,7 +198,7 @@ function reconasia_authors() {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__authors"><span>By </span>' . $authors . '</div>';
+	echo '<div class="post-meta post-meta__authors">By ' . $authors . '</div>';
 }
 
 if (! function_exists('reconasia_authors_list_extended')) :
