@@ -108,7 +108,7 @@ Thumbs.db
 !wp-content/themes/reconasia/.stylelintrc.json
 
 wp-content/themes/*/**/*.css
-wp-content/themes/reconasia/assets/images
+wp-content/themes/reconasia/assets/img
 wp-content/themes/reconasia/assets/js
 
 !.github/
