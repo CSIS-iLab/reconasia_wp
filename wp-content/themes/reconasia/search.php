@@ -34,7 +34,7 @@ get_header();
 				<?php
 				get_search_form(
 					array(
-						'label' => __( 'search again', 'csisjti' ),
+						'label' => __( 'search again', 'reconasia' ),
 					)
 				);
 				?>
