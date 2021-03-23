@@ -156,22 +156,22 @@
 }
 
 .post {
-  .post-meta__authors {
-    margin-top: rem(12);
-    // @extend %font-label-sm;
+  // .post-meta__authors {
+  //   margin-top: rem(12);
+  //   @extend %font-label-sm;
 
-    // @include breakpoint('medium') {
-    //   margin-left: calc(60px + 1.5rem);
-    // }
+  //   @include breakpoint('medium') {
+  //     margin-left: calc(60px + 1.5rem);
+  //   }
 
-    .post-meta__label {
-      display: block;
-      margin-bottom: rem(4);
-      font-weight: 600;
-      font-style: normal;
-      text-transform: uppercase;
-    }
-  }
+  //   .post-meta__label {
+  //     display: block;
+  //     margin-bottom: rem(4);
+  //     font-weight: 600;
+  //     font-style: normal;
+  //     text-transform: uppercase;
+  //   }
+  // }
 
   &__authors {
     margin-top: rem(48);

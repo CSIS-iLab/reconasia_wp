@@ -13,14 +13,7 @@
 
 ?>
 
-<article <?php post_class('post-block post-block--post'); ?> id="post-<?php the_ID(); ?>">
-	<!-- 
-		TODO:
-		- This div should only be added if there's a thumbnail, so it doesn't create space
-		if there isn't an image. Wordpress has a function for this.
-		- Will you please make the thumbnail a link to the post and have the hover effect be applied to the title when you hover over the image?
-	-->
-	
+<article <?php post_class('post-block post-block--post'); ?> id="post-<?php the_ID(); ?>">	
 		<?php if ( has_post_thumbnail() ) : ?>
 			<a href="<?php the_permalink(); ?>" class="post-block__img" title="<?php the_title_attribute(); ?>">
 				<?php the_post_thumbnail( 'large' ); ?>
