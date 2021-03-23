@@ -1,6 +1,6 @@
 <?php
 /**
- * The Archive template.
+ * The Search template.
  *
  * @package CSIS iLab
  * @subpackage @package ReconAsia

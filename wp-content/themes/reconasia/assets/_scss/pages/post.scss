@@ -65,15 +65,16 @@
     color: $color-white-100;
     @extend %text-style-heading-3-x-large-strong;
 
-    .post-template-default & {
-      align-self: end;
+    @include breakpoint('medium') {
+      margin-bottom: rem(16);
+    }
+
+    @include breakpoint('large') {
       margin-bottom: rem(24);
     }
 
-    .post-template-template-no-image & {
-      @include breakpoint('medium') {
-        margin-bottom: rem(16);
-      }
+    .post-template-default & {
+      align-self: end;
     }
   }
 
