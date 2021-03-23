@@ -46,7 +46,7 @@
       display: block;
       height: 1px;
       margin-top: rem(16);
-      background: $color-accent-light-primary-100;
+      background: $color-accent-light-primary-200;
 
       @include breakpoint('large') {
         margin-top: rem(24);
