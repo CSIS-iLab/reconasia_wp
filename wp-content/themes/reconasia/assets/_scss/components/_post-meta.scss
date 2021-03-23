@@ -7,7 +7,6 @@
 
   &__top {
     display: flex;
-    // @extend %font-label-lg;
   }
 
   &__date {
@@ -15,7 +14,7 @@
     margin-left: rem(4);
     @extend %text-style-label-small-strong-caps;
   }
-  // TODO: Let's ask Christina in the Recon Asia slack channel if this should have a hover state.
+
   &__categories {
     color: $color-link-primary-200;
     @extend %text-style-label-x-small-strong-caps;
@@ -32,7 +31,7 @@
     > a {
       &:hover {
         color: $color-bg-dark-100;
-        transition: background 0.3s ease-in-out;
+        transition: color 0.3s ease-in-out;
       }
 
       &:focus {
@@ -52,7 +51,7 @@
 
       &:hover {
         color: $color-bg-dark-100;
-        transition: background 0.3s ease-in-out;
+        transition: color 0.3s ease-in-out;
       }
 
       &:focus {
