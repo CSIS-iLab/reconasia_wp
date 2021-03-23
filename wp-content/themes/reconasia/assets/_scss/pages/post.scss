@@ -80,7 +80,7 @@
   &__desc {
     margin-bottom: rem(24);
     color: var(--page-desc-color, $color-white-190);
-    @extend %text-style-paragraph-small-short;
+    @extend %text-style-paragraph-large-short-sans;
   }
 
   .post-meta__authors {
