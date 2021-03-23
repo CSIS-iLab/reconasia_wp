@@ -312,7 +312,6 @@ if (! function_exists('reconasia_share')) :
 endif;
 
 /**
-<<<<<<< HEAD
  * Displays Page Description.
  *
  *
@@ -327,7 +326,10 @@ if (! function_exists('reconasia_page_desc')) :
 		}
 
 		printf( '<p class="entry-header__desc">' . esc_html__( '%1$s', 'reconasia' ) . '</p>', $description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-=======
+	}
+endif;
+
+/*
  * Displays the number of items and pages on archive & search pages.
  *
  *
@@ -344,6 +346,5 @@ if (! function_exists('reconasia_pagination_number_of_posts')) :
 			/* translators: 1: list of tags. */
 			printf( '<h2 class="pagination__results">' . esc_html__( '%1$s', 'reconasia' ) . ' Items, Page ' . esc_html__( '%2$s', 'reconasia' ) . ' of ' . esc_html__( '%3$s', 'reconasia' ) . '</div>', $total_posts, $page, $pages ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
->>>>>>> Add total results pagination function
 	}
 endif;
