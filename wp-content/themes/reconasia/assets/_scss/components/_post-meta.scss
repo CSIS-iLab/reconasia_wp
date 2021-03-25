@@ -1,25 +1,47 @@
 @use 'abstracts' as *;
 
 .post-meta {
+  color: var(--post-meta);
+
   &__label {
     font-style: italic;
   }
 
-  &__top {
-    display: flex;
+  &__authors {
+    --post-meta: #{$color-black-190};
+    margin-bottom: rem(4);
+    @extend %text-style-paragraph-small-short;
+
+    a {
+      color: $color-link-primary-200;
+      
+      &:hover {
+        color: $color-bg-dark-100;
+        transition: color 0.3s ease-in-out;
+      }
+
+      &:focus {
+        color: $color-bg-dark-100;
+        background: $color-bg-light-300;
+      }
+    }
   }
 
   &__date {
     --post-meta: #{$color-black-165};
-    margin-left: rem(4);
+    margin-bottom: rem(8);
     @extend %text-style-label-small-strong-caps;
   }
 
   &__categories {
-    color: $color-link-primary-200;
+    --post-meta: #{$color-link-primary-200};
     @extend %text-style-label-x-small-strong-caps;
 
-    a:not(:last-of-type) {  
+    li {
+      display: inline;
+    }
+
+    li:not(:last-of-type) {  
       &::after {
         content: '';
         margin-right: rem(10);
@@ -28,7 +50,7 @@
       }
     }
 
-    > a {
+    a {
       &:hover {
         color: $color-bg-dark-100;
         transition: color 0.3s ease-in-out;
@@ -39,31 +61,5 @@
         background: $color-bg-light-300;
       }
     }
-  }
-
-  &__authors {
-    --post-meta: #{$color-black-190};
-    margin-bottom: rem(4);
-    @extend %text-style-paragraph-small-short;
-
-    > a {
-      color: $color-link-primary-200;
-
-      &:hover {
-        color: $color-bg-dark-100;
-        transition: color 0.3s ease-in-out;
-      }
-
-      &:focus {
-        color: $color-bg-dark-100;
-        background: $color-bg-light-300;
-      }
-    }
-  }
-  
-  &__date {
-    margin-bottom: rem(8);
-    color: $color-black-165;
-    @extend %text-style-label-small-strong-caps;
   }
 }
