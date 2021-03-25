@@ -23,7 +23,10 @@ get_header();
 
 		get_template_part( 'template-parts/entry-header' );
 
+
 		if ( have_posts() ) {
+
+			reconasia_pagination_number_of_posts();
 
 			while ( have_posts() ) {
 				the_post();
@@ -33,6 +36,8 @@ get_header();
 			}
 			wp_reset_postdata();
 		}
+
+	get_template_part( 'template-parts/pagination' );
 	?>
 
 </main><!-- #site-content -->

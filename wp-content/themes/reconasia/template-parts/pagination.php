@@ -16,14 +16,14 @@
  */
 
 $prev_text = sprintf(
-	'%s <span class="nav-prev-text">%s</span>',
-	'<span aria-hidden="true">&larr;</span>',
-	__( 'Newer <span class="nav-short">Posts</span>', 'reconasia' )
+	'<span aria-hidden="true">%s</span> <span class="screen-reader-text">%s</span>',
+	reconasia_get_svg( 'chevron-left' ),
+	__( 'Newer Posts', 'reconasia' )
 );
 $next_text = sprintf(
-	'<span class="nav-next-text">%s</span> %s',
-	__( 'Older <span class="nav-short">Posts</span>', 'reconasia' ),
-	'<span aria-hidden="true">&rarr;</span>'
+	'<span class="screen-reader-text">%s</span> <span aria-hidden="true">%s</span>',
+	__( 'Older Posts', 'reconasia' ),
+	reconasia_get_svg( 'chevron-right' )
 );
 
 $posts_pagination = get_the_posts_pagination(
@@ -46,9 +46,7 @@ if ( strpos( $posts_pagination, 'next page-numbers' ) === false ) {
 
 if ( $posts_pagination ) { ?>
 
-	<div class="pagination-wrapper section-inner">
-
-		<hr class="styled-separator pagination-separator is-style-wide" aria-hidden="true" />
+	<div class="pagination__wrapper">
 
 		<?php echo $posts_pagination; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- already escaped during generation. ?>
 

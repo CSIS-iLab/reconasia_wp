@@ -328,3 +328,23 @@ if (! function_exists('reconasia_page_desc')) :
 		printf( '<p class="entry-header__desc">' . esc_html__( '%1$s', 'reconasia' ) . '</p>', $description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 endif;
+
+/*
+ * Displays the number of items and pages on archive & search pages.
+ *
+ *
+ * @return string $html The share links.
+ */
+if (! function_exists('reconasia_pagination_number_of_posts')) :
+	function reconasia_pagination_number_of_posts() {
+		global $wp_query;
+		$total_posts = $wp_query->found_posts;
+		$page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		$pages = $wp_query->max_num_pages;
+
+		if ( $total_posts > 0 ) {
+			/* translators: 1: list of tags. */
+			printf( '<h2 class="pagination__results">' . esc_html__( '%1$s', 'reconasia' ) . ' Items, Page ' . esc_html__( '%2$s', 'reconasia' ) . ' of ' . esc_html__( '%3$s', 'reconasia' ) . '</div>', $total_posts, $page, $pages ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+	}
+endif;

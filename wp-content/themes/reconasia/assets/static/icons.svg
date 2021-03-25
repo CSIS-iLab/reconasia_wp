@@ -60,6 +60,10 @@
 <title>Chevron Right</title>
 <path d="M6.637 6.176l-5.61 5.61-.942-.944 4.667-4.666L.085 1.509l.943-.943 5.61 5.61z" />
 </symbol>
+<symbol id="icon-chevron-left" viewBox="0 0 7 12">
+<title>Chevron Left</title>
+<path d="M.748 5.861l5.61-5.61.943.943-4.667 4.667L7.3 10.528l-.943.943-5.61-5.61z" />
+</symbol>
 <symbol id="icon-external-link" viewBox="0 0 14 14">
 <title>External Link</title>
 <path d="M11.39 1.667H8.668V.333h4.057l.014-.014.014.014h.915v.915l.014.014-.014.014v4.057h-1.334V2.61L7 7.943 6.057 7l5.333-5.333z" /><path d="M.333.333v13.334h13.334v-6.99h-1.334v5.656H1.667V1.667h5.485V.333H.333z" />
