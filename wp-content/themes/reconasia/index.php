@@ -22,6 +22,27 @@ get_header();
 	<?php
 
 	if ( is_archive() ) {
+		// get the current taxonomy term
+		$term = get_queried_object();
+		// vars
+		$featured_post = get_field('featured_post', $term);
+		// var_dump($featured_post);
+		if( $featured_post ): ?>
+				<?php
+					echo '<div class="post-block--featured">';
+						echo '<span class="post-block--featured__label">Featured</span>';
+						foreach( $featured_post as $post ):
+							// Setup this post for WP functions (variable must be named $post).
+							setup_postdata($post);
+							get_template_part( 'template-parts/block-post-featured' );
+						endforeach;
+					echo '</div>';
+				?>
+				<?php 
+				// Reset the global post object so that the rest of the page works correctly.
+				wp_reset_postdata(); ?>
+		<?php endif;
+
 		if ( have_posts() ) {
 			$i = 0;
 
