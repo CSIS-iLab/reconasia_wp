@@ -32,10 +32,6 @@
     margin-top: rem(11);
   }
 
-  &__img {
-    width: 70%;
-  }
-
   .intro-text {
     p {
       @extend %text-style-paragraph-medium-long;
