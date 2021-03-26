@@ -29,6 +29,22 @@
       margin-right: auto;
       margin-left: auto;
     }
+
+    .post-block {
+      &:first-of-type {
+        @include breakpoint('medium') {
+          grid-template-areas:
+            'img'
+            'title'
+            'excerpt'
+            'authors'
+            'date'
+            'categories';
+          grid-template-columns: 1fr;
+          grid-template-rows: auto;
+        }
+      }
+    }
   }
 
   &__series {

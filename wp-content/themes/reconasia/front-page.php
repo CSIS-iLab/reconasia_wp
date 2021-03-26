@@ -14,6 +14,7 @@ get_header();
 
 <main id="site-content" role="main">
 	<section class="home__recent">
+		<h2 class="home__recent-section-title">home page <?php echo reconasia_get_svg('doc') ?></h2>
 	<?php
 
   $args = array(

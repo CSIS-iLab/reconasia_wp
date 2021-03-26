@@ -1,22 +1,91 @@
 @use 'abstracts' as *;
 
 .post-block {
+  display: grid;
+  grid-template-areas:
+    'img'
+    'title'
+    'excerpt'
+    'authors'
+    'date'
+    'categories';
+  grid-template-columns: 1fr;
+  margin-top: rem(40);
+  margin-right: auto;
+  margin-left: auto;
+
+  &.has-post-thumbnail {
+    @include breakpoint('medium') {
+      grid-template-areas:
+        'title img'
+        'excerpt img'
+        'authors img'
+        'date img'
+        'categories img';
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: max-content max-content max-content max-content auto;
+      column-gap: rem(32);
+    }
+  }
+
+  &__img {
+    margin-bottom: rem(24);
+  }
+
   &__title {
-    color: $color-black-100;
+    grid-area: title;
+    color: $color-black-190;
+    @extend %text-style-heading-large-serif-bold;
 
     a {
-      &:visited {
-        // color: $color-text-gray-70;
-      }
-
       &:hover {
-        // color: $color-primary-base;
+        color: $color-link-primary-200;
+      }
+  
+      &:focus {
+        background: $color-bg-light-400;
       }
     }
   }
 
   &__excerpt {
-    // @extend %font-body-md;
+    grid-area: excerpt;
+    margin-top: rem(8);
+    margin-bottom: rem(16);
+    color: $color-black-165;
+    @extend %text-style-paragraph-large-short-sans;
+  }
+
+  &__img {
+    grid-area: img;
+  }
+
+  .post-meta__authors {
+    grid-area: authors;
+  }
+
+  .post-meta__date {
+    grid-area: date;
+  }
+
+  .post-meta__categories {
+    grid-area: categories;
+  }
+
+  &--post {
+    padding-bottom: rem(32);
+
+    @include breakpoint('small') {
+      padding-bottom: rem(24);
+    }
+
+    @include breakpoint('large') {
+      padding-bottom: rem(32);
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-black-200;
+    }
   }
 
   .featured-media a {

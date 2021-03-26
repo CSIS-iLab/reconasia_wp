@@ -29,7 +29,7 @@
 }
 
 %text-style-heading-large-serif-bold {
-  @include font-size(24px);
+  @include font-clamp(20px, 24px);
   font-family: $font__merriweather;
   font-weight: 700;
   line-height: 1.15;
@@ -101,6 +101,7 @@
 
 %text-style-label-small-strong-caps {
   @extend %text-style-label-small-strong;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
