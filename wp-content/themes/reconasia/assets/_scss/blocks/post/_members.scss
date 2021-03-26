@@ -1,6 +1,10 @@
 @use '../abstracts' as *;
 
 .wp-block-lazyblock-team-members {
+  .csis-block--members {
+    padding: 0;
+  }
+
   a:not([class]) {
     max-width: fit-content;
     color: $color-link-primary-200;
