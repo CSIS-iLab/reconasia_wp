@@ -18,6 +18,8 @@ get_header();
 
 		if ( have_posts() ) {
 
+			reconasia_pagination_number_of_posts();
+
 			while ( have_posts() ) {
 				the_post();
 
