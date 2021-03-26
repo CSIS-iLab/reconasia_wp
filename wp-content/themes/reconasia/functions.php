@@ -188,6 +188,10 @@ wp_enqueue_style( 'reconasia-fonts', 'https://fonts.googleapis.com/css2?family=L
 		wp_enqueue_style( 'reconasia-style-page', get_stylesheet_directory_uri() . '/assets/css/pages/page.min.css', array(), $theme_version );
 	}
 
+	if ( is_404() ) {
+		wp_enqueue_style( 'reconasia-style-404', get_stylesheet_directory_uri() . '/assets/css/pages/404.min.css', array(), $theme_version );
+	}
+
 	if ( 'post' === get_post_type() && is_single() ) {
 		wp_enqueue_style( 'reconasia-style-post', get_stylesheet_directory_uri() . '/assets/css/pages/post.min.css', array(), $theme_version );
 

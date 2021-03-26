@@ -49,7 +49,7 @@ if ( $template === 'templates/template-no-image.php' ){
 
 		} elseif ( $is_404 ) { ?>
 
-			<h1 class="entry-header__title"><?php _e( '404 Page Not Found', 'reconasia' ); ?></h1>
+			<h1 class="entry-header__title"><?php _e( '404', 'reconasia' ); ?></h1>
 
 		<?php } else {
 
