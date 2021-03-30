@@ -47,7 +47,8 @@ get_header();
 							} else {
 								echo '<h2 class="card__title">' . $link['title'] . '</h2>';
 							} ?>
-							<?php echo '<p class="card__description">' . $card['card_description'] . '</p>'; ?>
+							<!-- <?php echo reconasia_get_svg( 'single-arrow' ); ?> -->
+							<?php echo '<p class="card__description">' . reconasia_get_svg( 'single-arrow' ) . $card['card_description'] . '</p>'; ?>
 						</a>
 					</div><!-- .card__wrapper -->
 				</div><!-- .card -->

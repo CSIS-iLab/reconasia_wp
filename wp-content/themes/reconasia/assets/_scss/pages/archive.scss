@@ -82,3 +82,39 @@
     display: none;
   }
 }
+
+.cards__container {
+  @include vw100();
+
+  @include breakpoint('large') {
+    display: flex;
+  }
+}
+
+.card {
+  width: 100%;
+  padding: rem(24) 6vw;
+
+  &__wrapper {
+    max-width: rem(400);
+    margin: auto;
+    padding: rem(24);
+    background-color: $color-bg-dark-290;
+  }
+
+  &__title {
+    @extend %text-style-heading-large-strong;
+    margin-bottom: rem(12);
+    color: $color-white-100;
+  }
+
+  .icon {
+    margin-right: rem(12);
+  }
+
+  &__description {
+    @extend %text-style-label-large;
+    display: flex;
+    color: $color-white-190;
+  }
+}
