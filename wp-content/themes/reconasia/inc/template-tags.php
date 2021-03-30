@@ -184,13 +184,12 @@ function reconasia_last_updated() {
 }
 
 /**
- * Displays the post authors. Uses CoAuthors Plus plugin to display guest authors in
- * place of standard WP authors.
+ * Displays the post authors. Uses CoAuthors Plus plugin to display guest authors in place of standard WP authors.
  *
  */
 function reconasia_authors() {
 	if ( function_exists( 'coauthors' ) ) {
-    $authors = coauthors_links( ', ', ' and ', null, null, false );
+    $authors = coauthors_links( ', ', ', ', null, null, false );
 	} else {
 		$authors = get_the_author();
 	}

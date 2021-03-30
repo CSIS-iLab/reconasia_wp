@@ -35,7 +35,6 @@
   &__title {
     grid-area: title;
     color: $color-black-190;
-    @include font-size(20px);
     @extend %text-style-heading-large-serif-bold;
 
     a {
@@ -59,7 +58,6 @@
 
   &__img {
     grid-area: img;
-    margin-bottom: rem(24);
   }
 
   .post-meta__authors {

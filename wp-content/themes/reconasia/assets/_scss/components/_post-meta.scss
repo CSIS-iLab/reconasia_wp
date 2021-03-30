@@ -1,6 +1,8 @@
 @use 'abstracts' as *;
 
 .post-meta {
+  color: var(--post-meta);
+
   &__label {
     font-style: italic;
   }
