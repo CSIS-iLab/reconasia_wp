@@ -116,42 +116,5 @@
     }
   }
 
-  .post-block {
-    @include breakpoint('medium') {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: space-between;
 
-      &-right {
-        width: 35%;
-        margin-left: rem(32);
-      }
-      
-      &-left {
-        width: 65%;
-      }
-    }
-
-    &__title {
-      margin-top: 0;
-      margin-bottom: 0;
-      color: $color-black-190;
-    }
-    
-    &__excerpt {
-      margin-top: rem(8);
-      margin-bottom: rem(16);
-      color: $color-black-165;
-    }
-
-    &--post {
-      &:not(:last-child) {
-        border-bottom: 1px solid $color-black-200;
-      }
-
-      > *:not(:last-child) {
-        margin-bottom: rem(8);
-      }
-    }
-  }
 }

@@ -20,18 +20,13 @@ get_header();
 <main id="site-content" role="main">
 
 	<?php
-
-<<<<<<< HEAD
-		get_template_part( 'template-parts/entry-header' );
-=======
-	if ( is_archive() ) {
-		// get the current taxonomy term
-		$term = get_queried_object();
-		// vars
-		$featured_post = get_field('featured_post', $term);
-		// var_dump($featured_post);
-		if( $featured_post ): ?>
-				<?php
+		if ( is_archive() ) {
+			// get the current taxonomy term
+			$term = get_queried_object();
+			// vars
+			$featured_post = get_field('featured_post', $term);
+			// var_dump($featured_post);
+			if ( $featured_post ) {
 					echo '<div class="post-block--featured">';
 						echo '<span class="post-block--featured__label">Featured</span>';
 						foreach( $featured_post as $post ):
@@ -40,40 +35,48 @@ get_header();
 							get_template_part( 'template-parts/block-post-featured' );
 						endforeach;
 					echo '</div>';
-				?>
-				<?php 
 				// Reset the global post object so that the rest of the page works correctly.
-				wp_reset_postdata(); ?>
-		<?php endif;
-
-		if ( have_posts() ) {
-			$i = 0;
-
-			while ( have_posts() ) {
-				the_post();
-
-				if ($i == 0) {
-					get_template_part( 'template-parts/block-issues-featured' );
-				} else {
-					get_template_part( 'template-parts/block', get_post_type() );
-				}
->>>>>>> Styling archive featured block post
-
-
-		if ( have_posts() ) {
-
-			reconasia_pagination_number_of_posts();
-
-			while ( have_posts() ) {
-				the_post();
-
-				get_template_part( 'template-parts/block', get_post_type() );
-
+				wp_reset_postdata();
 			}
-			wp_reset_postdata();
-		}
 
-	get_template_part( 'template-parts/pagination' );
+			if ( have_posts() ) {
+				$i = 0;
+
+				while ( have_posts() ) {
+					the_post();
+					if ($i == 0) {
+						get_template_part( 'template-parts/block-issues-featured' );
+					} else {
+						get_template_part( 'template-parts/block', get_post_type() );
+					}
+
+					$i++;
+
+				}
+				wp_reset_postdata();
+			}
+
+		} else {
+			get_template_part( 'template-parts/entry-header' );
+
+
+			if ( have_posts() ) {
+
+				reconasia_pagination_number_of_posts();
+
+				while ( have_posts() ) {
+					the_post();
+
+					get_template_part( 'template-parts/block', get_post_type() );
+
+				}
+				wp_reset_postdata();
+			}
+
+
+			get_template_part( 'template-parts/pagination' );
+		}
+		
 	?>
 
 </main><!-- #site-content -->
