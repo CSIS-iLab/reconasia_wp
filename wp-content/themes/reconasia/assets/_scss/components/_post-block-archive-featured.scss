@@ -1,25 +1,39 @@
 @use 'abstracts' as *;
 
 .post-block--featured {
-  position: relative;
+  // position: relative;
+  margin-top: rem(20);
   background-color: $color-bg-dark-200;
   @include full-width-background($color-bg-dark-200);
   
   &__label {
-    position: absolute;
-    top: rem(-46);
-    left: rem(-20);
-    padding: rem(15);
-    color: $color-white-190;
-    text-transform: uppercase;
-    background-color: $color-bg-dark-200;
-    @extend %text-style-label-small;
+    // position: absolute;
+    // top: rem(-46);
+    // left: rem(-20);
+    // margin-top: rem(15);
+    // padding: rem(15) 0;
+    height: rem(30);
+    @include full-width-background($color-bg-dark-200);
+
+    span {
+      height: rem(30);
+      color: $color-white-190;
+      text-transform: uppercase;
+      background-color: $color-bg-dark-200;
+      @extend %text-style-label-small;
+    }
+
+    &::after {
+      background: #fff;
+    }
   }
   
   .post-block {
-    &__img {
-      padding-top: rem(20);
-    }
+    // margin-top: 0;
+
+    // &__img {
+    //   padding-top: rem(20);
+    // }
 
     &__title {
       color: $color-white-190;

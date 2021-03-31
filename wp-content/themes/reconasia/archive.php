@@ -37,14 +37,14 @@ get_header();
 			$featured_post = get_field('featured_post', $term);
 			// var_dump($featured_post);
 			if ( $featured_post ) {
-					echo '<div class="post-block--featured">';
-						echo '<span class="post-block--featured__label">Featured</span>';
-						foreach( $featured_post as $post ):
-							// Setup this post for WP functions (variable must be named $post).
-							setup_postdata($post);
-							get_template_part( 'template-parts/block-post-featured' );
-						endforeach;
-					echo '</div>';
+				echo '<div class="post-block--featured__label"><span>Featured</span></div>';
+				echo '<div class="post-block--featured">';
+					foreach( $featured_post as $post ):
+						// Setup this post for WP functions (variable must be named $post).
+						setup_postdata($post);
+						get_template_part( 'template-parts/block-post-featured' );
+					endforeach;
+				echo '</div>';
 				// Reset the global post object so that the rest of the page works correctly.
 				wp_reset_postdata();
 			}
