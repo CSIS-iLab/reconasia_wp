@@ -277,7 +277,7 @@ if (! function_exists('reconasia_display_tags')) :
 	function reconasia_display_tags() {
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list('<ul class="post-meta__tags"><li>', '</li><li>', '</li></ul>');
+		$tags_list = get_the_tag_list('<ul class="post-meta__tags"><li class="btn btn--dark">', '</li><li class="btn btn--dark">', '</li></ul>');
 
 		if ( $tags_list ) {
 			/* translators: 1: list of tags. */

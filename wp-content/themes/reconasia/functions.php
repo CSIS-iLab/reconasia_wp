@@ -168,7 +168,7 @@ function reconasia_register_styles() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
-wp_enqueue_style( 'reconasia-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Public+Sans:wght@700&display=swap', array(), $theme_version );
+wp_enqueue_style( 'reconasia-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Public+Sans:wght@700&display=swap', array(), null );
 
 	wp_enqueue_style( 'reconasia-style', get_stylesheet_directory_uri() . '/style.min.css', array(), $theme_version );
 
@@ -603,3 +603,10 @@ function reconasia_filter_excerpt ($post_excerpt) {
   return $post_excerpt;
 }
 add_filter ('get_the_excerpt','reconasia_filter_excerpt');
+
+
+/** Modify Tag List Classes */
+function reconasia_filter_post_tag_term_links( $links ) {
+	return str_replace('<a href="', '<a class="btn--xsmall" href="', $links);
+}
+add_filter( 'term_links-post_tag', 'reconasia_filter_post_tag_term_links' );
