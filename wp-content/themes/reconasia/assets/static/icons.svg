@@ -68,5 +68,21 @@
 <title>External Link</title>
 <path d="M11.39 1.667H8.668V.333h4.057l.014-.014.014.014h.915v.915l.014.014-.014.014v4.057h-1.334V2.61L7 7.943 6.057 7l5.333-5.333z" /><path d="M.333.333v13.334h13.334v-6.99h-1.334v5.656H1.667V1.667h5.485V.333H.333z" />
 </symbol>
+<symbol id="icon-light-arrow" viewBox="0 0 19 32">
+<title>light-arrow</title>
+<path fill="#b4d0d0" style="fill: var(--color1, #b4d0d0)" d="M18.462 16.833l-18.462-15.833v30l18.462-14.167z"></path>
+</symbol>
+<symbol id="icon-medium-light-arrow" viewBox="0 0 19 32">
+<title>medium-light-arrow</title>
+<path fill="#6abeb0" style="fill: var(--color2, #6abeb0)" d="M18.462 16.833l-18.462-15.833v30l18.462-14.167z"></path>
+</symbol>
+<symbol id="icon-dark-arrow" viewBox="0 0 19 32">
+<title>dark-arrow</title>
+<path fill="#2c6565" style="fill: var(--color3, #2c6565)" d="M18.462 16.833l-18.462-15.833v30l18.462-14.167z"></path>
+</symbol>
+<symbol id="icon-medium-dark-arrow" viewBox="0 0 19 32">
+<title>medium-dark-arrow</title>
+<path fill="#3d8283" style="fill: var(--color4, #3d8283)" d="M18.462 16.833l-18.462-15.833v30l18.462-14.167z"></path>
+</symbol>
 </defs>
 </svg>
