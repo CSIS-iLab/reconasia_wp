@@ -73,8 +73,13 @@ get_header();
 		wp_reset_postdata();
 		echo '</section>';
 
-	endif;
+	endif; ?>
 
+<section class="home__cta">
+	<a href="/analysis" class="btn btn--outline-dark btn--med">All Posts <?php echo reconasia_get_svg( "chevron-right" ); ?></a>
+</section>
+
+	<?php
 	$featured_content = get_field('featured_content');
 
 	if ( $featured_content ) :
