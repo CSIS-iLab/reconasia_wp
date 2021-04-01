@@ -15,7 +15,7 @@
     color: $color-white-190;
     text-transform: uppercase;
     background-color: $color-bg-dark-200;
-    @include shadow('lg');
+    // @include shadow('lg');
     @extend %text-style-label-small;
     // @include full-width-background($color-bg-dark-200);
 
@@ -30,6 +30,7 @@
       height: 100%;
       background-color: $color-bg-dark-200;
       border: 5px;
+      @include shadow('lg');
     }
 
     &::after {
@@ -43,6 +44,7 @@
       background-color: $color-bg-dark-200;
       // border-radius: 10px 10px 0 0;
       transform: skewX(30deg);
+      @include shadow('lg');
     }
     
     span {
@@ -57,7 +59,17 @@
     background-color: $color-bg-dark-200;
     @include shadow('lg');
 
-    @include full-width-background($color-bg-dark-200);
+    // @include full-width-background($color-bg-dark-200);
+
+    &::before,
+    &::after {   
+      content: '';
+      display: block;
+      @include full-width-background($color-bg-dark-200);
+      
+      // z-index: -1;
+      @include shadow('lg');
+    }
         
     // &::after {
     //   display: block;
@@ -79,15 +91,24 @@
       }
     }
     
-    @include breakpoint('medium') {
+    @include breakpoint('small') {
       padding-bottom: rem(40);
-      
+
+      &::before,
+      &::after {   
+        // margin: 21px;
+        z-index: -1;
+        @include shadow('lg');
+      }
+
       &:not(:last-child) {
         margin-bottom: rem(16);
         // @include shadow('lg');
 
         // &::before,
-        // &::after {      
+        // &::after {   
+        //   // margin: 21px;
+
         //   @include shadow('lg');
         // }
       }
