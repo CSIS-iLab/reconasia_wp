@@ -1,9 +1,7 @@
 @use 'abstracts' as *;
 
 .post-block--featured {
-  // position: relative;
   margin-top: 0;
-  // @include shadow('lg');
 
   &__label {
     position: relative;
@@ -15,9 +13,8 @@
     color: $color-white-190;
     text-transform: uppercase;
     background-color: $color-bg-dark-200;
-    // @include shadow('lg');
+
     @extend %text-style-label-small;
-    // @include full-width-background($color-bg-dark-200);
 
     &::before {
       content: '';
@@ -30,7 +27,12 @@
       height: 100%;
       background-color: $color-bg-dark-200;
       border: 5px;
+
       @include shadow('lg');
+
+      @include breakpoint('small') {
+        @include full-width-background($color-bg-light-100);
+      }
     }
 
     &::after {
@@ -42,40 +44,33 @@
       width: 40px;
       height: rem(30);
       background-color: $color-bg-dark-200;
-      // border-radius: 10px 10px 0 0;
       transform: skewX(30deg);
+
       @include shadow('lg');
+
+      @include breakpoint('small') {
+        width: 60px;
+        padding-left: rem(24);
+      }
     }
     
     span {
       height: fit-content;
+      
+      @include breakpoint('small') {
+        padding-left: rem(24);
+      }
     }
-
   }
   
   .post-block {
     padding-top: rem(16);
     padding-bottom: rem(24);
     background-color: $color-bg-dark-200;
+
     @include shadow('lg');
 
-    // @include full-width-background($color-bg-dark-200);
-
-    &::before,
-    &::after {   
-      content: '';
-      display: block;
-      @include full-width-background($color-bg-dark-200);
-      
-      // z-index: -1;
-      @include shadow('lg');
-    }
-        
-    // &::after {
-    //   display: block;
-    //   content: '';
-    //   @include shadow('lg');
-    // }
+    @include full-width-background($color-bg-dark-200);
 
     &.has-post-thumbnail {
       @include breakpoint('medium') {
@@ -92,25 +87,14 @@
     }
     
     @include breakpoint('small') {
+      padding-right: rem(24);
       padding-bottom: rem(40);
-
-      &::before,
-      &::after {   
-        // margin: 21px;
-        z-index: -1;
-        @include shadow('lg');
-      }
+      padding-left: rem(24);
+      
+      @include full-width-background($color-bg-light-100);
 
       &:not(:last-child) {
         margin-bottom: rem(16);
-        // @include shadow('lg');
-
-        // &::before,
-        // &::after {   
-        //   // margin: 21px;
-
-        //   @include shadow('lg');
-        // }
       }
     }
 
@@ -118,8 +102,6 @@
       padding-top: rem(48);
       padding-bottom: rem(48);      
     }
-
-
     
     &__title {
       color: $color-white-190;
@@ -156,18 +138,17 @@
     &__categories {
       color: $color-accent-dark-primary-400;
 
-      a:not(:last-of-type)::after {
-        border-right: 1px solid $color-border-light-130;
-      }
-
       a:hover {
         color: $color-white-100;
-        transition: color 0.3s ease-in-out;
       }
 
       a:focus {
         color: $color-white-100;
         background: $color-bg-dark-400;
+      }
+
+      li:not(:last-of-type)::after {
+        border-right: 1px solid $color-border-light-130;
       }
     }
   }

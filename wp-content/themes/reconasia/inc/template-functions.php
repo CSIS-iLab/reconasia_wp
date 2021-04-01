@@ -321,4 +321,3 @@ if ( class_exists( 'easyFootnotes' ) ) {
     }
     add_filter('the_content', 'reconasia_remove_easy_footnotes', 20);
 }
-
