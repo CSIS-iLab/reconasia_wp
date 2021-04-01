@@ -96,6 +96,10 @@
     grid-area: cta;
     padding-top: rem(40);
     padding-bottom: rem(40);
+
+    .icon {
+      margin-left: rem(8);
+    }
   }
 
   &__featured-content {
