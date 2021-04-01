@@ -31,7 +31,7 @@
   }
 
   &--small {
-    @extend %text-style-label-small-strong;
+    @extend %text-style-label-small-strong-caps;
   }
 
   &--med {
@@ -39,7 +39,7 @@
   }
 
   // The default font size for buttons. Override by using one of the other modifier classes.
-  &,
+  // &,
   &--large {
     @extend %text-style-label-large;
   }
