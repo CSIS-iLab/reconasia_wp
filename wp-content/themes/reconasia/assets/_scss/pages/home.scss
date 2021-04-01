@@ -51,19 +51,9 @@
   }
 
   .post-block--post {
-    // &:not(:last-child) {
-    //   margin-bottom: rem(16);
-    //   padding-bottom: rem(16);
-    //   border-bottom: 1px solid $color-black-130;
-    // }
-
     > *:not(:first-child):not(:last-child) {
       margin-bottom: rem(8);
     }
-
-    // .post-block__title {
-    //   // @extend %font-heading-xl-sans;
-    // }
   }
 
   &__featured-primary {
