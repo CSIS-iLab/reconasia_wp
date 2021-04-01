@@ -70,13 +70,93 @@
     @include csis-block-full-width-wrapper();
     position: relative;
     grid-area: header;
+    padding-top: rem(80);
+    padding-right: 6vw;
+    padding-bottom: rem(16);
+    padding-left: 6vw;
+
+    @include breakpoint('small') {
+      padding-top: rem(160);
+      padding-bottom: rem(32);
+    }
+
+    @include breakpoint('medium') {
+      padding-bottom: rem(40);
+    }
+
+    @include breakpoint('large') {
+      padding-bottom: rem(56);
+    }
+
+    &-label,
+    .post-meta__authors,
+    .post-meta__authors a {
+      color: $color-white-190;
+    }
+
+    .post-meta__date {
+      color: $color-white-165;
+    }
+
+    &-label {
+      @extend %text-style-label-small;
+      display: flex;
+      align-items: flex-end;
+      width: fit-content;
+      height: rem(30);
+      padding-right: rem(22);
+      padding-left: rem(16);
+      font-weight: normal;
+      text-transform: uppercase;
+      background: $color-bg-dark-290;
+      clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
+
+      @include breakpoint('medium') {
+        padding-right: rem(32);
+        padding-left: rem(24);
+      }
+    }
+
+    .post-block {
+      margin-top: 0;
+      padding: rem(16);
+      background: $color-bg-dark-290;
+
+      @include breakpoint('medium') {
+        padding: rem(24);
+      }
+
+      @include breakpoint('large') {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin-left: 0;
+        padding: rem(32) rem(40);
+      }
+
+      &__title,
+      &__excerpt {
+        color: $color-white-190;
+      }
+
+      &__title {
+        @extend %text-style-heading-2-x-large;
+      }
+
+      &__excerpt {
+        @extend %text-style-paragraph-large-short;
+      }
+    }
 
     .post-block__img {
+      margin: 0;
+
       img {
         @include vw100();
         position: absolute;
         top: 0;
         left: 0;
+        height: 100%;
         object-fit: cover;
         @include z-index(hpHeaderImg);
       }

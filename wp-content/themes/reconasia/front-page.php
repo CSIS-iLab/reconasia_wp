@@ -20,6 +20,8 @@ get_header();
 	if ( $featured_primary_post ) :
 
 		echo '<section class="home__featured-primary">';
+		echo '<h2 class="home__featured-primary-label">Featured</h2>';
+
 
 		foreach ( $featured_primary_post as $post ) :
 
@@ -29,6 +31,7 @@ get_header();
 		endforeach;
 
 		wp_reset_postdata();
+
 		echo '</section>';
 
 	endif; ?>
