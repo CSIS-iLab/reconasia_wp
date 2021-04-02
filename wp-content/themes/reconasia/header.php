@@ -29,19 +29,17 @@
 		?>
 		<?php reconasia_get_svg_icons(); ?>
 
-		<header id="site-header" class="header" role="banner">
+	<header class="header">
+		<div class="header__nav">
+			<label class="header__toggle" for="toggle">&#9776;</label>
 			<a href="<?php echo get_home_url(); ?>" class="header__logo" title="Go home"><?php include( get_template_directory() . '/assets/static/csisra-logo.svg'); ?></a>
-			<input type="checkbox" id="nav-toggle" class="nav-toggle">
-			<nav>
-				<ul>
-					<li><a href="#">Topics</a></li>
-					<li><a href="#">Maps & Data</a></li>
-					<li><a href="#">About</a></li>
-				</ul>
-			</nav>
-			<label for="nav-toggle" class="nav-toggle-label">
-				<span></span>
-			</label>
+			<input type="checkbox" id="toggle"/>
+			<div class="header__menu">
+				<a href="#">Topics</a>
+				<a href="#">Maps & Data</a>
+				<a href="#">About</a>
+				<!-- site-header -->
+			</div>
 			<!-- <a class="header__search-icon"><?php echo reconasia_get_svg( 'search' ); ?></a> -->
-			</header><!-- #site-header -->
-		<div class="container">
+		</div>
+	</header>	
