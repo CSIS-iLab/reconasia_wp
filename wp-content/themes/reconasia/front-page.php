@@ -37,13 +37,14 @@ get_header();
 	endif; ?>
 
 	<section class="home__recent">
-		<h2 class="home__recent-section-title"><?php _e( 'Recent Posts', 'reconasia' ); ?></h2>
+		<h2 class="home__recent-label"><?php _e( 'Recent Posts', 'reconasia' ); ?></h2>
 		<?php
+		echo reconasia_get_svg( "3-arrows" );
 
 		$most_recent_args = array(
 			'post_type' => 'post',
 			'post_status' => 'publish',
-			'posts_per_page' => 5
+			'posts_per_page' => 4
 		);
 
 		$most_recent_posts = new WP_Query( $most_recent_args );

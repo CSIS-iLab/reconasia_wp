@@ -2,6 +2,8 @@
 @use '../components/home-issue-block';
 
 .home {
+  background: $color-bg-light-200;
+
   #site-content {
     grid-template-areas:
       'header header'
@@ -12,7 +14,7 @@
 
     @include breakpoint('large') {
       display: grid;
-      grid-auto-columns: 2fr 1fr;
+      grid-auto-columns: auto rem(330);
       margin-top: rem(24);
     }
 
@@ -22,37 +24,85 @@
     }
   }
 
+  .post-block {
+    &__title,
+    .post-meta__date {
+      margin-bottom: rem(8);
+    }
+
+    &__excerpt {
+      margin-bottom: rem(16);
+    }
+  }
+
+  &__recent,
+  &__featured-primary {
+    &-label,
+    .post-meta__authors,
+    .post-meta__authors a,
+    .post-block__title,
+    .post-block__excerpt {
+      color: $color-white-190;
+    }
+
+    .post-meta__date {
+      color: $color-white-165;
+    }
+  }
+
   &__recent {
     position: relative;
     z-index: 1;
     grid-area: recent;
+    padding-top: rem(24);
+    padding-bottom: rem(32);
+    background: $color-bg-dark-200;
+    @include full-width-background($color-bg-dark-200);
 
-    &:only-child {
-      max-width: 800px;
-      margin-right: auto;
-      margin-left: auto;
+    @include breakpoint('small') {
+      @include full-width-background(transparent);
+      padding-right: rem(24);
+      padding-left: rem(24);
+    }
+
+    &-label {
+      @extend %text-style-heading-large-strong;
+    }
+
+    .icon-3-arrows {
+      width: rem(36);
+      height: rem(18);
+      margin-top: rem(4);
     }
 
     .post-block {
-      &:first-of-type {
-        @include breakpoint('medium') {
-          grid-template-areas:
-            'img'
-            'title'
-            'excerpt'
-            'authors'
-            'date'
-            'categories';
-          grid-template-columns: 1fr;
-          grid-template-rows: auto;
-        }
-      }
-    }
-  }
+      display: block;
+      padding-bottom: rem(32);
 
-  .post-block--post {
-    > *:not(:first-child):not(:last-child) {
-      margin-bottom: rem(8);
+      &:not(:last-child) {
+        border-bottom: 1px solid $color-border-light-115;
+      }
+
+      &:first-of-type {
+        margin-top: rem(32);
+      }
+
+      &__img {
+        display: none;
+      }
+
+      &__title,
+      .post-meta__date {
+        margin-bottom: rem(16);
+      }
+
+      &__excerpt {
+        margin-bottom: rem(8);
+      }
+
+      .post-meta__categories li:not(:last-of-type):after {
+        border-right: 1px solid $color-border-light-130;
+      }
     }
   }
 
@@ -60,10 +110,7 @@
     @include csis-block-full-width-wrapper();
     position: relative;
     grid-area: header;
-    padding-top: rem(80);
-    padding-right: 6vw;
-    padding-bottom: rem(16);
-    padding-left: 6vw;
+    padding: rem(80) 6vw rem(16);
 
     @include breakpoint('small') {
       padding-top: rem(160);
@@ -76,16 +123,6 @@
 
     @include breakpoint('large') {
       padding-bottom: rem(56);
-    }
-
-    &-label,
-    .post-meta__authors,
-    .post-meta__authors a {
-      color: $color-white-190;
-    }
-
-    .post-meta__date {
-      color: $color-white-165;
     }
 
     &-label {
@@ -123,12 +160,6 @@
         margin-left: 0;
         padding: rem(32) rem(40);
       }
-
-      &__title,
-      &__excerpt {
-        color: $color-white-190;
-      }
-
       &__title {
         @extend %text-style-heading-2-x-large;
       }
@@ -139,8 +170,6 @@
     }
 
     .post-block__img {
-      margin: 0;
-
       img {
         @include vw100();
         position: absolute;
@@ -155,6 +184,14 @@
 
   &__featured-secondary {
     grid-area: featured;
+    background: $color-bg-light-100;
+    @include full-width-background($color-bg-light-100);
+
+    @include breakpoint('small') {
+      padding-right: rem(24);
+      padding-left: rem(24);
+      @include full-width-background(transparent);
+    }
 
     .post-block {
       padding-bottom: rem(24);
@@ -167,6 +204,12 @@
       &:first-child {
         display: flex;
         flex-direction: column;
+        margin-top: 0;
+        padding-top: rem(40);
+
+        @include breakpoint('small') {
+          margin-top: rem(40);
+        }
 
         /* stylelint-disable-next-line */
         .post-block__img {
@@ -186,8 +229,8 @@
     grid-area: cta;
     padding-top: rem(40);
     padding-bottom: rem(40);
-    background: $color-gray-bg;
-    @include full-width-background($color-gray-bg, '', false);
+    background: $color-bg-light-200;
+    @include full-width-background($color-bg-light-200, '', false);
 
     .icon {
       margin-left: rem(8);
