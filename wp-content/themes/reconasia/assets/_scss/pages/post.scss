@@ -156,10 +156,13 @@
   }
 
   &-meta__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(16);
+
     li {
-      display: inline-block;
-      margin: 0 rem(16) rem(16) 0;
       padding: 0;
+      white-space: nowrap;
 
       a {
         display: flex;
