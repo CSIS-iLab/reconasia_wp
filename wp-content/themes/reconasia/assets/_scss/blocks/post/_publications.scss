@@ -62,7 +62,14 @@
 
       a {
         color: $color-black-190;
+        text-transform: unset;
         box-shadow: none;
+        @include font-size(18px);
+
+        /* stylelint-disable-next-line */
+        &:after {
+          display: none !important;
+        }
       }
     }
 

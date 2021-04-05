@@ -73,13 +73,22 @@
   }
 
   /*----------  Links  ----------*/
+
   a:not([class]) {
     color: $color-link-primary-200;
+    font-family: $font__lato;
+    text-transform: uppercase;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
+    @include font-size(16px);
 
     &:hover {
       color: $color-bg-dark-100;
+    }
+
+    &:focus {
+      color: $color-bg-dark-100;
+      background: $color-bg-light-300;
     }
 
     /* stylelint-disable */
@@ -88,6 +97,7 @@
       &::after {
         content: '';
         position: relative;
+        top: 1px;
         left: 3px;
         display: inline-block;
         width: 0.8em;
@@ -100,8 +110,35 @@
       }
 
       &:hover::after {
-        filter: invert(1%) sepia(24%) saturate(2722%) hue-rotate(190deg)
-          brightness(90%) contrast(91%);
+        filter: invert(4%) sepia(6%) saturate(2132%) hue-rotate(176deg) brightness(90%) contrast(96%);
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  .post {
+    p > a {
+      color:$color-link-primary-200;
+      text-decoration: underline;
+      text-transform: unset;
+
+      &:hover {
+        color: $color-accent-light-primary-100;
+        text-decoration: none;
+      }
+
+      &:focus {
+        color: $color-accent-light-primary-100;
+        background: $color-bg-light-400;
+      }
+
+      &:visited {
+        color: $color-accent-light-primary-100;
+        text-decoration: underline;
+      }
+
+      &:after {
+        display: none !important;
       }
     }
   }
@@ -130,6 +167,10 @@
         tr:nth-child(odd) {
           background-color: $color-white-100;
         }
+      }
+
+      th {
+        border-top: 1px solid rgba(0, 0, 0, 0.15);
       }
 
       table td + td,
