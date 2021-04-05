@@ -92,7 +92,7 @@
 }
 
 .card {
-  width: 100%;
+  flex: 0 0 50%;
   padding: rem(24) 6vw;
 
   &__wrapper {
