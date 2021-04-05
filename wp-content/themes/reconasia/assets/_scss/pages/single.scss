@@ -55,8 +55,8 @@
 
     ul,
     ol {
-      margin: rem(8) 0 rem(24);
-      padding-left: rem(48);
+      margin-top: rem(16);
+      padding-left: rem(52);
       @extend %text-style-paragraph-medium-long;
       line-height: 1.4 !important;
     }
@@ -68,6 +68,7 @@
     ol::marker,
     li::marker {
       color: $color-link-primary-200;
+      @extend %text-style-label-large;
     }
   }
 
