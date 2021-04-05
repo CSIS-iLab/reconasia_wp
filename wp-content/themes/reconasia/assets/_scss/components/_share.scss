@@ -25,31 +25,19 @@
     }
 
     &:focus {
-      outline: 1px solid var(--icon-fill);
+      background: $color-bg-light-200;
     }
 
     img {
       filter: var(--icon-fill);
     }
-   
   }
 
-  /* stylelint-disable-next-line */
-  .a2a_svg {
-    padding: 2px;
-    border-radius: 50% !important;
-    transition: background 0.3s ease-in-out;
-  }
-
-  /* stylelint-disable-next-line */
-  .a2a_button_youtube {
-    position: relative;
-    top: 3px;
-  }
-
-  .single__footer &, 
+  .single__footer &
+  ,
   .single__content & {
-    --icon-fill: invert(31%) sepia(62%) saturate(350%) hue-rotate(131deg) brightness(94%) contrast(92%); 
+    --icon-fill: invert(31%) sepia(62%) saturate(350%) hue-rotate(131deg) brightness(94%) contrast(92%);
+
     --icon-fill-hover: invert(0%) sepia(40%) saturate(1505%) hue-rotate(213deg) brightness(117%) contrast(108%) #{$shadow--1};
 
 
@@ -62,11 +50,11 @@
     &::before {
       content: 'Share';
       margin-right: rem(12);
-      filter: var(--icon-fill);
-      opacity: 0.8;
-      @extend %text-style-label-large;
       font-weight: 600;
       text-transform: uppercase;
+      opacity: 0.8;
+      filter: var(--icon-fill);
+      @extend %text-style-label-large;
     }
   }
 }
