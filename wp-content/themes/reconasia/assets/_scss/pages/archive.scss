@@ -43,7 +43,7 @@
       text-transform: uppercase;
       background-color: $color-bg-dark-200;
       @include shadow('lg');
-      clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
+      clip-path: polygon(0 0, 85% 0, 100% 101%, 0% 101%);
 
       @include breakpoint('small') {
         padding-left: rem(24);
