@@ -13,6 +13,7 @@ get_header();
 <main id="site-content" role="main">
 
 	<?php
+		get_template_part( 'template-parts/entry-header' );
 		if (class_exists('ACF') && !is_paged()) {
 			$term = get_queried_object();
 			// vars
@@ -34,13 +35,14 @@ get_header();
 		}
 
 		if ( have_posts() ) {
+			reconasia_pagination_number_of_posts();
 			while ( have_posts() ) {
 				the_post();
 				get_template_part( 'template-parts/block', get_post_type() );
 			}
 			wp_reset_postdata();
 		}
-
+		get_template_part( 'template-parts/pagination' );
 	?>
 
 </main><!-- #site-content -->
