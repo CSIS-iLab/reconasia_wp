@@ -5,17 +5,29 @@
   @extend %text-style-label-large-caps;
 
   &__nav {
-    height: 70px;
+    height: auto;
     line-height: 70px;
-    text-align: right;
+    text-align: center;
+
+    @include breakpoint('medium') {
+      text-align: right;
+    }
   }
 
   &__logo {
+    width: 200px;
+    margin: auto;
+
     svg {
       width: rem(200);
       height: rem(15.15);
     }
+
     @include breakpoint('medium') {
+      display: block;
+      float: left;
+      margin-left: 20px;
+
       svg {
         width: rem(330);
         height: rem(25);
@@ -35,16 +47,50 @@
       color: $color-white-190;
       line-height: 70px;
     }
+    
 
     @include breakpoint('medium') {
-      display: inline;
-      padding-right: 20px;
+      display: inline !important;
       text-align: right;
 
       a {
         display: initial;
-        margin-right: 28px;
         text-decoration: none;
+      }
+
+      :first-child,
+      :nth-child(2) {
+        margin-right: 28px;
+      }
+    }
+  }
+
+  &__search-icon-mobile {
+    display: block;
+    float: right;
+    padding-right: 20px;
+    color: $color-white-190;
+    
+    @include breakpoint('medium') {
+      display: none;
+    }
+  }
+
+  &__search-icon {
+    display: none;
+    
+    @include breakpoint('medium') {
+      display: inline-block;
+      height: 24px;
+      margin-right: 20px;
+      padding-left: 22px;
+      color: $color-white-165;
+
+      &::before {
+        height: 50%;
+        content: ' ';
+        padding-right: 20px;
+        border-left: 1px $color-white-115 solid;
       }
     }
   }
@@ -68,7 +114,7 @@
     display: none;
   }
 
-  #toggle:checked + &__menu{
+  #toggle:checked + &__menu {
     display: block;
   }
 }
