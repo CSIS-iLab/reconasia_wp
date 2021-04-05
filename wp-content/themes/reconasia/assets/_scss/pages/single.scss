@@ -28,8 +28,7 @@
 
     h2 {
       --heading-margin-top: #{rem(48)};
-      // @extend %font-heading-3-xl-serif;
-      // text-align: center;
+      @extend %text-style-heading-x-large;
 
       @include breakpoint('medium') {
         --heading-margin-top: #{rem(56)};
@@ -38,33 +37,16 @@
       @include breakpoint('large') {
         --heading-margin-top: #{rem(64)};
       }
-
-      // &::before {
-      //   content: '';
-      //   display: block;
-      //   width: 2px;
-      //   height: rem(48);
-      //   margin: 0 auto rem(12);
-      //   // background: $color-text-gray-30;
-      // }
     }
 
     h3 {
       --heading-margin-top: #{rem(40)};
-      // @extend %font-heading-2-xl-serif;
+      @extend %text-style-heading-large;
     }
 
     h4 {
       --heading-margin-top: #{rem(32)};
-      // @extend %font-heading-xl-serif;
-    }
-
-    h5 {
-      // @extend %font-heading-lg-serif;
-    }
-
-    h6 {
-      // @extend %font-heading-md-serif;
+      @extend %text-style-paragraph-x-large-short-sans;
     }
 
     /*----------  Paragraphs & Lists  ----------*/
@@ -89,6 +71,11 @@
     li + li {
       margin-top: rem(8);
     }
+
+    ol::marker,
+    li::marker {
+      color: $color-link-primary-200;
+    }
   }
 
   /*----------  Links  ----------*/
@@ -107,13 +94,13 @@
       &::after {
         content: '';
         position: relative;
-        left: 1px;
+        left: 3px;
         display: inline-block;
         width: 0.8em;
         height: 0.8em;
         background-image: url('/wp-content/themes/reconasia/assets/static/icons/arrow-external.svg');
         background-size: 100% 100%;
-        filter: invert(35%) sepia(98%) saturate(364%) hue-rotate(133deg) brightness(94%) contrast(92%);
+        filter: invert(37%) sepia(92%) saturate(344%) hue-rotate(133deg) brightness(93%) contrast(101%);
         transition: filter 0.3s ease-in-out;
       }
 
@@ -135,7 +122,7 @@
         width: 100%;
       }
 
-      &.is-style-regular {
+      &.is-style-stripes {
         thead {
           background-color: $color-bg-thead;
         }
@@ -144,13 +131,19 @@
           tr:nth-child(even) {
             background-color: $color-bg-tbody;
           }
+          tr:nth-child(odd) {
+            background-color: $color-white-100;
+          }
         }
-      }
 
-      tbody {
-        tr:nth-child(even) {
-          background-color: $color-bg-light-300;
+        table td + td, table th + th { 
+          border-left: 1px solid rgba(0, 0, 0, 0.15); 
         }
+
+        td {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        }
+
       }
 
       table {
@@ -175,10 +168,10 @@
         padding: rem(12);
       }
 
-      // figcaption {
-      //   color: $color-black-155;
-      //   @extend %font-ui-body-sm;
-      // }
+      figcaption {
+        color: $color-black-165;
+        @extend %text-style-label-medium;
+      }
     }
 
 
@@ -187,18 +180,6 @@
     max-width: $size__content-max-width;
     margin-right: auto;
     margin-left: auto;
-
-    // a:not([class]) {
-    //   // @include link-underline($color-primary-base);
-
-    //   &:hover {
-    //     // color: $color-primary-base;
-    //   }
-
-    //   &:visited {
-    //     // color: $color-text-gray-70;
-    //   }
-    // }
   }
 
   &__footer {

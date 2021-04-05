@@ -16,12 +16,17 @@
     &:hover {
       .csis-block__title,
       .csis-block__desc {
-        color: $color-link-primary-200;
+        color: $color-link-primary-200 !important;
       }
 
       .btn--dark {
         color: $color-white-100;
         background: $color-link-primary-200;
+      }
+      
+      /* stylelint-disable-next-line */
+      .csis-block__title a {
+        color: $color-link-primary-200;
       }
     }
 
@@ -56,12 +61,8 @@
       @extend %text-style-label-large-strong;
 
       a {
+        color: $color-black-190;
         box-shadow: none;
-
-        /* stylelint-disable-next-line */
-        &:hover {
-          // color: $color-primary-base;
-        }
       }
     }
 
