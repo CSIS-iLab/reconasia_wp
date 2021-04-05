@@ -197,6 +197,7 @@
 %text-style-paragraph-x-large-short-sans {
   @include font-size(22px);
   font-family: $font__lato;
+  font-weight: normal;
   line-height: 1.15;
   letter-spacing: 0.005em;
 }
