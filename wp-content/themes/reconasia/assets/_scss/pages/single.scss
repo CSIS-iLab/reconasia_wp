@@ -23,24 +23,17 @@
     h5,
     h6 {
       margin-top: var(--heading-margin-top, rem(24));
-      margin-bottom: rem(12);
+      margin-bottom: rem(8);
     }
 
     h2 {
-      --heading-margin-top: #{rem(48)};
+      --heading-margin-top: #{rem(56)};
+      margin-bottom: rem(16);
       @extend %text-style-heading-x-large;
-
-      @include breakpoint('medium') {
-        --heading-margin-top: #{rem(56)};
-      }
-
-      @include breakpoint('large') {
-        --heading-margin-top: #{rem(64)};
-      }
     }
 
     h3 {
-      --heading-margin-top: #{rem(40)};
+      --heading-margin-top: #{rem(32)};
       @extend %text-style-heading-large;
     }
 
@@ -55,7 +48,7 @@
     ul {
       color: $color-black-190;
     }
-  
+
     p {
       @extend %text-style-paragraph-large-long;
     }
@@ -100,80 +93,81 @@
         height: 0.8em;
         background-image: url('/wp-content/themes/reconasia/assets/static/icons/arrow-external.svg');
         background-size: 100% 100%;
-        filter: invert(37%) sepia(92%) saturate(344%) hue-rotate(133deg) brightness(93%) contrast(101%);
+        filter: invert(37%) sepia(92%) saturate(344%) hue-rotate(133deg)
+          brightness(93%) contrast(101%);
         transition: filter 0.3s ease-in-out;
       }
 
       &:hover::after {
-        filter: invert(1%) sepia(24%) saturate(2722%) hue-rotate(190deg) brightness(90%) contrast(91%);
+        filter: invert(1%) sepia(24%) saturate(2722%) hue-rotate(190deg)
+          brightness(90%) contrast(91%);
       }
     }
   }
 
   /*----------  Table  ----------*/
 
-    .wp-block-table {
-      color: $color-black-190;
-      border: 0 !important;
+  .wp-block-table {
+    color: $color-black-190;
+    border: 0 !important;
 
-      &.aligncenter,
-      &.alignleft,
-      &.alignright {
-        width: 100%;
-      }
+    &.aligncenter,
+    &.alignleft,
+    &.alignright {
+      width: 100%;
+    }
 
-      &.is-style-stripes {
-        thead {
-          background-color: $color-bg-thead;
-        }
-
-        tbody {
-          tr:nth-child(even) {
-            background-color: $color-bg-tbody;
-          }
-          tr:nth-child(odd) {
-            background-color: $color-white-100;
-          }
-        }
-
-        table td + td, table th + th { 
-          border-left: 1px solid rgba(0, 0, 0, 0.15); 
-        }
-
-        td {
-          border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-        }
-
-      }
-
-      table {
-        width: 100%;
-        margin-top: rem(16px);
-        margin-bottom: rem(8px);
-        @extend %text-style-paragraph-large-short-sans;
-        border-collapse: collapse;
-      }
-
+    &.is-style-stripes {
       thead {
-        @extend %text-style-label-large-strong;
+        background-color: $color-bg-thead;
+      }
 
-        th {
-          border-bottom:  1px solid rgba(0, 0, 0, 0.3) !important;
-          text-align: left;
+      tbody {
+        tr:nth-child(even) {
+          background-color: $color-bg-tbody;
+        }
+        tr:nth-child(odd) {
+          background-color: $color-white-100;
         }
       }
 
-      th,
-      td {
-        padding: rem(12);
+      table td + td,
+      table th + th {
+        border-left: 1px solid rgba(0, 0, 0, 0.15);
       }
 
-      figcaption {
-        color: $color-black-165;
-        @extend %text-style-label-medium;
+      td {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
       }
     }
 
+    table {
+      width: 100%;
+      margin-top: rem(16px);
+      margin-bottom: rem(8px);
+      @extend %text-style-paragraph-large-short-sans;
+      border-collapse: collapse;
+    }
+
+    thead {
+      @extend %text-style-label-large-strong;
+
+      th {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3) !important;
+        text-align: left;
+      }
+    }
+
+    th,
+    td {
+      padding: rem(12);
+    }
+
+    figcaption {
+      color: $color-black-165;
+      @extend %text-style-label-medium;
+    }
+  }
 
   &__content,
   &__footer {
