@@ -603,10 +603,3 @@ function reconasia_filter_excerpt ($post_excerpt) {
   return $post_excerpt;
 }
 add_filter ('get_the_excerpt','reconasia_filter_excerpt');
-
-
-/** Modify Tag List Classes */
-function reconasia_filter_post_tag_term_links( $links ) {
-	return str_replace('<a href="', '<a class="btn--xsmall" href="', $links);
-}
-add_filter( 'term_links-post_tag', 'reconasia_filter_post_tag_term_links' );
