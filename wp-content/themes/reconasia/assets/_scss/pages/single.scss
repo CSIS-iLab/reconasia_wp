@@ -34,7 +34,7 @@
 
     h3 {
       --heading-margin-top: #{rem(32)};
-      @extend %text-style-heading-large;
+      @extend %text-style-heading-large-strong;
     }
 
     h4 {
@@ -59,6 +59,10 @@
       padding-left: rem(52);
       @extend %text-style-paragraph-medium-long;
       line-height: 1.4 !important;
+    }
+
+    li {
+      padding-left: rem(12);
     }
 
     li + li {
@@ -169,16 +173,16 @@
       }
 
       th {
-        border-top: 1px solid rgba(0, 0, 0, 0.15);
+        border-top: 1px solid $color-black-115;
       }
 
       table td + td,
       table th + th {
-        border-left: 1px solid rgba(0, 0, 0, 0.15);
+        border-left: 1px solid $color-black-115;
       }
 
       td {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        border-bottom: 1px solid $color-black-115;
       }
     }
 
@@ -194,7 +198,7 @@
       @extend %text-style-label-large-strong;
 
       th {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.3) !important;
+        border-bottom: 1px solid $color-black-130 !important;
         text-align: left;
       }
     }
@@ -207,6 +211,13 @@
     figcaption {
       color: $color-black-165;
       @extend %text-style-label-medium;
+
+      &:after {
+        content: '';
+        display: block;
+        border-bottom: 1px solid $color-black-130;
+        width: 50px; 
+      }
     }
   }
 
