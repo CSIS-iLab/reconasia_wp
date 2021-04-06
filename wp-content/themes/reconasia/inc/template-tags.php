@@ -344,7 +344,7 @@ if (! function_exists('reconasia_pagination_number_of_posts')) :
 
 		if ( $total_posts > 0 ) {
 			/* translators: 1: list of tags. */
-			printf( '<h2 class="pagination__results">' . esc_html__( '%1$s', 'reconasia' ) . ' Items, Page ' . esc_html__( '%2$s', 'reconasia' ) . ' of ' . esc_html__( '%3$s', 'reconasia' ) . '</div>', $total_posts, $page, $pages ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf( '<h2 class="pagination__results">' . esc_html__( '%1$s', 'reconasia' ) . ' Items, Page ' . esc_html__( '%2$s', 'reconasia' ) . ' of ' . esc_html__( '%3$s', 'reconasia' ) . '</h2>', $total_posts, $page, $pages ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 endif;
