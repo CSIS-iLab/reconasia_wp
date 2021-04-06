@@ -9,43 +9,43 @@
   a {
     display: flex !important;
     align-items: center;
+    color: var(--icon-fill);
 
     &:first-of-type {
       margin-left: -4px;
     }
 
-    &:hover path {
-      // fill: $color-text-gray-05;
+    &:hover {
+      --icon-fill: var(--icon-fill-hover);
+      color: var(--icon-fill-hover);
+
+      img {
+        opacity: 0.9 !important;
+      }
     }
 
-    path {
-      transition: fill 0.3s ease-in-out;
-      // fill: $color-text-gray-70;
+    &:focus {
+      background: $color-bg-light-200;
+    }
+
+    img {
+      filter: var(--icon-fill);
     }
   }
 
   /* stylelint-disable-next-line */
-  .a2a_svg {
-    padding: 2px;
-    border-radius: 50% !important;
-    transition: background 0.3s ease-in-out;
-  }
-
-  // @each $company, $color in $social {
-  //   .a2a_button_#{$company}:hover .a2a_svg {
-  //     background: $color !important;
-  //     opacity: 1 !important;
-  //   }
-  // }
-
-  /* stylelint-disable-next-line */
-  .a2a_button_youtube {
+  .a2a_button_email {
     position: relative;
-    top: 3px;
+    top: 2px;
   }
 
-  .single__footer & {
-    margin-bottom: rem(16);
+  .single__footer &
+  ,
+  .single__content & {
+    --icon-fill: invert(31%) sepia(62%) saturate(350%) hue-rotate(131deg) brightness(94%) contrast(92%);
+
+    --icon-fill-hover: invert(0%) sepia(40%) saturate(1505%) hue-rotate(213deg) brightness(117%) contrast(108%) #{$shadow--1};
+
 
     @include breakpoint('small') {
       width: fit-content;
@@ -53,38 +53,14 @@
       margin-left: auto;
     }
 
-    @include breakpoint('large') {
-      margin-top: rem(32);
-    }
-
     &::before {
       content: 'Share';
       margin-right: rem(12);
-      // color: $color-text-gray-50;
-      // @extend %font-label-lg;
       font-weight: 600;
       text-transform: uppercase;
-    }
-  }
-
-  .footer & {
-    @include breakpoint($break: 'medium', $dir: 'max-width') {
-      justify-content: center;
-    }
-
-    a {
-      flex: 1 1 auto;
-      max-width: fit-content;
-
-      /* stylelint-disable-next-line */
-      path {
-        // fill: $color-text-gray-10;
-      }
-
-      /* stylelint-disable-next-line */
-      &:hover path {
-        fill: $color-white-100;
-      }
+      opacity: 0.8;
+      filter: var(--icon-fill);
+      @extend %text-style-label-large;
     }
   }
 }

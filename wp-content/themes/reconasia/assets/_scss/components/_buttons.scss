@@ -39,7 +39,7 @@
   }
 
   // The default font size for buttons. Override by using one of the other modifier classes.
-  &,
+  &:not(.btn--xsmall):not(.btn--small):not(.btn--med),
   &--large {
     @extend %text-style-label-large;
   }

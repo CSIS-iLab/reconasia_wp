@@ -16,11 +16,11 @@
       color: $color-link-primary-200;
       
       &:hover {
-        color: $color-bg-dark-100;
+        --post-meta: #{$color-bg-dark-100};
       }
 
       &:focus {
-        color: $color-bg-dark-100;
+        --post-meta: #{$color-bg-dark-100};
         background: $color-bg-light-300;
       }
     }
@@ -29,11 +29,13 @@
   &__date {
     --post-meta: #{$color-black-165};
     margin-bottom: rem(8);
+
     @extend %text-style-label-small-strong-caps;
   }
 
   &__categories {
     --post-meta: #{$color-link-primary-200};
+
     @extend %text-style-label-x-small-strong-caps;
 
     li {
