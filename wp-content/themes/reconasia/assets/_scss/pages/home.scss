@@ -71,6 +71,7 @@
 
     @include breakpoint('large') {
       columns: unset;
+      margin-top: rem(-160);
     }
 
     &-label {
@@ -240,6 +241,10 @@
         .post-block__img {
           @include breakpoint('xlarge') {
             margin-bottom: rem(40);
+          }
+
+          img {
+            width: 100%;
           }
         }
       }
