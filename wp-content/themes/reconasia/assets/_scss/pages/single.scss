@@ -76,11 +76,10 @@
 
   a:not([class]) {
     color: $color-link-primary-200;
-    font-family: $font__lato;
+    @extend %text-style-label-small-strong-caps;
     text-transform: uppercase;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
-    @include font-size(16px);
 
     &:hover {
       color: $color-bg-dark-100;
