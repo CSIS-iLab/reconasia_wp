@@ -118,3 +118,14 @@
     display: block;
   }
 }
+
+.menu-item-has-children { 
+  position: relative;
+}
+
+.sub-menu { 
+  display: none;
+  position: absolute;
+  top: 100%; 
+  left: 0;
+}
