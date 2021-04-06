@@ -331,7 +331,8 @@ if ( class_exists( 'easyFootnotes' ) ) {
 function reconasia_exclude_related__posts_from_archive( $query ) {
 
 	if ( $query->is_main_query() && ! is_admin() && is_archive() ) {
-		$featured_post = get_field( 'featured_post', get_the_ID() );
+        $term = get_queried_object();
+		$featured_post = get_field( 'featured_post', $term );
 
 		if ( $featured_post ) {
 				$excluded_post_ids = array();

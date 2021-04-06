@@ -51,7 +51,7 @@ get_header();
 		$term = get_queried_object();
 		$cards = get_field('card', $term);
 
-		if( isset( $cards['page_link'] ) && !empty( $cards['page_link'] ) ) { ?>
+		if( $cards ) { ?>
 			<div class="cards__container">
 			<?php foreach( $cards as $card) { 
 				$link = $card['page_link'];
