@@ -114,6 +114,21 @@
     grid-area: copyright;
     margin-top: rem(16);
     text-align: left;
+
+    /* stylelint-disable */
+    a[href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])[href*="csis.org/privacy-policy"] {
+      &:hover {
+        color: $color-white-100;
+
+        &:after {
+          filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(217deg) brightness(106%)    contrast(106%);
+        }
+      }
+
+      &:focus {
+        color: $color-white-100;
+      }
+    }
   }
 
   &__newsletter {

@@ -87,7 +87,7 @@
         color: $color-accent-dark-primary-400;
 
         &:hover {
-          color: $color-white-100;
+          color: $color-white-100 !important;
         }
 
         &:focus {
