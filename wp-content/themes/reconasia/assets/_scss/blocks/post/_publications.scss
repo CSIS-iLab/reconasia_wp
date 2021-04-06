@@ -16,7 +16,7 @@
     &:hover {
       .csis-block__title,
       .csis-block__desc {
-        color: $color-link-primary-200 !important;
+        color: $color-link-primary-200;
       }
 
       .btn--dark {
@@ -58,13 +58,12 @@
     &__title {
       margin-bottom: rem(4);
       color: $color-black-190;
-      @extend %text-style-label-large-strong;
 
       a {
         color: $color-black-190;
         text-transform: unset;
         box-shadow: none;
-        @include font-size(18px);
+        @extend %text-style-label-large-strong;
 
         /* stylelint-disable-next-line */
         &:after {
