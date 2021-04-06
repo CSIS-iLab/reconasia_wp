@@ -181,7 +181,7 @@
       }
     }
 
-    li:not(:last-child) {  
+    li:not(:last-child) {
       &::after {
         content: '';
         border-right: 1px solid $color-border-dark-130;
@@ -195,19 +195,19 @@
       margin-bottom: rem(32);
       @include breakpoint('small') {
         margin-bottom: rem(24);
-      }  
+      }
       @include breakpoint('medium') {
         margin-bottom: rem(24);
-      }  
+      }
       @include breakpoint('large') {
         margin-bottom: rem(32);
-      }  
+      }
     }
   }
 }
 
 .cards__container {
-  @include vw100();
+  @include csis-block-full-width-wrapper;
 
   @include breakpoint('large') {
     display: flex;
@@ -217,6 +217,8 @@
 .card {
   flex: 0 0 50%;
   padding: rem(24) 6vw;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   &__wrapper {
     max-width: rem(400);

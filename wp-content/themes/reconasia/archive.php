@@ -73,12 +73,7 @@ get_header();
 			<?php }
 			} ?>
 		</div><!-- .cards__container -->
-		<?php }
-		else {
-			
-		}
-
-	?>
+		<?php } ?>
 
 </main><!-- #site-content -->
 
