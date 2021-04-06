@@ -139,6 +139,21 @@ function reconasia_theme_support() {
 add_action( 'after_setup_theme', 'reconasia_theme_support' );
 
 /**
+ * Register navigation menus uses wp_nav_menu in five places.
+ */
+function reconasia_menus() {
+
+	$locations = array(
+		'primary'  => __( 'Main Menu', 'reconasia' ),
+		'social'   => __( 'Social Menu', 'reconasia' ),
+	);
+
+	register_nav_menus( $locations );
+}
+
+add_action( 'init', 'reconasia_menus' );
+
+/**
  * REQUIRED FILES
  * Include required files.
  */
