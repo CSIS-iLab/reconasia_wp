@@ -41,6 +41,7 @@ get_header();
 		<?php
 		echo reconasia_get_svg( "3-arrows" );
 
+		echo '<div class="home__recent-posts">';
 		$most_recent_args = array(
 			'post_type' => 'post',
 			'post_status' => 'publish',
@@ -58,6 +59,7 @@ get_header();
 		}
 
 		?>
+		</div>
 	</section>
 
 	<?php

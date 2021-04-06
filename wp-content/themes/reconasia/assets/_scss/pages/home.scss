@@ -15,8 +15,8 @@
     @include breakpoint('large') {
       display: grid;
       grid-auto-columns: auto rem(330);
-      column-gap: rem(48);
       margin-top: rem(24);
+      column-gap: rem(48);
     }
 
     @include breakpoint('xlarge') {
@@ -65,12 +65,7 @@
       padding-left: rem(24);
     }
 
-    @include breakpoint('medium') {
-      columns: 2;
-    }
-
     @include breakpoint('large') {
-      columns: unset;
       margin-top: rem(-160);
     }
 
@@ -84,8 +79,23 @@
       margin-top: rem(4);
     }
 
+    &-posts {
+      margin-top: rem(32);
+
+      @include breakpoint('medium') {
+        columns: 2;
+        gap: rem(32);
+        display: inline-block;
+        margin-top: rem(16);
+      }
+
+      @include breakpoint('large') {
+        columns: unset;
+        margin-top: rem(32);
+      }
+    }
+
     .post-block {
-      break-inside: avoid;
       display: block;
       padding-bottom: rem(32);
 
@@ -94,7 +104,7 @@
       }
 
       &:first-of-type {
-        margin-top: rem(32);
+        margin-top: 0;
       }
 
       &__img {
@@ -243,6 +253,7 @@
             margin-bottom: rem(40);
           }
 
+          /* stylelint-disable-next-line */
           img {
             width: 100%;
           }
