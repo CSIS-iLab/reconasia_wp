@@ -58,7 +58,7 @@
       margin-bottom: rem(4);
       color: $color-black-190;
 
-      a {
+      a[href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"]) {
         color: $color-black-190;
         text-transform: unset;
         box-shadow: none;
