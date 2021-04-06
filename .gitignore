@@ -102,13 +102,13 @@ Thumbs.db
 
 # track these mu-plugins, plugins, and themes
 # add your own entries here
-!wp-content/themes/csisstarter
-!wp-content/themes/csisstarter/.eslintignore
-!wp-content/themes/csisstarter/.eslintrc.js
-!wp-content/themes/csisstarter/.stylelintrc.json
+!wp-content/themes/reconasia
+!wp-content/themes/reconasia/.eslintignore
+!wp-content/themes/reconasia/.eslintrc.js
+!wp-content/themes/reconasia/.stylelintrc.json
 
 wp-content/themes/*/**/*.css
-wp-content/themes/csisstarter/assets/images
-wp-content/themes/csisstarter/assets/js
+wp-content/themes/reconasia/assets/img
+wp-content/themes/reconasia/assets/js
 
 !.github/
