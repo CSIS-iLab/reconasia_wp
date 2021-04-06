@@ -195,7 +195,10 @@
 
     .post-block {
       padding-bottom: rem(24);
-      border-bottom: 1px solid $color-black-130;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $color-black-130;
+      }
 
       @include breakpoint('xlarge') {
         padding-bottom: rem(32);
