@@ -211,12 +211,15 @@
     figcaption {
       color: $color-black-165;
       @extend %text-style-label-medium;
+      margin-top: 0.75rem;
 
       &:after {
         content: '';
         display: block;
-        border-bottom: 1px solid $color-black-130;
-        width: 50px; 
+        background: $color-black-130;
+        height: .0625rem;
+        width: 2.5rem; 
+        margin-top: 0.75rem;
       }
     }
   }
