@@ -15,66 +15,213 @@
       display: none;
     }
 
+    /*----------  Headings  ----------*/
+
     h2,
     h3,
     h4,
     h5,
     h6 {
       margin-top: var(--heading-margin-top, rem(24));
-      margin-bottom: rem(12);
+      margin-bottom: rem(8);
     }
 
     h2 {
-      --heading-margin-top: #{rem(48)};
-      // @extend %font-heading-3-xl-serif;
-      text-align: center;
-
-      @include breakpoint('medium') {
-        --heading-margin-top: #{rem(56)};
-      }
-
-      @include breakpoint('large') {
-        --heading-margin-top: #{rem(64)};
-      }
-
-      &::before {
-        content: '';
-        display: block;
-        width: 2px;
-        height: rem(48);
-        margin: 0 auto rem(12);
-        // background: $color-text-gray-30;
-      }
+      --heading-margin-top: #{rem(56)};
+      margin-bottom: rem(16);
+      @extend %text-style-heading-x-large;
     }
 
     h3 {
-      --heading-margin-top: #{rem(40)};
-      // @extend %font-heading-2-xl-serif;
+      --heading-margin-top: #{rem(32)};
+      @extend %text-style-heading-large-strong;
     }
 
     h4 {
       --heading-margin-top: #{rem(32)};
-      // @extend %font-heading-xl-serif;
+      @extend %text-style-paragraph-x-large-short-sans;
     }
 
-    h5 {
-      // @extend %font-heading-lg-serif;
+    /*----------  Paragraphs & Lists  ----------*/
+
+    p,
+    ul {
+      color: $color-black-190;
     }
 
-    h6 {
-      // @extend %font-heading-md-serif;
+    p {
+      @extend %text-style-paragraph-large-long;
     }
 
     ul,
     ol {
-      margin: rem(8) 0 rem(24);
-      padding-left: rem(48);
-      // @extend %font-body-lg-post;
+      margin-top: rem(16);
+      padding-left: rem(52);
+      @extend %text-style-paragraph-medium-long;
       line-height: 1.4 !important;
+    }
+
+    li {
+      padding-left: rem(12);
     }
 
     li + li {
       margin-top: rem(8);
+    }
+
+    ol::marker,
+    li::marker {
+      color: $color-link-primary-200;
+      @extend %text-style-label-large;
+    }
+  }
+
+  /*----------  Links  ----------*/
+
+  a:not([class]) {
+    color: $color-link-primary-200;
+    @extend %text-style-label-small-strong-caps;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-bg-dark-100;
+    }
+
+    &:focus {
+      color: $color-bg-dark-100;
+      background: $color-bg-light-300;
+    }
+
+    /* stylelint-disable */
+    &[href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])
+    {
+      &::after {
+        content: '';
+        position: relative;
+        top: 1px;
+        left: 5px;
+        display: inline-block;
+        width: 0.8em;
+        height: 0.8em;
+        background-image: url('/wp-content/themes/reconasia/assets/static/icons/arrow-external.svg');
+        background-size: 100% 100%;
+        filter: invert(37%) sepia(92%) saturate(344%) hue-rotate(133deg)
+          brightness(93%) contrast(101%);
+        transition: filter 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        filter: invert(4%) sepia(6%) saturate(2132%) hue-rotate(176deg) brightness(90%) contrast(96%);
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  .post {
+    p > a {
+      color:$color-link-primary-200;
+      text-decoration: underline;
+      text-transform: unset;
+
+      &:hover {
+        color: $color-accent-light-primary-100;
+        text-decoration: none;
+      }
+
+      &:focus {
+        color: $color-accent-light-primary-100;
+        background: $color-bg-light-400;
+        text-decoration: none;
+      }
+
+      &:visited {
+        color: $color-accent-light-primary-100;
+        text-decoration: underline;
+      }
+
+      &:after {
+        display: none !important;
+      }
+    }
+  }
+
+  /*----------  Table  ----------*/
+
+  .wp-block-table {
+    color: $color-black-190;
+    border: 0 !important;
+
+    &.aligncenter,
+    &.alignleft,
+    &.alignright {
+      width: 100%;
+    }
+
+    &.is-style-stripes {
+      thead {
+        background-color: $color-bg-thead;
+      }
+
+      tbody {
+        tr:nth-child(even) {
+          background-color: $color-bg-tbody;
+        }
+        tr:nth-child(odd) {
+          background-color: $color-white-100;
+        }
+      }
+
+      th {
+        border-top: 1px solid $color-black-115;
+      }
+
+      table td + td,
+      table th + th {
+        border-left: 1px solid $color-black-115;
+      }
+
+      td {
+        border-bottom: 1px solid $color-black-115;
+      }
+    }
+
+    table {
+      width: 100%;
+      margin-top: rem(16px);
+      margin-bottom: rem(8px);
+      @extend %text-style-paragraph-large-short-sans;
+      border-collapse: collapse;
+    }
+
+    thead {
+      @extend %text-style-label-large-strong;
+
+      th {
+        border-bottom: 1px solid $color-black-130 !important;
+        text-align: left;
+      }
+    }
+
+    th,
+    td {
+      padding: rem(12);
+    }
+
+    figcaption {
+      color: $color-black-165;
+      @extend %text-style-label-medium;
+      margin-top: 0.75rem;
+
+      &:after {
+        content: '';
+        display: block;
+        background: $color-black-130;
+        height: .0625rem;
+        width: 2.5rem; 
+        margin-top: 0.75rem;
+      }
     }
   }
 
@@ -83,23 +230,10 @@
     max-width: $size__content-max-width;
     margin-right: auto;
     margin-left: auto;
-
-    a:not([class]) {
-      // @include link-underline($color-primary-base);
-
-      &:hover {
-        // color: $color-primary-base;
-      }
-
-      &:visited {
-        // color: $color-text-gray-70;
-      }
-    }
   }
 
   &__footer {
     margin-top: rem(80);
-    // @extend %font-body-sm;
 
     &::before {
       content: '';
@@ -117,7 +251,6 @@
     .heading {
       margin-bottom: rem(8);
       color: $color-black-100;
-      // @extend %font-heading-md-sans;
       text-transform: uppercase;
     }
   }
