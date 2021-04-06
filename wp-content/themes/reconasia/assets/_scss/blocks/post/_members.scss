@@ -36,6 +36,10 @@
       @extend %text-style-paragraph-medium-short-caps;
     }
 
+    .members__item {
+      padding-left: 0;
+    }
+
     /* stylelint-disable-next-line */
     .members__item + .members__item {
       margin-top: rem(16);
@@ -63,6 +67,7 @@
       grid-template-rows: max-content max-content auto;
       align-items: start;
       column-gap: rem(16);
+      padding-left: 0;
     }
 
     .members__img {
