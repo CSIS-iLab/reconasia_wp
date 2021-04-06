@@ -121,6 +121,9 @@
 
   .post {
     p > a {
+      font-family: $font__merriweather;
+      @include font-size(18px);
+      font-weight: 400;
       color:$color-link-primary-200;
       text-decoration: underline;
       text-transform: unset;
