@@ -117,16 +117,20 @@
 
     /* stylelint-disable */
     a[href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])[href*="csis.org/privacy-policy"] {
+      color: $color-white-165;
+      text-transform: unset;
+      font-weight: 400;
+
       &:hover {
         color: $color-white-100;
-
-        &:after {
-          filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(217deg) brightness(106%)    contrast(106%);
-        }
       }
 
       &:focus {
         color: $color-white-100;
+      }
+
+      &:after {
+        display: none;
       }
     }
   }
@@ -140,8 +144,7 @@
     }
   }
 
-  &__newsletter-desc,
-  &__copyright {
+  &__newsletter-desc {
     color: $color-white-165;
   }
 
