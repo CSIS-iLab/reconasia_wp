@@ -264,7 +264,7 @@
   &__cta {
     grid-area: cta;
     padding-top: rem(40);
-    padding-bottom: rem(40);
+    padding-bottom: rem(64);
     background: $color-bg-light-200;
     @include full-width-background($color-bg-light-200, '', false);
 
