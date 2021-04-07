@@ -77,10 +77,10 @@
 
     /*----------  Links  ----------*/
     a {
+      color: $color-link-primary-200;
       font-family: $font__merriweather;
       @include font-size(18px);
       font-weight: 400;
-      color: $color-link-primary-200;
       text-decoration: underline;
 
       &:hover {
@@ -90,8 +90,8 @@
 
       &:focus {
         color: $color-accent-light-primary-100;
-        background: $color-bg-light-400;
         text-decoration: none;
+        background: $color-bg-light-400;
       }
     }
 
