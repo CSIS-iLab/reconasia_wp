@@ -1,0 +1,33 @@
+@use 'abstracts' as *;
+/* stylelint-disable max-nesting-depth,
+  selector-max-compound-selectors
+*/
+
+.post-block-related {
+  display: block;
+  margin-top: rem(32);
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  
+  &__title {
+    color: $color-black-190;
+    @extend %text-style-label-medium;
+
+    a {
+      &:hover {
+        color: $color-link-primary-200;
+      }
+  
+      &:focus {
+        background: $color-bg-light-400;
+      }
+    }
+  }
+
+  .post-meta__date {
+    margin-top: rem(16);
+    margin-bottom: rem(4);
+    color: $color-black-165;
+  }
+}

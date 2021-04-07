@@ -26,8 +26,8 @@ get_header();
 		reconasia_display_tags();
 	}
 
+		get_template_part( 'template-parts/related-posts');
 	?>
-
 </main><!-- #site-content -->
 
 <?php get_footer(); ?>
