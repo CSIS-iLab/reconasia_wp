@@ -74,51 +74,52 @@
       color: $color-link-primary-200;
       @extend %text-style-label-large;
     }
+
+    /*----------  Links  ----------*/
+    /* stylelint-disable */
+    a[href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])
+    {
+      color: $color-link-primary-200;
+      @extend %text-style-label-small-strong-caps;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: $color-bg-dark-100;
+      }
+
+      &:focus {
+        color: $color-bg-dark-100;
+        background: $color-bg-light-300;
+      }
+
+      &::after {
+        content: '';
+        position: relative;
+        top: 1px;
+        left: 5px;
+        display: inline-block;
+        width: 0.8em;
+        height: 0.8em;
+        background-image: url('/wp-content/themes/reconasia/assets/static/icons/arrow-external.svg');
+        background-size: 100% 100%;
+        filter: invert(37%) sepia(92%) saturate(344%) hue-rotate(133deg)
+          brightness(93%) contrast(101%);
+        transition: filter 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        filter: invert(4%) sepia(6%) saturate(2132%) hue-rotate(176deg)
+          brightness(90%) contrast(96%);
+        opacity: 1 !important;
+      }
+    }
   }
-
-  /*----------  Links  ----------*/
-  /* stylelint-disable */
-  a[href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])
-  {
-    color: $color-link-primary-200;
-    @extend %text-style-label-small-strong-caps;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      color: $color-bg-dark-100;
-    }
-
-    &:focus {
-      color: $color-bg-dark-100;
-      background: $color-bg-light-300;
-    }
-
-    &::after {
-      content: '';
-      position: relative;
-      top: 1px;
-      left: 5px;
-      display: inline-block;
-      width: 0.8em;
-      height: 0.8em;
-      background-image: url('/wp-content/themes/reconasia/assets/static/icons/arrow-external.svg');
-      background-size: 100% 100%;
-      filter: invert(37%) sepia(92%) saturate(344%) hue-rotate(133deg)
-        brightness(93%) contrast(101%);
-      transition: filter 0.3s ease-in-out;
-    }
-
-    &:hover::after {
-      filter: invert(4%) sepia(6%) saturate(2132%) hue-rotate(176deg) brightness(90%) contrast(96%);
-      opacity: 1 !important;
-    }
-  }
-
 
   .post .single__content p {
-    a[href][href*="//"]:not([class]) {
+    a[href][href*="//"]:not([class])
+    {
       font-family: $font__merriweather;
       @include font-size(18px);
       font-weight: 400;
@@ -219,8 +220,8 @@
         content: '';
         display: block;
         background: $color-black-130;
-        height: .0625rem;
-        width: 2.5rem; 
+        height: 0.0625rem;
+        width: 2.5rem;
         margin-top: 0.75rem;
       }
     }

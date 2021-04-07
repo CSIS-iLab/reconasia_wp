@@ -115,11 +115,8 @@
     margin-top: rem(16);
     text-align: left;
 
-    /* stylelint-disable */
-    a[href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])[href*="csis.org/privacy-policy"] {
+    a {
       color: $color-white-165;
-      text-transform: unset;
-      font-weight: 400;
 
       &:hover {
         color: $color-white-100;
@@ -127,10 +124,6 @@
 
       &:focus {
         color: $color-white-100;
-      }
-
-      &:after {
-        display: none;
       }
     }
   }
