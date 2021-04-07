@@ -14,9 +14,8 @@
 
     @include breakpoint('large') {
       display: grid;
-      grid-auto-columns: auto rem(330);
+      grid-template-columns: minmax(50%, auto) rem(330);
       margin-top: rem(24);
-      column-gap: rem(48);
     }
 
     @include breakpoint('xlarge') {
@@ -224,6 +223,10 @@
       padding-right: rem(24);
       padding-left: rem(24);
       @include full-width-background(transparent);
+    }
+
+    @include breakpoint('large') {
+      margin-right: rem(48);
     }
 
     .post-block {
