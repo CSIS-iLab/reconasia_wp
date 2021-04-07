@@ -2,6 +2,8 @@
 @use '../components/entry-header';
 
 .archive {
+  background: $color-bg-light-200;
+
   &__featured {
     position: relative;
     margin: 0 calc(var(--container-padding) * -1);
@@ -26,7 +28,7 @@
       right: calc(var(--container-padding) * -1);
       width: calc(100% - var(--container-padding));
       height: 50px;
-      background: #fff;
+      background: $color-bg-light-200;
     }
 
     &-label {
@@ -52,6 +54,7 @@
     }
 
     .post-block {
+      position: unset;
       margin-top: rem(0);
       margin-bottom: rem(16);
       padding-top: rem(16);
@@ -72,11 +75,11 @@
         }
       }
 
-      @include breakpoint('small') {
-        padding-right: rem(24);
-        padding-bottom: rem(24);
-        padding-left: rem(24);
-      }
+      // @include breakpoint('small') {
+      //   padding-right: rem(24);
+      //   padding-bottom: rem(24);
+      //   padding-left: rem(24);
+      // }
 
       @include breakpoint('medium') {
         @include shadow('lg');
@@ -86,6 +89,22 @@
         margin-bottom: rem(8);
         padding: rem(48);
       }
+    }
+  }
+
+  &__base {
+    @include shadow('lg');
+
+    @include breakpoint('small') {
+      margin-top: rem(32);
+    }
+
+    @include breakpoint('medium') {
+      margin-top: rem(40);
+    }
+
+    @include breakpoint('large') {
+      margin-top: rem(56);
     }
   }
 }
