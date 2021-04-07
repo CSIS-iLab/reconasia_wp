@@ -22,7 +22,7 @@
         color: $color-white-100;
         background: $color-link-primary-200;
       }
-      
+
       /* stylelint-disable-next-line */
       .csis-block__title a {
         color: $color-link-primary-200;
@@ -58,7 +58,10 @@
       margin-bottom: rem(4);
       color: $color-black-190;
 
-      a[href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"]) {
+      /* stylelint-disable */
+      a[href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])
+      {
+        /* stylelint-enable */
         color: $color-black-190;
         text-transform: unset;
         box-shadow: none;
