@@ -21,12 +21,14 @@
         $related_posts = get_field('related_posts', $term);
         if ( $related_posts ) {
           echo '<h2 class="single__related-posts__label">Related Content</h2>';
-          foreach( $related_posts as $post ):
-            // Setup this post for WP functions (variable must be named $post).
-            setup_postdata($post);
-            get_template_part( 'template-parts/block-post-related' );
-            // get_template_part( 'template-parts/block', get_post_type() );
-          endforeach;
+          echo '<div class="single__related-posts__wrapper">';
+            foreach( $related_posts as $post ):
+              // Setup this post for WP functions (variable must be named $post).
+              setup_postdata($post);
+              get_template_part( 'template-parts/block-post-related' );
+              // get_template_part( 'template-parts/block', get_post_type() );
+            endforeach;
+          echo '</div>';
           // Reset the global post object so that the rest of the page works correctly.
           wp_reset_postdata();
         }

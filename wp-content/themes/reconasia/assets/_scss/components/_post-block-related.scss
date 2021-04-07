@@ -10,6 +10,18 @@
   margin-left: auto;
   text-align: center;
   
+  @include breakpoint('small') {
+    max-width: rem(196); 
+  }
+
+  @include breakpoint('medium') {
+   max-width: rem(266); 
+  }
+
+  @include breakpoint('large') {
+    max-width: rem(201);
+  }
+
   &__title {
     color: $color-black-190;
     @extend %text-style-label-medium;
