@@ -80,18 +80,6 @@
 
     &-posts {
       margin-top: rem(32);
-
-      @include breakpoint('medium') {
-        display: inline-block;
-        gap: rem(32);
-        margin-top: rem(16);
-        columns: 2;
-      }
-
-      @include breakpoint('large') {
-        margin-top: rem(32);
-        columns: unset;
-      }
     }
 
     .post-block {
@@ -122,10 +110,6 @@
       /* stylelint-disable-next-line */
       .post-meta__categories li:not(:last-of-type)::after {
         border-right: 1px solid $color-border-light-130;
-      }
-
-      @include breakpoint('medium') {
-        border-bottom: 1px solid $color-border-light-115;
       }
 
       @include breakpoint('large') {
