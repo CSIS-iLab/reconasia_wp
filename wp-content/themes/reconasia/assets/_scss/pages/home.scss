@@ -82,15 +82,15 @@
       margin-top: rem(32);
 
       @include breakpoint('medium') {
-        columns: 2;
-        gap: rem(32);
         display: inline-block;
+        gap: rem(32);
         margin-top: rem(16);
+        columns: 2;
       }
 
       @include breakpoint('large') {
-        columns: unset;
         margin-top: rem(32);
+        columns: unset;
       }
     }
 
