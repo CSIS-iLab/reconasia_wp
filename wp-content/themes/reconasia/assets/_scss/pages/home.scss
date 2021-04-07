@@ -165,11 +165,11 @@
     }
 
     .post-block {
+      grid-template-columns: unset;
       margin-top: 0;
       padding: rem(16);
-      background: $color-bg-dark-290;
-      grid-template-columns: unset;
       column-gap: unset;
+      background: $color-bg-dark-290;
 
       @include breakpoint('medium') {
         padding: rem(24);
@@ -293,6 +293,7 @@
 
       @include breakpoint('large') {
         width: 44vw;
+        max-width: rem(800);
       }
     }
 
