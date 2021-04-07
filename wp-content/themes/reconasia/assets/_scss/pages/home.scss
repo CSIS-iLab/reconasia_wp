@@ -140,6 +140,11 @@
       padding-bottom: rem(56);
     }
 
+    @include breakpoint('xxlarge') {
+      padding-right: rem(80);
+      padding-left: rem(80);
+    }
+
     &-label {
       @extend %text-style-label-small;
       display: flex;
@@ -163,6 +168,8 @@
       margin-top: 0;
       padding: rem(16);
       background: $color-bg-dark-290;
+      grid-template-columns: unset;
+      column-gap: unset;
 
       @include breakpoint('medium') {
         padding: rem(24);
