@@ -25,7 +25,7 @@
 
       /* stylelint-disable-next-line */
       .csis-block__title a {
-        color: $color-link-primary-200;
+        color: $color-link-primary-200 !important;
       }
     }
 
@@ -56,19 +56,15 @@
 
     &__title {
       margin-bottom: rem(4);
-      // color: $color-black-190;
 
       /* stylelint-disable */
-      a[href][href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])
-      {
-        /* stylelint-enable */
+      a:not([class]) {
         color: $color-black-190;
         text-transform: unset;
         text-decoration: none;
         box-shadow: none;
         @extend %text-style-label-large-strong;
 
-        /* stylelint-disable-next-line */
         &:after {
           display: none !important;
         }
