@@ -31,6 +31,7 @@
     @extend %text-style-paragraph-medium-short-caps;
     margin-bottom: rem(12);
     color: $color-accent-light-primary-100;
+    font-weight: 400;
   }
 
   &__list {
