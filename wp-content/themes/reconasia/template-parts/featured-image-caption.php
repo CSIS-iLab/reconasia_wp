@@ -7,7 +7,7 @@
  * @since 1.0.0
  */
 
-if ( has_post_thumbnail() && ! post_password_required() ) {
+if ( has_post_thumbnail() && ! post_password_required() && !is_page_template( 'templates/template-no-image.php' ) ) {
 
 	$caption = get_the_post_thumbnail_caption();
 
