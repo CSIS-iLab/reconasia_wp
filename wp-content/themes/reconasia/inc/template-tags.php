@@ -348,3 +348,21 @@ if (! function_exists('reconasia_pagination_number_of_posts')) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'reconasia_display_footnotes' ) ) :
+	/**
+	 * Returns HTML with easy footnotes.
+	 *
+	 */
+	function reconasia_display_footnotes() {
+		if ( class_exists( 'easyFootnotes' ) ) {
+			global $easyFootnotes;
+
+			$footnotes = $easyFootnotes->easy_footnote_after_content('');
+
+			if ( $footnotes != '' ) {
+				printf( '<div class="footnotes"><h2 class="footnotes__heading">' . esc_html( 'Footnotes', 'reconaisa') . '</h2><ol class="footnotes__list">%1$s</ol></div>', $footnotes ); // WPCS: XSS OK.
+				}
+		}
+	}
+endif;
