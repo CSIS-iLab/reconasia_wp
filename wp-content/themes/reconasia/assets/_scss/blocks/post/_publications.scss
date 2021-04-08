@@ -58,14 +58,23 @@
       margin-bottom: rem(4);
       color: $color-black-190;
 
+      &:hover {
+        color: $color-link-primary-200;
+      }
+
       /* stylelint-disable */
-      a[href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])
+      a[href][href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])
       {
         /* stylelint-enable */
         color: $color-black-190;
         text-transform: unset;
+        text-decoration: none;
         box-shadow: none;
         @extend %text-style-label-large-strong;
+
+        &:hover {
+          color: $color-link-primary-200;
+        }
 
         /* stylelint-disable-next-line */
         &:after {

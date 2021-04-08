@@ -76,7 +76,7 @@
     }
 
     /*----------  Links  ----------*/
-    a {
+    a:not([class]) {
       color: $color-link-primary-200;
       font-family: $font__merriweather;
       @include font-size(18px);
@@ -104,6 +104,7 @@
         position: relative;
         top: 1px;
         left: 5px;
+        margin-right: 5px;
         display: inline-block;
         width: 0.8em;
         height: 0.8em;
