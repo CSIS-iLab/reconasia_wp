@@ -22,10 +22,10 @@
         color: $color-white-100;
         background: $color-link-primary-200;
       }
-      
+
       /* stylelint-disable-next-line */
       .csis-block__title a {
-        color: $color-link-primary-200;
+        color: $color-link-primary-200 !important;
       }
     }
 
@@ -56,15 +56,15 @@
 
     &__title {
       margin-bottom: rem(4);
-      color: $color-black-190;
 
-      a {
+      /* stylelint-disable */
+      a:not([class]) {
         color: $color-black-190;
         text-transform: unset;
+        text-decoration: none;
         box-shadow: none;
         @extend %text-style-label-large-strong;
 
-        /* stylelint-disable-next-line */
         &:after {
           display: none !important;
         }

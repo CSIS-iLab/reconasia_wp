@@ -113,7 +113,20 @@
   &__copyright {
     grid-area: copyright;
     margin-top: rem(16);
+    color: $color-white-165;
     text-align: left;
+
+    a {
+      color: $color-white-165;
+
+      &:hover {
+        color: $color-white-100;
+      }
+
+      &:focus {
+        color: $color-white-100;
+      }
+    }
   }
 
   &__newsletter {
@@ -125,8 +138,7 @@
     }
   }
 
-  &__newsletter-desc,
-  &__copyright {
+  &__newsletter-desc {
     color: $color-white-165;
   }
 
