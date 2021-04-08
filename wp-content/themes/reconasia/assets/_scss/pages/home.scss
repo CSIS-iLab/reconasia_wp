@@ -239,12 +239,19 @@
 
     @include breakpoint('large') {
       margin-right: rem(48);
+      padding-right: rem(48);
+      padding-left: rem(48);
     }
 
     .post-block {
       display: flex;
       flex-direction: column;
+      padding-top: 0;
       padding-bottom: rem(24);
+
+      &::after {
+        background: 0;
+      }
 
       &:not(:last-child) {
         border-bottom: 1px solid $color-black-130;
@@ -297,8 +304,8 @@
           padding-top: 0;
 
           .post-block__img {
-            margin-right: -1.5rem;
-            margin-left: -1.5rem;
+            margin-right: rem(-48);
+            margin-left: rem(-48);
           }
         }
       }
