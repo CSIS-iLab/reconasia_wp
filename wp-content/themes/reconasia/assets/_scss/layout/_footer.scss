@@ -50,6 +50,7 @@
 
   &__logo {
     grid-area: logo;
+    max-width: rem(300);
     margin-bottom: rem(16);
   }
 
@@ -130,9 +131,14 @@
   }
 
   &__newsletter {
+    @include breakpoint('small') {
+      margin-right: rem(4);
+    }
+
     @include breakpoint('medium') {
       margin-right: rem(24);
     }
+
     @include breakpoint('large') {
       margin-left: rem(40);
     }
