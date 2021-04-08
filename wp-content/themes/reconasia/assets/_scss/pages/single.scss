@@ -256,22 +256,34 @@
   }
 
   &__related-posts {
-    &__wrapper {
-      display: flex;
-      flex-direction: column;
+    margin-bottom: rem(23);
+    
+    &__container {
+      display: grid;
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+      row-gap: rem(32);
+      column-gap: rem(32);
 
       @include breakpoint('small') {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-top: rem(32);      
+        // Sets track width, ensures that columns break in groups of 2.
+        grid-template-columns: repeat(
+          auto-fill,
+          minmax(160px, 1fr) minmax(160px, 1fr)
+        );
       }
-  
+
+      @include breakpoint('medium') {
+        // Sets track width, ensures that columns break in groups of 2.
+        grid-template-columns: repeat(
+          auto-fill,
+          minmax(266px, 1fr) minmax(266px, 1fr)
+        );
+      }
+
       @include breakpoint('large') {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        margin-top: rem(32);
+        padding: 0;
+        grid-template-columns: repeat(4, 1fr);
       }
     }
 
