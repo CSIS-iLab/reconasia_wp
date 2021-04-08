@@ -33,6 +33,7 @@
   }
 
   &__img {
+    grid-area: img;
     margin-bottom: rem(24);
   }
 
@@ -71,10 +72,6 @@
     .archive__featured & {
       color: $color-white-190;
     }
-  }
-
-  &__img {
-    grid-area: img;
   }
 
   .post-meta__authors {
