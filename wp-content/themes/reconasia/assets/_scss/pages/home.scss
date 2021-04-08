@@ -162,6 +162,10 @@
         padding-right: rem(32);
         padding-left: rem(24);
       }
+
+      @include breakpoint('xxlarge') {
+        margin-left: calc((100vw - 1400px) / 2);
+      }
     }
 
     .post-block {
@@ -182,6 +186,10 @@
         max-width: rem(800);
         margin-left: 0;
         padding: rem(32) rem(40);
+      }
+
+      @include breakpoint('xxlarge') {
+        margin-left: calc((100vw - 1400px) / 2);
       }
 
       &__title {
@@ -284,6 +292,10 @@
       padding-bottom: rem(60);
     }
 
+    @include breakpoint('xxlarge') {
+      padding-left: rem(80);
+    }
+
     &-wrapper {
       margin-right: 6vw;
       margin-left: 6vw;
@@ -294,6 +306,10 @@
       @include breakpoint('large') {
         width: 44vw;
         max-width: rem(800);
+      }
+
+      @include breakpoint('xxlarge') {
+        margin-left: calc((100vw - 1400px) / 2);
       }
     }
 
