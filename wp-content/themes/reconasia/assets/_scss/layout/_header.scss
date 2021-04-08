@@ -2,51 +2,155 @@
 
 .header {
   position: fixed;
+  @extend %text-style-label-large-caps;
   top: 0;
   right: 0;
   left: 0;
   z-index: 11;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
   height: var(--header-height);
   background-color: $color-bg-dark-200;
 
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    align-items: center;
+  }
+
   &__logo {
     position: relative;
+    order: 2;
     width: fit-content;
+    margin: auto;
+
+    @include breakpoint('medium') {
+      order: 1;
+      margin: 0;
+    }
 
     svg {
-      width: auto;
+      max-width: 220px;
       height: var(--logo-height);
+
+      @include breakpoint('medium') {
+        max-width: 339px;
+      }
     }
+  }
+
+  .spacer {
+    @include breakpoint('medium') {
+      flex-grow: 1;
+      order: 2;
+    }
+  }
+
+  .search {
+    display: flex;
+    order: 3;
+  }
+
+  #searchform {
+    position: absolute;
+    right: 0;
+    z-index: 4;
+    display: flex;
+    justify-content: flex-end;
+    background-color: $color-bg-dark-200;
+    visibility: hidden;
+    transition: clip-path 0.3s linear, visibility 0.3s linear;
+    clip-path: inset(0 0 0 100%);
+
+    &.is-active {
+      width: 100%;
+      margin: auto;
+      visibility: visible;
+      clip-path: inset(0);
+    }
+
+    @include breakpoint('medium') {
+      &.is-active {
+        width: 50%;
+        padding-right: rem(48);
+      }
+    }
+  }
+
+  &__search-trigger {
+    color: $color-white-190;
+    background-color: $color-bg-dark-200;
+    /* stylelint-disable-next-line */
+    border: none;
+
+    @include breakpoint('medium') {
+      color: $color-white-165;
+
+      &::before {
+        content: ' ';
+        padding-right: 12px;
+        border-left: 1px $color-white-115 solid;
+      }
+    }
+  }
+
+  &__search-submit {
+    margin-left: 8px;
+    color: $color-white-100;
+    background-color: $color-accent-light-primary-200;
+    /* stylelint-disable-next-line */
+    border: none;
+  }
+
+  &__search-close {
+    color: $color-white-165;
+    background-color: $color-bg-dark-200;
+    /* stylelint-disable-next-line */
+    border: none;
+  }
+
+  .input-group {
+    margin: auto;
+
+    @include breakpoint('medium') {
+      margin: 0;
+    }
+  }
+
+  button :focus {
+    outline: 0 !important;
   }
 }
 
 .site-nav {
   display: flex;
   align-items: center;
+  order: 1;
   height: 100%;
+
+  @include breakpoint('medium') {
+    position: initial;
+    order: 2;
+  }
 
   &__container {
     position: fixed !important;
     top: 0;
-    right: 0;
+    right: 83;
     bottom: 0;
+    left: 0;
     z-index: 1;
     width: rem(320px);
     background: $color-white-100;
     visibility: hidden;
     transition: clip-path 0.3s linear, visibility 0.3s linear;
-    clip-path: inset(0 0 0 100%);
+    clip-path: inset(0 100% 0 0);
 
-    @include breakpoint('large') {
+    @include breakpoint('medium') {
       position: static !important;
       top: unset;
       right: unset;
       left: unset;
-      z-index: 100;
+      z-index: 2;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -77,7 +181,15 @@
     cursor: pointer;
     transition: 0.5s ease-in-out;
 
-    @include breakpoint('large') {
+    &.is-active {
+      margin-left: 650%;
+
+      .line {
+        background-color: $color-black-100;
+      }
+    }
+
+    @include breakpoint('medium') {
       display: none;
     }
 
@@ -110,11 +222,6 @@
       }
     }
 
-    &:hover .line,
-    &:focus .line {
-      background-color: $color-black-100;
-    }
-
     &.is-active .line {
       /* stylelint-disable-next-line */
       &:nth-child(1),
@@ -138,47 +245,37 @@
 
   &__menu {
     position: relative;
-    // top: 72px;
     height: 100%;
+    @extend %text-style-label-large-caps;
 
-    @include breakpoint(large) {
+    @include breakpoint(medium) {
       position: static;
       top: 0;
       display: flex;
+      color: $color-white-190;
     }
 
     > li {
       position: relative;
       margin: 0.75rem 0;
 
-      @include breakpoint(large) {
+      @include breakpoint(medium) {
         display: flex;
         align-items: center;
         height: 100%;
-        margin: 0 0.75rem 0.75rem;
+        margin-right: rem(22);
       }
-
-      /* stylelint-disable */
-      &.is-active,
-      &:hover {
-        color: $color-black-100;
-      }
-
-      &.is-active {
-        --nav-color: var(--nav-border-color);
-      }
-
-      &:hover {
-        // --nav-color: #{$color-primary-blue-700};
-      }
-      /* stylelint-enable */
     }
 
     a {
       display: block;
       padding: 0.75rem 2rem;
 
-      @include breakpoint(large) {
+      &:hover {
+        color: $color-accent-dark-primary-400;
+      }
+
+      @include breakpoint(medium) {
         padding: 0;
       }
     }
@@ -187,11 +284,10 @@
   .menu-item-has-children {
     &:hover .sub-menu {
       position: relative;
-
       visibility: visible;
       clip-path: inset(0);
 
-      @include breakpoint('large') {
+      @include breakpoint('medium') {
         position: absolute;
       }
     }
@@ -199,150 +295,22 @@
 
   .sub-menu {
     position: absolute;
+    width: 200px;
     padding-bottom: 0.5rem;
-    background-color: var(--page-header-bg);
     visibility: hidden;
     transition: clip-path 0.3s linear, visibility 0.3s linear;
     clip-path: inset(0 0 100% 0);
 
-    @include breakpoint('large') {
+    @include breakpoint('medium') {
       position: absolute;
       top: 100%;
       left: calc(-0.5rem + 1px);
+      padding-top: 19px;
       padding-right: 0.5rem;
       padding-left: 0.5rem;
-      @include font-size(18px);
-      white-space: nowrap;
       list-style: none;
+      background-color: $color-bg-dark-200;
+      @include font-size(18px);
     }
   }
 }
-
-// .header {
-//   background-color: $color-bg-dark-200;
-//   @extend %text-style-label-large-caps;
-
-//   &__nav {
-//     height: auto;
-//     line-height: 70px;
-//     text-align: center;
-
-//     @include breakpoint('medium') {
-//       text-align: right;
-//     }
-//   }
-
-//   &__logo {
-//     width: 200px;
-//     margin: auto;
-
-//     svg {
-//       width: rem(200);
-//       height: rem(15.15);
-//     }
-
-//     @include breakpoint('medium') {
-//       display: block;
-//       float: left;
-//       margin-left: 20px;
-
-//       svg {
-//         width: rem(330);
-//         height: rem(25);
-//       }
-//     }
-//   }
-
-//   &__menu {
-//     display: none;
-//     width: 100%;
-//     text-align: center;
-//     background-color: $color-bg-dark-200;
-
-//     a {
-//       display: block;
-//       clear: left;
-//       color: $color-white-190;
-//       line-height: 70px;
-//     }
-
-//     @include breakpoint('medium') {
-//       display: inline !important;
-//       text-align: right;
-
-//       a {
-//         display: initial;
-//         text-decoration: none;
-//       }
-
-//       :first-child,
-//       :nth-child(2) {
-//         margin-right: 28px;
-//       }
-//     }
-//   }
-
-//   &__search-icon-mobile {
-//     display: block;
-//     float: right;
-//     padding-right: 20px;
-//     color: $color-white-190;
-
-//     @include breakpoint('medium') {
-//       display: none;
-//     }
-//   }
-
-//   &__search-icon {
-//     display: none;
-
-//     @include breakpoint('medium') {
-//       display: inline-block;
-//       height: 24px;
-//       margin-right: 20px;
-//       padding-left: 22px;
-//       color: $color-white-165;
-
-//       &::before {
-//         height: 50%;
-//         content: ' ';
-//         padding-right: 20px;
-//         border-left: 1px $color-white-115 solid;
-//       }
-//     }
-//   }
-
-//   &__toggle {
-//     display: block;
-//     float: left;
-//     width: 26px;
-//     margin: 0 0 0 20px;
-//     color: $color-white-190;
-//     font-size: 26px;
-//     line-height: 70px;
-//     cursor: pointer;
-
-//     @include breakpoint('medium') {
-//       display: none;
-//     }
-//   }
-
-//   #toggle {
-//     display: none;
-//   }
-
-//   #toggle:checked + &__menu {
-//     display: block;
-//   }
-// }
-
-// .menu-item-has-children {
-//   position: relative;
-// }
-
-// .sub-menu {
-//   display: none;
-//   position: absolute;
-//   top: 100%;
-//   left: 0;
-// }
