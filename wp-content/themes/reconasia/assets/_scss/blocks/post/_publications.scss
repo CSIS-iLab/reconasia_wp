@@ -14,7 +14,6 @@
     transition: background 0.3s ease-in-out;
 
     &:hover {
-      .csis-block__title,
       .csis-block__desc {
         color: $color-link-primary-200;
       }
@@ -22,6 +21,11 @@
       .btn--dark {
         color: $color-white-100;
         background: $color-link-primary-200;
+      }
+
+      /* stylelint-disable-next-line */
+      .csis-block__title a {
+        color: $color-link-primary-200 !important;
       }
     }
 
@@ -52,15 +56,17 @@
 
     &__title {
       margin-bottom: rem(4);
-      color: $color-black-190;
-      @extend %text-style-label-large-strong;
 
-      a {
+      /* stylelint-disable */
+      a:not([class]) {
+        color: $color-black-190;
+        text-transform: unset;
+        text-decoration: none;
         box-shadow: none;
+        @extend %text-style-label-large-strong;
 
-        /* stylelint-disable-next-line */
-        &:hover {
-          // color: $color-primary-base;
+        &:after {
+          display: none !important;
         }
       }
     }

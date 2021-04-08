@@ -277,7 +277,7 @@ if (! function_exists('reconasia_display_tags')) :
 	function reconasia_display_tags() {
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list('<ul class="post-meta__tags"><li>', '</li><li>', '</li></ul>');
+		$tags_list = get_the_tag_list('<ul class="post-meta__tags"><li class="btn btn--dark btn--xsmall">', '</li><li class="btn btn--dark btn--xsmall">', '</li></ul>');
 
 		if ( $tags_list ) {
 			/* translators: 1: list of tags. */
@@ -344,7 +344,7 @@ if (! function_exists('reconasia_pagination_number_of_posts')) :
 
 		if ( $total_posts > 0 ) {
 			/* translators: 1: list of tags. */
-			printf( '<h2 class="pagination__results">' . esc_html__( '%1$s', 'reconasia' ) . ' Items, Page ' . esc_html__( '%2$s', 'reconasia' ) . ' of ' . esc_html__( '%3$s', 'reconasia' ) . '</div>', $total_posts, $page, $pages ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf( '<h2 class="pagination__results">' . esc_html__( '%1$s', 'reconasia' ) . ' Items, Page ' . esc_html__( '%2$s', 'reconasia' ) . ' of ' . esc_html__( '%3$s', 'reconasia' ) . '</h2>', $total_posts, $page, $pages ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 endif;

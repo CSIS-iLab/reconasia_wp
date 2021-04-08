@@ -83,6 +83,9 @@
 <symbol id="icon-medium-dark-arrow" viewBox="0 0 19 32">
 <title>medium-dark-arrow</title>
 <path fill="#3d8283" style="fill: var(--color4, #3d8283)" d="M18.462 16.833l-18.462-15.833v30l18.462-14.167z"></path>
+<symbol id="icon-single-arrow" viewBox="0 0 19 32">
+<title>Single Arrow Icon</title>
+<path fill="#6abeb0" d="M19.264 16.522l-19.264-16.522v31.304l19.264-14.783z"></path>
 </symbol>
 </defs>
 </svg>

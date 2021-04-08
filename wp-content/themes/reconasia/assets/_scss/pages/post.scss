@@ -87,6 +87,18 @@
   .post-meta__authors {
     --post-meta: #{$color-white-190};
     margin-bottom: rem(8);
+
+    a {
+      color: $color-white-190;
+
+      &:hover {
+        color: $color-white-100;
+      }
+
+      &:focus {
+        color: $color-white-100;
+      }
+    }
   }
 
   .post-meta__date {
@@ -153,5 +165,22 @@
     margin-bottom: rem(32);
     padding-top: rem(24);
     border-top: 1px solid $color-black-130;
+  }
+
+  &-meta__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(16);
+
+    li {
+      padding: 0;
+      white-space: nowrap;
+
+      a {
+        display: flex;
+        align-self: center;
+        padding: rem(4) rem(8);
+      }
+    }
   }
 }

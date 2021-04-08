@@ -12,25 +12,29 @@ get_header();
 
 <main id="site-content" role="main">
 
-	<div class="section-inner thin error404-content">
+	<?php
 
-		<h1 class="entry-title"><?php _e( 'Page Not Found', 'reconasia' ); ?></h1>
+		get_template_part( 'template-parts/entry-header' );
 
-		<div class="intro-text"><p><?php _e( 'The page you were looking for could not be found. It might have been removed, renamed, or did not exist in the first place.', 'reconasia' ); ?></p></div>
+	?>
 
-		<?php
-		get_search_form(
-			array(
-				'label' => __( '404 not found', 'reconasia' ),
-			)
-		);
-		?>
+	<div class="error-404">
+
+		<div class="error-404__content">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/img/image-404.jpg" alt="<?php bloginfo('name'); ?> 404" title="<?php bloginfo('name'); ?> 404" />
+
+			<h1 class="error-404__title"><?php _e( '404', 'reconasia' ); ?></h1>
+			<h1 class="error-404__subtitle error-404__text-spacing"><?php _e( 'Page Not Found', 'reconasia' ); ?></h1>
+
+			<div class="intro-text">
+				<p class="error-404__text-spacing"><?php _e( 'The page you are looking for was moved, removed, renamed, or might never have existed. We apologize for the inconvenience!', 'reconasia' ); ?></p>
+				<p class="error-404__text-spacing"><?php _e( 'Instead, visit our homepage for the latest, or use the search tool above.', 'reconasia' ); ?></p>
+			</div>
+		</div>
 
 	</div><!-- .section-inner -->
 
 </main><!-- #site-content -->
-
-<?php get_template_part( 'template-parts/footer-menus-widgets' ); ?>
 
 <?php
 get_footer();

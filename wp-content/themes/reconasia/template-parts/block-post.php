@@ -12,7 +12,6 @@
  */
 
 ?>
-
 <article <?php post_class('post-block post-block--post'); ?> id="post-<?php the_ID(); ?>">	
 		<?php if ( has_post_thumbnail() ) : ?>
 			<a href="<?php the_permalink(); ?>" class="post-block__img" title="<?php the_title_attribute(); ?>">

@@ -13,8 +13,12 @@
     @extend %text-style-paragraph-small-short;
 
     a {
-      color: $color-link-primary-200;
-      
+      color: $color-black-190;
+
+      &::after {
+        background-image: none;
+      }
+
       &:hover {
         color: $color-bg-dark-100;
       }
@@ -29,18 +33,20 @@
   &__date {
     --post-meta: #{$color-black-165};
     margin-bottom: rem(8);
+
     @extend %text-style-label-small-strong-caps;
   }
 
   &__categories {
     --post-meta: #{$color-link-primary-200};
+
     @extend %text-style-label-x-small-strong-caps;
 
     li {
       display: inline;
     }
 
-    li:not(:last-of-type) {  
+    li:not(:last-of-type) {
       &::after {
         content: '';
         margin-right: rem(10);
