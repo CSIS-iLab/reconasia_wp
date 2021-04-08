@@ -1,5 +1,16 @@
 @use 'abstracts' as *;
 
+.addtoany_content {
+  &::before {
+    content: '';
+    display: block;
+    width: rem(280);
+    height: 1px;
+    margin: 0 auto rem(24);
+    background: $color-accent-light-primary-300;
+  }
+}
+
 /* stylelint-disable-next-line */
 .addtoany_list {
   display: flex !important;
