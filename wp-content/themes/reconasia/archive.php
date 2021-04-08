@@ -40,10 +40,12 @@ get_header();
 		}
 
 		if ( have_posts() ) {
+			echo '<section class="archive__base">';
 			while ( have_posts() ) {
 				the_post();
 				get_template_part( 'template-parts/block', get_post_type() );
 			}
+			echo "</section>";
 			wp_reset_postdata();
 		}
 		get_template_part( 'template-parts/pagination' );
