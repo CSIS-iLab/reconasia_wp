@@ -17,7 +17,7 @@
   margin-right: auto;
   margin-left: auto;
   color: var(--post-meta);
-  
+
   &.has-post-thumbnail {
     @include breakpoint('medium') {
       grid-template-areas:
@@ -45,7 +45,7 @@
       &:hover {
         color: $color-link-primary-200;
       }
-  
+
       &:focus {
         background: $color-bg-light-400;
       }
@@ -82,9 +82,9 @@
 
     .archive__featured & {
       --post-meta: #{$color-white-190};
-      
+
       a {
-        color: $color-accent-dark-primary-400;
+        color: $color-white-190;
 
         &:hover {
           color: $color-white-100;

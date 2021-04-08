@@ -13,14 +13,18 @@
     @extend %text-style-paragraph-small-short;
 
     a {
-      color: $color-link-primary-200;
-      
+      color: $color-black-190;
+
+      &::after {
+        background-image: none;
+      }
+
       &:hover {
-        --post-meta: #{$color-bg-dark-100};
+        color: $color-bg-dark-100;
       }
 
       &:focus {
-        --post-meta: #{$color-bg-dark-100};
+        color: $color-bg-dark-100;
         background: $color-bg-light-300;
       }
     }
@@ -42,7 +46,7 @@
       display: inline;
     }
 
-    li:not(:last-of-type) {  
+    li:not(:last-of-type) {
       &::after {
         content: '';
         margin-right: rem(10);
