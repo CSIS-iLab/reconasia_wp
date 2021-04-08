@@ -17,7 +17,7 @@
 
     /*----------  Headings  ----------*/
 
-    h2,
+    h2:not(.footnotes__heading),
     h3,
     h4,
     h5,
@@ -26,7 +26,7 @@
       margin-bottom: rem(8);
     }
 
-    h2 {
+    h2:not(.footnotes__heading) {
       --heading-margin-top: #{rem(56)};
       margin-bottom: rem(16);
       @extend %text-style-heading-x-large;
@@ -54,7 +54,7 @@
     }
 
     ul,
-    ol {
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper) {
       margin-top: rem(16);
       padding-left: rem(52);
       @extend %text-style-paragraph-medium-long;
@@ -65,18 +65,21 @@
       padding-left: rem(12);
     }
 
-    li + li {
+    li:not(.easy-footnote-single) + li {
       margin-top: rem(8);
     }
 
-    ol::marker,
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper)::marker,
     li::marker {
       color: $color-link-primary-200;
       @extend %text-style-label-large;
     }
 
     /*----------  Links  ----------*/
-    a:not([class]) {
+    /* stylelint-disable */
+    a[href*='//']:not([class])
+    {
+      /* stylelint-enable */
       color: $color-link-primary-200;
       font-family: $font__merriweather;
       @include font-size(18px);
