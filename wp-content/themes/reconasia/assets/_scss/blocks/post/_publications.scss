@@ -56,11 +56,7 @@
 
     &__title {
       margin-bottom: rem(4);
-      color: $color-black-190;
-
-      &:hover {
-        color: $color-link-primary-200;
-      }
+      // color: $color-black-190;
 
       /* stylelint-disable */
       a[href][href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])
@@ -71,10 +67,6 @@
         text-decoration: none;
         box-shadow: none;
         @extend %text-style-label-large-strong;
-
-        &:hover {
-          color: $color-link-primary-200;
-        }
 
         /* stylelint-disable-next-line */
         &:after {
