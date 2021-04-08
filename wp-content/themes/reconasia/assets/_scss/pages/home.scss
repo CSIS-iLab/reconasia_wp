@@ -25,6 +25,9 @@
   }
 
   .post-block {
+    padding-right: 0;
+    padding-left: 0;
+
     &__title,
     .post-meta__date {
       margin-bottom: rem(8);
@@ -86,6 +89,8 @@
     .post-block {
       display: block;
       padding-bottom: rem(32);
+      background: $color-bg-dark-200;
+      @include full-width-background($color-bg-dark-200);
 
       &:not(:last-child) {
         border-bottom: 1px solid $color-border-light-115;
@@ -93,6 +98,7 @@
 
       &:first-of-type {
         margin-top: 0;
+        padding-top: 0;
       }
 
       &__img {
@@ -111,6 +117,10 @@
       /* stylelint-disable-next-line */
       .post-meta__categories li:not(:last-of-type)::after {
         border-right: 1px solid $color-border-light-130;
+      }
+
+      @include breakpoint('small') {
+        @include full-width-background(transparent);
       }
 
       @include breakpoint('large') {
@@ -170,6 +180,7 @@
     }
 
     .post-block {
+      position: unset;
       grid-template-columns: unset;
       margin-top: 0;
       padding: rem(16);
