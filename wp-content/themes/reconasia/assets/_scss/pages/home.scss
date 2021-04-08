@@ -164,7 +164,7 @@
       }
 
       @include breakpoint('xxlarge') {
-        margin-left: calc((100vw - 1400px) / 2);
+        margin-left: calc(((100vw - 1400px) / 2) - var(--scrollbarHalf));
       }
     }
 
@@ -189,7 +189,7 @@
       }
 
       @include breakpoint('xxlarge') {
-        margin-left: calc((100vw - 1400px) / 2);
+        margin-left: calc(((100vw - 1400px) / 2) - var(--scrollbarHalf));
       }
 
       &__title {
@@ -309,7 +309,7 @@
       }
 
       @include breakpoint('xxlarge') {
-        margin-left: calc((100vw - 1400px) / 2);
+        margin-left: calc(((100vw - 1400px) / 2) - var(--scrollbarHalf));
       }
     }
 
