@@ -216,17 +216,6 @@
   }
 
   &__footer {
-    margin-top: rem(80);
-
-    &::before {
-      content: '';
-      display: block;
-      width: rem(120);
-      height: 2px;
-      margin: 0 auto rem(44);
-      background: $color-black-100;
-    }
-
     p + p {
       margin-top: 1rem;
     }
