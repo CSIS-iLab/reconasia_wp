@@ -18,7 +18,7 @@
 
     /*----------  Headings  ----------*/
 
-    h2,
+    h2:not(.footnotes__heading),
     h3,
     h4,
     h5,
@@ -27,7 +27,7 @@
       margin-bottom: rem(8);
     }
 
-    h2 {
+    h2:not(.footnotes__heading) {
       --heading-margin-top: #{rem(56)};
       margin-bottom: rem(16);
       @extend %text-style-heading-x-large;
@@ -55,7 +55,7 @@
     }
 
     ul,
-    ol {
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper) {
       margin-top: rem(16);
       padding-left: rem(52);
       @extend %text-style-paragraph-medium-long;
@@ -66,38 +66,43 @@
       padding-left: rem(12);
     }
 
-    li + li {
+    li:not(.easy-footnote-single) + li {
       margin-top: rem(8);
     }
 
-    ol::marker,
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper)::marker,
     li::marker {
       color: $color-link-primary-200;
       @extend %text-style-label-large;
     }
-  }
 
-  /*----------  Links  ----------*/
+    /*----------  Links  ----------*/
+    /* stylelint-disable */
+    a[href*='//']:not([class])
+    {
+      /* stylelint-enable */
+      color: $color-link-primary-200;
+      font-family: $font__merriweather;
+      @include font-size(18px);
+      font-weight: 400;
+      text-decoration: underline;
 
-  a:not([class]) {
-    color: $color-link-primary-200;
-    @extend %text-style-label-small-strong-caps;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
+      &:hover {
+        color: $color-accent-light-primary-100;
+        text-decoration-color: transparent;
+      }
 
-    &:hover {
-      color: $color-bg-dark-100;
-    }
-
-    &:focus {
-      color: $color-bg-dark-100;
-      background: $color-bg-light-300;
+      &:focus {
+        color: $color-accent-light-primary-100;
+        text-decoration-color: transparent;
+        background: $color-bg-light-400;
+      }
     }
 
     /* stylelint-disable */
-    &[href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])
+    a[href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])
     {
+      /* stylelint-enable */
       &::after {
         content: '';
         position: relative;
@@ -106,44 +111,17 @@
         display: inline-block;
         width: 0.8em;
         height: 0.8em;
+        margin-right: 5px;
         background-image: url('/wp-content/themes/reconasia/assets/static/icons/arrow-external.svg');
         background-size: 100% 100%;
-        filter: invert(37%) sepia(92%) saturate(344%) hue-rotate(133deg)
-          brightness(93%) contrast(101%);
+        filter: invert(38%) sepia(89%) saturate(439%) hue-rotate(133deg)
+          brightness(86%) contrast(85%);
         transition: filter 0.3s ease-in-out;
       }
 
       &:hover::after {
-        filter: invert(4%) sepia(6%) saturate(2132%) hue-rotate(176deg) brightness(90%) contrast(96%);
-        opacity: 1 !important;
-      }
-    }
-  }
-
-  .post {
-    p > a {
-      color:$color-link-primary-200;
-      text-decoration: underline;
-      text-transform: unset;
-
-      &:hover {
-        color: $color-accent-light-primary-100;
-        text-decoration: none;
-      }
-
-      &:focus {
-        color: $color-accent-light-primary-100;
-        background: $color-bg-light-400;
-        text-decoration: none;
-      }
-
-      &:visited {
-        color: $color-accent-light-primary-100;
-        text-decoration: underline;
-      }
-
-      &:after {
-        display: none !important;
+        filter: invert(33%) sepia(14%) saturate(1559%) hue-rotate(131deg)
+          brightness(95%) contrast(87%);
       }
     }
 
@@ -171,9 +149,11 @@
       }
 
       tbody {
+        /* stylelint-disable-next-line */
         tr:nth-child(even) {
           background-color: $color-bg-tbody;
         }
+        /* stylelint-disable-next-line */
         tr:nth-child(odd) {
           background-color: $color-white-100;
         }
@@ -183,10 +163,12 @@
         border-top: 1px solid $color-black-115;
       }
 
+      /* stylelint-disable */
       table td + td,
       table th + th {
         border-left: 1px solid $color-black-115;
       }
+      /* stylelint-enable */
 
       td {
         border-bottom: 1px solid $color-black-115;
@@ -204,9 +186,10 @@
     thead {
       @extend %text-style-label-large-strong;
 
+      /* stylelint-disable-next-line */
       th {
-        border-bottom: 1px solid $color-black-130 !important;
         text-align: left;
+        border-bottom: 1px solid $color-black-130 !important;
       }
     }
 
@@ -216,17 +199,17 @@
     }
 
     figcaption {
+      margin-top: 0.75rem;
       color: $color-black-165;
       @extend %text-style-label-medium;
-      margin-top: 0.75rem;
 
-      &:after {
+      &::after {
         content: '';
         display: block;
-        background: $color-black-130;
-        height: .0625rem;
-        width: 2.5rem; 
+        width: 2.5rem;
+        height: 0.0625rem;
         margin-top: 0.75rem;
+        background: $color-black-130;
       }
     }
   }
@@ -239,17 +222,6 @@
   }
 
   &__footer {
-    margin-top: rem(80);
-
-    &::before {
-      content: '';
-      display: block;
-      width: rem(120);
-      height: 2px;
-      margin: 0 auto rem(44);
-      background: $color-black-100;
-    }
-
     p + p {
       margin-top: 1rem;
     }

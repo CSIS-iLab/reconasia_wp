@@ -1,9 +1,25 @@
 @use 'abstracts' as *;
 
 /* stylelint-disable-next-line */
+.addtoany_content {
+  margin-top: rem(40) !important;
+  margin-bottom: rem(56) !important;
+
+  &::before {
+    content: '';
+    display: block;
+    width: rem(280);
+    height: 1px;
+    margin: 0 auto rem(24);
+    background: $color-accent-light-primary-300;
+  }
+}
+
+/* stylelint-disable-next-line */
 .addtoany_list {
   display: flex !important;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
 
   a {
@@ -39,13 +55,13 @@
     top: 2px;
   }
 
-  .single__footer &
-  ,
+  .single__footer &,
   .single__content & {
-    --icon-fill: invert(31%) sepia(62%) saturate(350%) hue-rotate(131deg) brightness(94%) contrast(92%);
+    --icon-fill: invert(31%) sepia(62%) saturate(350%) hue-rotate(131deg)
+      brightness(94%) contrast(92%);
 
-    --icon-fill-hover: invert(0%) sepia(40%) saturate(1505%) hue-rotate(213deg) brightness(117%) contrast(108%) #{$shadow--1};
-
+    --icon-fill-hover: invert(0%) sepia(40%) saturate(1505%) hue-rotate(213deg)
+      brightness(117%) contrast(108%) #{$shadow--1};
 
     @include breakpoint('small') {
       width: fit-content;

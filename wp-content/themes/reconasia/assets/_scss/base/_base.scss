@@ -6,14 +6,6 @@
   --logo-width: 120px;
   --logo-height: 32px;
   --logo-color: #{$color-black-100};
-  // --breadcrumbs-color: #{$color-text-gray-70};
-  // --breadcrumbs-color-hover: #{$color-black-100};
-  // --breadcrumbs-divider: #{$color-black-130};
-  // --page-title: #{$color-black-100};
-  // --page-title-underline: #{$color-black-100};
-  // --page-excerpt: #{$color-text-gray-70};
-  // --post-meta: #{$color-text-gray-70};
-  // --post-meta-divider: #{$color-black-125};
 
   @include breakpoint('medium') {
     --logo-width: 175px;
@@ -30,20 +22,8 @@ body {
   overflow-x: hidden;
 }
 
-// .theme--light {
-//   // --logo-color: #{$color-white-100};
-//   // --breadcrumbs-color: #{$color-text-gray-10};
-//   // --breadcrumbs-color-hover: #{$color-white-100};
-//   // --breadcrumbs-divider: #{$color-white-150};
-//   // --page-title: #{$color-white-100};
-//   // --page-title-underline: #{$color-white-100};
-//   // --page-excerpt: #{$color-text-gray-05};
-//   // --post-meta: #{$color-text-gray-05};
-//   // --post-meta-divider: #{$color-white-130};
-// }
-
 .container {
-  --container-padding: #{rem(20)};
+  --container-padding: #{6vw};
 
   $padding: (
     'small': 24,
@@ -55,15 +35,13 @@ body {
   max-width: $size__container-max-width;
   margin-right: auto;
   margin-left: auto;
-  padding-right: rem(20);
+  padding-right: 6vw;
   padding-right: var(--container-padding);
-  padding-left: rem(20);
+  padding-left: 6vw;
   padding-left: var(--container-padding);
 
-  @each $size, $value in $padding {
-    @include breakpoint($size) {
-      --container-padding: #{rem($value)};
-    }
+  @include breakpoint(xxlarge) {
+    --container-padding: #{rem(80)};
   }
 
   &::before,
@@ -77,11 +55,9 @@ body {
 
   &::before {
     top: 0;
-    // background: var(--logo-color);
   }
 
   &::after {
     bottom: 0;
-    // background: $color-text-gray-10;
   }
 }

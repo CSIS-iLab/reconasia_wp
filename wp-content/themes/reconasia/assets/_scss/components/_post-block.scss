@@ -4,6 +4,7 @@
 */
 
 .post-block {
+  position: relative;
   display: grid;
   grid-template-areas:
     'img'
@@ -13,11 +14,39 @@
     'date'
     'categories';
   grid-template-columns: 1fr;
-  margin-top: rem(40);
   margin-right: auto;
   margin-left: auto;
+  padding-top: rem(40);
   color: var(--post-meta);
-  
+  background: $color-white-100;
+  @include full-width-background($color-white-100);
+
+  @include breakpoint('small') {
+    @include full-width-background(transparent);
+    padding-right: rem(24);
+    padding-bottom: rem(24);
+    padding-left: rem(24);
+
+    &:not(:last-child)::after {
+      top: unset;
+      bottom: 0;
+      left: rem(24);
+      width: calc(100% - 48px);
+      height: 1px;
+      background: $color-black-200;
+    }
+  }
+
+  @include breakpoint('large') {
+    padding-right: rem(48);
+    padding-left: rem(48);
+
+    &:not(:last-child)::after {
+      left: rem(48);
+      width: calc(100% - 94px);
+    }
+  }
+
   &.has-post-thumbnail {
     @include breakpoint('medium') {
       grid-template-areas:
@@ -46,7 +75,7 @@
       &:hover {
         color: $color-link-primary-200;
       }
-  
+
       &:focus {
         background: $color-bg-light-400;
       }
@@ -79,9 +108,9 @@
 
     .archive__featured & {
       --post-meta: #{$color-white-190};
-      
+
       a {
-        color: $color-accent-dark-primary-400;
+        color: $color-white-190;
 
         &:hover {
           color: $color-white-100;
@@ -129,16 +158,20 @@
   &--post {
     padding-bottom: rem(32);
 
+    &:not(:last-of-type) {
+      border-bottom: 1px solid $color-black-200;
+    }
+
     @include breakpoint('small') {
       padding-bottom: rem(24);
+
+      &:not(:last-of-type) {
+        border-bottom: 0;
+      }
     }
 
     @include breakpoint('large') {
       padding-bottom: rem(32);
-    }
-
-    &:not(:last-child) {
-      border-bottom: 1px solid $color-black-200;
     }
   }
 

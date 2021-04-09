@@ -40,10 +40,12 @@ get_header();
 		}
 
 		if ( have_posts() ) {
+			echo '<section class="archive__base">';
 			while ( have_posts() ) {
 				the_post();
 				get_template_part( 'template-parts/block', get_post_type() );
 			}
+			echo "</section>";
 			wp_reset_postdata();
 		}
 		get_template_part( 'template-parts/pagination' );
@@ -54,8 +56,10 @@ get_header();
 		if( $cards ) { ?>
 			<div class="cards__container">
 			<?php foreach( $cards as $card) { 
-				$link = $card['page_link'];
-				?>
+				if ( $card['card_description'] ) {
+
+					$link = $card['page_link'];
+					?>
 				<div class='card' style="background-image: url('<?php echo esc_url($card['background_image']); ?>');">
 					<div class="card__wrapper">
 						<a href="<?php echo esc_url($link['url'])  ?>" class="card__link">
@@ -68,11 +72,10 @@ get_header();
 						</a>
 					</div><!-- .card__wrapper -->
 				</div><!-- .card -->
-			<?php } ?>
+			<?php }
+			} ?>
 		</div><!-- .cards__container -->
-		<?php }
-
-	?>
+		<?php } ?>
 
 </main><!-- #site-content -->
 

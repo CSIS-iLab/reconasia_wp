@@ -87,6 +87,18 @@
   .post-meta__authors {
     --post-meta: #{$color-white-190};
     margin-bottom: rem(8);
+
+    a {
+      color: $color-white-190;
+
+      &:hover {
+        color: $color-white-100;
+      }
+
+      &:focus {
+        color: $color-white-100;
+      }
+    }
   }
 
   .post-meta__date {
@@ -105,28 +117,12 @@
 }
 
 .featured-media__caption {
-  margin-bottom: rem(12);
-  // color: $color-text-gray-70;
-  // @extend %font-body-sm;
+  margin: rem(40) 0;
+  color: $color-black-100;
+  @extend %text-style-paragraph-medium-short;
 
-  &::after {
-    content: '';
-    display: block;
-    width: rem(40);
-    height: 2px;
-    margin: 0 auto rem(44);
-    background: $color-black-100;
-  }
-
-  p + p {
-    margin-top: 1rem;
-  }
-
-  .heading {
-    margin-bottom: rem(8);
-    color: $color-black-100;
-    // @extend %font-heading-md-sans;
-    text-transform: uppercase;
+  &-label {
+    color: $color-black-165;
   }
 }
 
