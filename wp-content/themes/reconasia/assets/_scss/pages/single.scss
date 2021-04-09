@@ -4,6 +4,7 @@
 @use '../blocks/post/gray-section';
 @use '../blocks/post/members';
 @use '../blocks/post/partners';
+@use '../components/post-block-related';
 
 .single {
   &__content {
@@ -123,6 +124,11 @@
           brightness(95%) contrast(87%);
       }
     }
+
+    .entry__tags {
+      margin-top: rem(24);
+      margin-bottom: rem(24);
+    }
   }
 
   /*----------  Table  ----------*/
@@ -223,6 +229,47 @@
     .heading {
       margin-bottom: rem(8);
       color: $color-black-100;
+      text-transform: uppercase;
+    }
+  }
+
+  &__related-posts {
+    margin-bottom: rem(23);
+    
+    &__container {
+      display: grid;
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+      row-gap: rem(32);
+      column-gap: rem(32);
+
+      @include breakpoint('small') {
+        // Sets track width, ensures that columns break in groups of 2.
+        grid-template-columns: repeat(
+          auto-fill,
+          minmax(160px, 1fr) minmax(160px, 1fr)
+        );
+      }
+
+      @include breakpoint('medium') {
+        // Sets track width, ensures that columns break in groups of 2.
+        grid-template-columns: repeat(
+          auto-fill,
+          minmax(266px, 1fr) minmax(266px, 1fr)
+        );
+      }
+
+      @include breakpoint('large') {
+        padding: 0;
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    &__label {
+      grid-area: related;
+      color: $color-accent-light-primary-100;
+      @extend %text-style-heading-medium;
+      font-weight: 700;
       text-transform: uppercase;
     }
   }
