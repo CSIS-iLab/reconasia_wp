@@ -42,12 +42,16 @@
       		<label class="screen-reader-text" for="navSearchInput">Search for:</label>
       		<input type="text" class="form-control" name="s" id="navSearchInput" placeholder="Search" />
       		<label for="navSearchInput" id="navSearchLabel">
-						<button id="search-submit" class="header__search-submit"><span class="screen-reader-text">Submit search</span><?php echo reconasia_get_svg( 'search' ); ?></button>
+						<button id="search-submit" class="header__search-submit" type='submit' aria-label="Submit search"><span class="screen-reader-text">Submit search</span><?php echo reconasia_get_svg( 'search' ); ?></button>
 					</label>
-					<button id="search-close" class="header__search-close"><span class="screen-reader-text">Close search form</span><?php echo reconasia_get_svg( 'close' ); ?></button>
+					<button id="search-close" class="header__search-close" type='reset' aria-label='Close Search Form'><span class="screen-reader-text">Close search form</span><?php echo reconasia_get_svg( 'close' ); ?></button>
       	</div>
 			</form>
-			<button id="search-trigger" class="header__search-trigger"><span class="screen-reader-text">Open search</span><?php echo reconasia_get_svg( 'search' ); ?></button>
+			<label for="navSearchInput">
+				<button id="search-trigger" class="header__search-trigger">
+					<span class="screen-reader-text">Open search</span><?php echo reconasia_get_svg( 'search' ); ?>
+				</button>
+			</label>
 		</div>
 </div>
 	</header>

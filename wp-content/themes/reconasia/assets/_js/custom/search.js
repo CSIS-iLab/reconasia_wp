@@ -2,17 +2,15 @@ const Search = () => {
   const trigger = document.querySelector('#search-trigger')
   const searchEl = document.querySelector('#searchform')
   const close = document.querySelector('#search-close')
+  const searchField = document.querySelector('#navSearchInput')
 
   trigger.addEventListener('click', function () {
-    if (searchEl.classList.contains('is-active')) {
-      this.setAttribute('aria-expanded', 'false')
-      this.classList.remove('is-active')
-      searchEl.classList.remove('is-active')
-    } else {
-      searchEl.classList.add('is-active')
-      this.setAttribute('aria-expanded', 'true')
-      this.classList.add('is-active')
-    }
+    searchEl.classList.add('is-active')
+    this.setAttribute('aria-expanded', 'true')
+    this.classList.add('is-active')
+    window.setTimeout(function () {
+      searchField.focus()
+    }, 0)
   })
 
   close.addEventListener('click', function () {
