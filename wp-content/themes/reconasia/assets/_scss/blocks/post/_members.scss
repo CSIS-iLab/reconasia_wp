@@ -57,7 +57,7 @@
       row-gap: rem(32);
     }
 
-    a:not([class]) {
+    .members__link {
       @extend %text-style-label-x-small-strong-caps;
     }
 
