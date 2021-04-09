@@ -26,6 +26,7 @@ get_header();
 
 			reconasia_pagination_number_of_posts();
 
+			echo '<section class="archive__base">';
 			while ( have_posts() ) {
 				the_post();
 
@@ -33,6 +34,7 @@ get_header();
 
 			}
 			wp_reset_postdata();
+			echo '</section>';
 
 		} elseif ( is_search() ) {
 			?>
