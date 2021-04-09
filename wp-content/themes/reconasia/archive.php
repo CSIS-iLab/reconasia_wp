@@ -7,6 +7,8 @@
  * @since 1.0.0
  */
 
+$term = get_queried_object();
+
 get_header();
 ?>
 
@@ -14,13 +16,16 @@ get_header();
 
 	<?php
 		get_template_part( 'template-parts/entry-header' );
+	?>
 
+	<div class='archive__content'>
+
+	<?php
 		if ( have_posts() ) {
 			reconasia_pagination_number_of_posts();
 		}
 
 		if (class_exists('ACF') && !is_paged()) {
-			$term = get_queried_object();
 			// vars
 			$featured_post = get_field('featured_post', $term);
 			if ( $featured_post ) {
@@ -50,32 +55,36 @@ get_header();
 		}
 		get_template_part( 'template-parts/pagination' );
 
-		$term = get_queried_object();
-		$cards = get_field('card', $term);
+		if (class_exists('ACF') && !is_paged()) {
+			$cards = get_field('card', $term);
 
-		if( $cards ) { ?>
-			<div class="cards__container">
-			<?php foreach( $cards as $card) { 
-				if ( $card['card_description'] ) {
+			if ( $cards ) { ?>
+				<div class="cards__container">
+				<?php foreach( $cards as $card) {
+					if ( $card['card_description'] ) {
 
-					$link = $card['page_link'];
-					?>
-				<div class='card' style="background-image: url('<?php echo esc_url($card['background_image']); ?>');">
-					<div class="card__wrapper">
-						<a href="<?php echo esc_url($link['url'])  ?>" class="card__link">
-							<?php if($card['card_title']) {
-								echo '<h2 class="card__title">' . $card['card_title'] . '</h2>';
-							} else {
-								echo '<h2 class="card__title">' . $link['title'] . '</h2>';
-							} ?>
-							<?php echo '<p class="card__description">' . reconasia_get_svg( 'single-arrow' ) . $card['card_description'] . '</p>'; ?>
-						</a>
-					</div><!-- .card__wrapper -->
-				</div><!-- .card -->
-			<?php }
-			} ?>
-		</div><!-- .cards__container -->
-		<?php } ?>
+						$link = $card['page_link'];
+						?>
+					<div class='card' style="background-image: url('<?php echo esc_url($card['background_image']); ?>');">
+						<div class="card__wrapper">
+							<a href="<?php echo esc_url($link['url'])  ?>" class="card__link">
+								<?php if($card['card_title']) {
+									echo '<h2 class="card__title">' . $card['card_title'] . '</h2>';
+								} else {
+									echo '<h2 class="card__title">' . $link['title'] . '</h2>';
+								} ?>
+								<?php echo '<p class="card__description">' . reconasia_get_svg( 'single-arrow' ) . $card['card_description'] . '</p>'; ?>
+							</a>
+						</div><!-- .card__wrapper -->
+					</div><!-- .card -->
+				<?php }
+				} ?>
+			</div><!-- .cards__container -->
+			<?php
+			}
+		}
+	?>
+	</div>
 
 </main><!-- #site-content -->
 
