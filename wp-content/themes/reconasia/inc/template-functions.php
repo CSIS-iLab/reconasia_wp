@@ -36,6 +36,11 @@ function reconasia_body_classes( $classes ) {
 	global $post;
 	$post_type = isset( $post ) ? $post->post_type : false;
 
+	// Check if we're the "blog page"
+	if ( is_home() ) {
+		$classes[] = 'archive';
+	}
+
 	// Check whether we're singular.
 	if ( is_singular() ) {
 		$classes[] = 'singular';

@@ -8,6 +8,14 @@
     max-width: $size__archive-max-width;
     margin-right: auto;
     margin-left: auto;
+
+    > *:not(.cards__container):last-child {
+      margin-bottom: rem(40);
+
+      @include breakpoint('large') {
+        margin-bottom: rem(56);
+      }
+    }
   }
 
   &__featured {
@@ -94,8 +102,6 @@
   }
 
   &__base {
-    margin-bottom: rem(40);
-
     @include shadow('lg');
 
     @include breakpoint('small') {
@@ -108,7 +114,6 @@
 
     @include breakpoint('large') {
       margin-top: rem(56);
-      margin-bottom: rem(56);
     }
   }
 }
@@ -225,10 +230,12 @@
 }
 
 .cards__container {
+  margin-top: rem(40);
   @include csis-block-full-width-wrapper;
 
   @include breakpoint('large') {
     display: flex;
+    margin-top: rem(56);
   }
 }
 
