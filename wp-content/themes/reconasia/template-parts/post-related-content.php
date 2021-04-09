@@ -12,25 +12,29 @@
  */
 
 ?>
- <!-- post-related-content.php -->
-<div class="single__related-posts">
-    <?php
-      $term = get_queried_object();
-      // vars
-      $related_posts = get_field( 'related_posts', $term );
-      // if related content we show them
-      if ( $related_posts ) {
-        echo '<h2 class="single__related-posts__label">Related Content</h2>';
-        reconasia_display_tags();
-        echo '<div class="single__related-posts__container">';
-          foreach( $related_posts as $post ):
-            // Setup this post for WP functions (variable must be named $post).
-            setup_postdata($post);
-            get_template_part( 'template-parts/block-post-related' );
-          endforeach;
-        echo '</div>';
-        // Reset the global post object so that the rest of the page works correctly.
-        wp_reset_postdata();
-        }
-    ?>
-</div><!-- .single__related-posts -->
+<?php
+	$term = get_queried_object();
+	// vars
+	$related_posts = get_field( 'related_posts', $term );
+
+	// if related content we show them
+	if ( $related_posts || has_tag() ) {
+		echo '<h2 class="single__footer-heading">';
+			echo reconasia_get_svg( "3-arrows" );
+			_e( 'Related Content', 'reconasia' );
+		echo '</h2>';
+		reconasia_display_tags();
+
+		if ( $related_posts ) {
+			echo '<ul class="related-posts" role="list">';
+				foreach( $related_posts as $post ):
+					setup_postdata($post);
+					echo '<li>';
+					get_template_part( 'template-parts/block-post-related' );
+					echo '</li>';
+				endforeach;
+			echo '</ul>';
+			wp_reset_postdata();
+		}
+	}
+?>
