@@ -1,8 +1,7 @@
-@use 'abstracts' as *;
+@use '../abstracts' as *;
 
 .post-block-related {
   display: block;
-  margin-top: rem(32);
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -22,10 +21,21 @@
     }
   }
 
+  &__img {
+    display: block;
+    height: 180px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
   .post-meta__date {
     margin-top: rem(16);
     margin-bottom: rem(4);
-    color: $color-black-165;
     @extend %text-style-label-medium;
     font-weight: 400;
   }

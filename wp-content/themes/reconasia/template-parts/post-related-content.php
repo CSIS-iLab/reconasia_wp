@@ -12,14 +12,16 @@
  */
 
 ?>
-
-<section class="single__related-posts">
+ <!-- post-related-content.php -->
+<div class="single__related-posts">
     <?php
       $term = get_queried_object();
       // vars
-      $related_posts = get_field('related_posts', $term);
+      $related_posts = get_field( 'related_posts', $term );
+      // if related content we show them
       if ( $related_posts ) {
         echo '<h2 class="single__related-posts__label">Related Content</h2>';
+        reconasia_display_tags();
         echo '<div class="single__related-posts__container">';
           foreach( $related_posts as $post ):
             // Setup this post for WP functions (variable must be named $post).
@@ -31,4 +33,4 @@
         wp_reset_postdata();
         }
     ?>
-</section><!-- .single__related-posts -->
+</div><!-- .single__related-posts -->

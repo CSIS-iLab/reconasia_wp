@@ -4,6 +4,7 @@
 @use '../blocks/post/gray-section';
 @use '../blocks/post/members';
 @use '../blocks/post/partners';
+@use '../components/post-block-related';
 
 .single {
   &__content {
@@ -144,6 +145,11 @@
       &:after {
         display: none !important;
       }
+    }
+
+    .entry__tags {
+      margin-top: rem(24);
+      margin-bottom: rem(24);
     }
   }
 
