@@ -66,16 +66,14 @@ get_header();
 						$link = $card['page_link'];
 						?>
 					<div class='card' style="background-image: url('<?php echo esc_url($card['background_image']); ?>');">
-						<div class="card__wrapper">
-							<a href="<?php echo esc_url($link['url'])  ?>" class="card__link">
-								<?php if($card['card_title']) {
-									echo '<h2 class="card__title">' . $card['card_title'] . '</h2>';
-								} else {
-									echo '<h2 class="card__title">' . $link['title'] . '</h2>';
-								} ?>
-								<?php echo '<p class="card__description">' . reconasia_get_svg( 'single-arrow' ) . $card['card_description'] . '</p>'; ?>
-							</a>
-						</div><!-- .card__wrapper -->
+						<a href="<?php echo esc_url($link['url'])  ?>" class="card__link">
+							<?php if($card['card_title']) {
+								echo '<h2 class="card__title">' . $card['card_title'] . '</h2>';
+							} else {
+								echo '<h2 class="card__title">' . $link['title'] . '</h2>';
+							} ?>
+							<?php echo '<p class="card__description">' . reconasia_get_svg( 'single-arrow' ) . $card['card_description'] . '</p>'; ?>
+						</a>
 					</div><!-- .card -->
 				<?php }
 				} ?>
