@@ -34,9 +34,7 @@
 			// get_template_part( 'template-parts/related-posts' );
       get_template_part( 'template-parts/featured-image-caption' );
 			get_template_part( 'template-parts/post-related-content' );
-			get_template_part( 'template-parts/featured-image-caption' );
 			if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
-			echo reconasia_authors_list_extended();
 		?>
 	</footer>
 
