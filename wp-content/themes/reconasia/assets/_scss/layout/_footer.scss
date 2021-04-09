@@ -108,6 +108,7 @@
   }
 
   &__social-icons {
+    margin-left: rem(-8);
     color: $color-white-165;
     @include font-size(28px);
   }
@@ -158,12 +159,9 @@
     }
   }
 
-  &__newsletter-header {
-    margin-bottom: rem(8);
-  }
-
   &__newsletter-header,
   &__social-header {
+    margin-bottom: rem(8);
     font-weight: 700;
     font-size: rem(18);
   }
