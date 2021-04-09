@@ -13,6 +13,7 @@
     'social'
     'copyright';
   grid-template-columns: 1fr;
+  margin-top: auto;
   padding-top: var(--padding-top);
   padding-bottom: var(--padding-bottom);
   @extend %text-style-paragraph-medium-short;
