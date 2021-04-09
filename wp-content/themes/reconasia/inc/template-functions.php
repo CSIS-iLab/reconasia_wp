@@ -36,8 +36,8 @@ function reconasia_body_classes( $classes ) {
 	global $post;
 	$post_type = isset( $post ) ? $post->post_type : false;
 
-	// Check if we're the "blog page"
-	if ( is_home() ) {
+	// Check if we're the "blog page" or search page, and make them look like the archives.
+	if ( is_home() || is_search() ) {
 		$classes[] = 'archive';
 	}
 
