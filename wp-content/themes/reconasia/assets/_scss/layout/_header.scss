@@ -23,23 +23,23 @@
     width: fit-content;
     margin: auto;
 
-    @include breakpoint('medium') {
+    @include breakpoint('large') {
       order: 1;
       margin: 0;
     }
 
     svg {
-      max-width: 220px;
+      max-width: 210px;
       height: var(--logo-height);
 
-      @include breakpoint('medium') {
+      @include breakpoint('large') {
         max-width: 339px;
       }
     }
   }
 
   .spacer {
-    @include breakpoint('medium') {
+    @include breakpoint('large') {
       flex-grow: 1;
       order: 2;
     }
@@ -68,7 +68,7 @@
       clip-path: inset(0);
     }
 
-    @include breakpoint('medium') {
+    @include breakpoint('large') {
       &.is-active {
         width: 50%;
         padding-right: rem(48);
@@ -82,7 +82,7 @@
     /* stylelint-disable-next-line */
     border: none;
 
-    @include breakpoint('medium') {
+    @include breakpoint('large') {
       color: $color-white-165;
 
       &::before {
@@ -111,7 +111,7 @@
   .input-group {
     margin: auto;
 
-    @include breakpoint('medium') {
+    @include breakpoint('large') {
       margin: 0;
     }
   }
@@ -127,7 +127,7 @@
   order: 1;
   height: 100%;
 
-  @include breakpoint('medium') {
+  @include breakpoint('large') {
     position: initial;
     order: 2;
   }
@@ -145,7 +145,7 @@
     transition: clip-path 0.3s linear, visibility 0.3s linear;
     clip-path: inset(0 100% 0 0);
 
-    @include breakpoint('medium') {
+    @include breakpoint('large') {
       position: static !important;
       top: unset;
       right: unset;
@@ -185,7 +185,7 @@
       margin-left: 650%;
     }
 
-    @include breakpoint('medium') {
+    @include breakpoint('large') {
       display: none;
     }
 
@@ -245,7 +245,7 @@
     color: $color-white-190;
     @extend %text-style-label-large-caps;
 
-    @include breakpoint(medium) {
+    @include breakpoint('large') {
       position: static;
       top: 0;
       display: flex;
@@ -257,7 +257,7 @@
       align-items: center;
       margin: 0.75rem 0;
 
-      @include breakpoint(medium) {
+      @include breakpoint('large') {
         height: 100%;
         margin-right: rem(22);
       }
@@ -271,7 +271,7 @@
         color: $color-accent-dark-primary-400;
       }
 
-      @include breakpoint(medium) {
+      @include breakpoint('large') {
         padding: 0;
       }
     }
@@ -288,7 +288,7 @@
       visibility: visible;
       clip-path: inset(0);
 
-      @include breakpoint('medium') {
+      @include breakpoint('large') {
         position: absolute;
       }
     }
@@ -302,7 +302,7 @@
     transition: clip-path 0.3s linear, visibility 0.3s linear;
     clip-path: inset(0 0 100% 0);
 
-    @include breakpoint('medium') {
+    @include breakpoint('large') {
       position: absolute;
       top: 100%;
       left: calc(-0.5rem + 1px);
