@@ -88,12 +88,12 @@
 
       &:hover {
         color: $color-accent-light-primary-100;
-        text-decoration: none;
+        text-decoration-color: transparent;
       }
 
       &:focus {
         color: $color-accent-light-primary-100;
-        text-decoration: none;
+        text-decoration-color: transparent;
         background: $color-bg-light-400;
       }
     }

@@ -5,7 +5,7 @@
     padding: 0;
   }
 
-  a:not([class]) {
+  .members__link {
     max-width: fit-content;
     color: $color-link-primary-200;
 
@@ -32,7 +32,7 @@
       column-gap: rem(48);
     }
 
-    a:not([class]) {
+    .members__link {
       @extend %text-style-paragraph-medium-short-caps;
     }
 
@@ -57,7 +57,7 @@
       row-gap: rem(32);
     }
 
-    a:not([class]) {
+    .members__link {
       @extend %text-style-label-x-small-strong-caps;
     }
 
