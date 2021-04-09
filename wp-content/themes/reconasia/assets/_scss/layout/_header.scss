@@ -140,7 +140,7 @@
     left: 0;
     z-index: 1;
     width: rem(320px);
-    background: $color-white-100;
+    background: $color-bg-dark-200;
     visibility: hidden;
     transition: clip-path 0.3s linear, visibility 0.3s linear;
     clip-path: inset(0 100% 0 0);
@@ -183,10 +183,6 @@
 
     &.is-active {
       margin-left: 650%;
-
-      .line {
-        background-color: $color-black-100;
-      }
     }
 
     @include breakpoint('medium') {
@@ -246,22 +242,22 @@
   &__menu {
     position: relative;
     height: 100%;
+    color: $color-white-190;
     @extend %text-style-label-large-caps;
 
     @include breakpoint(medium) {
       position: static;
       top: 0;
       display: flex;
-      color: $color-white-190;
     }
 
     > li {
       position: relative;
+      display: flex;
+      align-items: center;
       margin: 0.75rem 0;
 
       @include breakpoint(medium) {
-        display: flex;
-        align-items: center;
         height: 100%;
         margin-right: rem(22);
       }
@@ -269,7 +265,7 @@
 
     a {
       display: block;
-      padding: 0.75rem 2rem;
+      padding: 0.75rem 0 0.75rem 2rem;
 
       &:hover {
         color: $color-accent-dark-primary-400;
@@ -282,6 +278,11 @@
   }
 
   .menu-item-has-children {
+    &::after {
+      content: '\25be';
+      padding-left: rem(8);
+    }
+
     &:hover .sub-menu {
       position: relative;
       visibility: visible;
