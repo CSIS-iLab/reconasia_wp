@@ -7,14 +7,17 @@
   right: 0;
   left: 0;
   z-index: 11;
-  height: var(--header-height);
   background-color: $color-bg-dark-200;
 
   &__inner {
     display: flex;
     flex-wrap: wrap;
-    // justify-content: space-between;
+    height: rem(48);
     align-items: center;
+
+    @include breakpoint('large') {
+      height: rem(56);
+    }
   }
 
   &__logo {
@@ -249,22 +252,23 @@
       position: static;
       top: 0;
       display: flex;
+      align-items: center;
     }
 
     > li {
       position: relative;
-      display: flex;
-      align-items: center;
       margin: 0.75rem 0;
 
       @include breakpoint('large') {
+        display: flex;
+        align-items: center;
         height: 100%;
         margin-right: rem(22);
       }
     }
 
     a {
-      display: block;
+      display: inline-block;
       padding: 0.75rem 0 0.75rem 2rem;
 
       &:hover {
@@ -278,7 +282,7 @@
   }
 
   .menu-item-has-children {
-    &::after {
+    > a::after {
       content: '\25be';
       padding-left: rem(8);
     }

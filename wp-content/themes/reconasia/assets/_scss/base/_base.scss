@@ -14,7 +14,7 @@
   // --post-meta: #{$color-text-gray-70};
   // --post-meta-divider: #{$color-black-125};
 
-  @include breakpoint('medium') {
+  @include breakpoint('large') {
     --logo-width: 175px;
     --logo-height: 48px;
   }
