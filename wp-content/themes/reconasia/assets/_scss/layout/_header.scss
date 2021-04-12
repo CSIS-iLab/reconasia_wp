@@ -113,6 +113,7 @@
     .icon {
       position: relative;
       top: -7px;
+      left: -7px;
       @include font-size(36px);
     }
   }
