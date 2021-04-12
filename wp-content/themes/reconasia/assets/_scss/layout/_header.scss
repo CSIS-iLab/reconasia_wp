@@ -111,6 +111,7 @@
 
   &__search-submit {
     margin-left: 8px;
+    padding: rem(7);
     color: $color-white-100;
     background-color: $color-accent-light-primary-200;
     border: 0;
@@ -119,6 +120,7 @@
     .icon {
       position: relative;
       top: rem(2);
+      @include font-size(20px);
     }
   }
 
