@@ -27,6 +27,7 @@
     margin: auto;
 
     @include breakpoint('large') {
+      z-index: 3;
       order: 1;
       margin: 0;
     }
@@ -62,22 +63,20 @@
     display: flex;
     justify-content: flex-end;
     background-color: $color-bg-dark-200;
-    visibility: hidden;
-    transition: clip-path 0.3s linear, visibility 0.3s linear;
+    opacity: 0;
+    transition: clip-path 0.3s ease-in-out, opacity 0.3s ease-in-out;
     clip-path: inset(0 0 0 100%);
+
+    @include breakpoint('large') {
+      right: rem(48);
+      z-index: 2;
+    }
 
     &.is-active {
       width: 100%;
       margin: auto;
-      visibility: visible;
+      opacity: 1;
       clip-path: inset(0);
-    }
-
-    @include breakpoint('large') {
-      &.is-active {
-        width: 50%;
-        padding-right: rem(48);
-      }
     }
   }
 
@@ -142,8 +141,8 @@
   .input-group {
     display: flex;
     align-items: center;
-    margin: auto;
     height: 100%;
+    margin: auto;
 
     @include breakpoint('large') {
       margin: 0;

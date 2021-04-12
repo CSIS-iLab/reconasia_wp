@@ -35,7 +35,7 @@
 		<div class="spacer"></div>
 
 		<?php get_template_part( 'template-parts/site-nav' );?>
-		
+
 		<div class="search">
       <form method="get" id="searchform" action="/">
 				<div class="input-group">
