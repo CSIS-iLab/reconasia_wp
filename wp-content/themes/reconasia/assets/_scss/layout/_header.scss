@@ -50,7 +50,9 @@
 
   .search {
     display: flex;
+    align-items: center;
     order: 3;
+    height: 100%;
   }
 
   #searchform {
@@ -96,12 +98,28 @@
     }
   }
 
+  #navSearchInput {
+    padding: rem(8) rem(4);
+    border: 0;
+    border-radius: 0;
+
+    &::placeholder {
+      @extend %text-style-label-large;
+      color: $color-black-140;
+    }
+  }
+
   &__search-submit {
     margin-left: 8px;
     color: $color-white-100;
     background-color: $color-accent-light-primary-200;
     border: 0;
     cursor: pointer;
+
+    .icon {
+      position: relative;
+      top: rem(2);
+    }
   }
 
   &__search-close {
@@ -114,7 +132,6 @@
 
     .icon {
       position: relative;
-      top: -7px;
       left: -7px;
       @include font-size(36px);
     }
@@ -122,8 +139,9 @@
 
   .input-group {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     margin: auto;
+    height: 100%;
 
     @include breakpoint('large') {
       margin: 0;
