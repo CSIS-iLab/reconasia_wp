@@ -117,7 +117,7 @@
 }
 
 .featured-media__caption {
-  margin: rem(40) 0;
+  margin: rem(40) 0 0;
   color: $color-black-100;
   @extend %text-style-paragraph-medium-short;
 
@@ -127,23 +127,6 @@
 }
 
 .post {
-  // .post-meta__authors {
-  //   margin-top: rem(12);
-  //   @extend %font-label-sm;
-
-  //   @include breakpoint('medium') {
-  //     margin-left: calc(60px + 1.5rem);
-  //   }
-
-  //   .post-meta__label {
-  //     display: block;
-  //     margin-bottom: rem(4);
-  //     font-weight: 600;
-  //     font-style: normal;
-  //     text-transform: uppercase;
-  //   }
-  // }
-
   &__authors {
     margin-top: rem(48);
     margin-bottom: rem(32);
@@ -151,10 +134,23 @@
     border-top: 1px solid $color-black-130;
   }
 
+  .entry__tags {
+    max-width: $size__content-max-width;
+    margin-right: auto;
+    margin-bottom: rem(24);
+    margin-left: auto;
+
+    @include breakpoint('large') {
+      margin-bottom: rem(40);
+    }
+  }
+
   &-meta__tags {
     display: flex;
     flex-wrap: wrap;
     gap: rem(16);
+    margin: 0;
+    padding: 0;
 
     li {
       padding: 0;

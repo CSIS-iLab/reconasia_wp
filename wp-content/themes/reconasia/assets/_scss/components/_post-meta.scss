@@ -39,8 +39,13 @@
 
   &__categories {
     --post-meta: #{$color-link-primary-200};
-
     @extend %text-style-label-x-small-strong-caps;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
 
     li {
       display: inline;

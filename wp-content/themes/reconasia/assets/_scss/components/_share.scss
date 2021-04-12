@@ -1,26 +1,16 @@
 @use 'abstracts' as *;
 
 /* stylelint-disable-next-line */
-.addtoany_content {
-  margin-top: rem(40) !important;
-  margin-bottom: rem(56) !important;
-
-  &::before {
-    content: '';
-    display: block;
-    width: rem(280);
-    height: 1px;
-    margin: 0 auto rem(24);
-    background: $color-accent-light-primary-300;
-  }
-}
-
-/* stylelint-disable-next-line */
 .addtoany_list {
   display: flex !important;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  &:not(:only-child) {
+    padding-top: rem(24);
+    border-top: 1px solid $color-accent-light-primary-300;
+  }
 
   a {
     display: flex !important;
