@@ -12,8 +12,8 @@
   &__inner {
     display: flex;
     flex-wrap: wrap;
-    height: rem(48);
     align-items: center;
+    height: rem(48);
 
     @include breakpoint('large') {
       height: rem(56);
@@ -100,18 +100,26 @@
     margin-left: 8px;
     color: $color-white-100;
     background-color: $color-accent-light-primary-200;
-    /* stylelint-disable-next-line */
-    border: none;
+    border: 0;
   }
 
   &__search-close {
+    width: rem(36);
+    height: rem(36);
     color: $color-white-165;
     background-color: $color-bg-dark-200;
-    /* stylelint-disable-next-line */
-    border: none;
+    border: 0;
+
+    .icon {
+      position: relative;
+      top: -7px;
+      @include font-size(36px);
+    }
   }
 
   .input-group {
+    display: flex;
+    align-items: flex-start;
     margin: auto;
 
     @include breakpoint('large') {
