@@ -2,11 +2,12 @@
 
 .entry-header {
   --header-margin-bottom: #{rem(32)};
-  $cutout-width: 45px;
+  --cutout-width: #{rem(36)};
+  --cutout-height: #{rem(24)};
 
   position: relative;
   max-width: $size__content-max-width;
-  margin: 0 auto calc(var(--header-margin-bottom) + #{$cutout-width});
+  margin: 0 auto calc(var(--header-margin-bottom) + var(--cutout-width));
   padding: rem(24) 0 rem(32);
   text-align: center;
 
@@ -16,6 +17,8 @@
   }
 
   @include breakpoint('large') {
+    --cutout-width: #{rem(45)};
+    --cutout-height: #{rem(30)};
     padding-top: rem(16);
   }
 
@@ -42,7 +45,7 @@
     display: block;
     width: 0;
     height: 0;
-    border-width: 30px ($cutout-width / 2) 0;
+    border-width: var(--cutout-height) calc(var(--cutout-width) / 2) 0;
     border-style: solid;
     border-color: $color-page-header-triangle transparent transparent
       transparent;

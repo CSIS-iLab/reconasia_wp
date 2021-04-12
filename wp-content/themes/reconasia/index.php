@@ -14,31 +14,55 @@
  * @since 1.0.0
  */
 
+$term = get_queried_object();
+
 get_header();
 ?>
 
 <main id="site-content" role="main">
 
 	<?php
-
 		get_template_part( 'template-parts/entry-header' );
+	?>
 
+	<div class='archive__content'>
 
+	<?php
 		if ( have_posts() ) {
-
 			reconasia_pagination_number_of_posts();
-
-			while ( have_posts() ) {
-				the_post();
-
-				get_template_part( 'template-parts/block', get_post_type() );
-
-			}
-			wp_reset_postdata();
 		}
 
-	get_template_part( 'template-parts/pagination' );
+		if (class_exists('ACF') && !is_paged()) {
+			// vars
+			$featured_post = get_field('featured_post', $term);
+			if ( $featured_post ) {
+
+				echo '<section class="archive__featured">';
+					echo '<h2 class="archive__featured-label">Featured</h2>';
+					foreach( $featured_post as $post ):
+						// Setup this post for WP functions (variable must be named $post).
+						setup_postdata($post);
+						// get_template_part( 'template-parts/block-post-featured' );
+						get_template_part( 'template-parts/block', get_post_type() );
+					endforeach;
+				echo "</section>";
+				// Reset the global post object so that the rest of the page works correctly.
+				wp_reset_postdata();
+			}
+		}
+
+		if ( have_posts() ) {
+			echo '<section class="archive__base">';
+			while ( have_posts() ) {
+				the_post();
+				get_template_part( 'template-parts/block', get_post_type() );
+			}
+			echo "</section>";
+			wp_reset_postdata();
+		}
+		get_template_part( 'template-parts/pagination' );
 	?>
+	</div>
 
 </main><!-- #site-content -->
 

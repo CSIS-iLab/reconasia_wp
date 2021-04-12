@@ -13,6 +13,7 @@ $has_thumbnail = has_post_thumbnail();
 $post_type = get_post_type();
 $is_404 = is_404();
 $is_search = is_search();
+$is_home = is_home();
 
 $template = get_page_template_slug( get_the_ID() );
 $isNoImageTemplate = false;
@@ -27,12 +28,17 @@ if ( $template === 'templates/template-no-image.php' ){
 
 	<?php
 
-		if ( $is_archive) {
+		if ( $is_archive ) {
 
 			the_archive_title( '<h1 class="entry-header__title">', '</h1>' );
 
 			the_archive_description('<div class="entry-header__desc">', '</div>');
 
+		} elseif ( $is_home ) {
+			$title = get_queried_object()->post_title;
+		?>
+			<h1 class="entry-header__title"><?php echo wp_kses_post( $title ); ?></h1>
+		<?php
 		} elseif ( $is_search ) {
 
 			$archive_title = sprintf(

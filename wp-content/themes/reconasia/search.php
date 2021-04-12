@@ -16,10 +16,17 @@ get_header();
 
 		get_template_part( 'template-parts/entry-header' );
 
+	?>
+
+	<div class='archive__content'>
+
+	<?php
+
 		if ( have_posts() ) {
 
 			reconasia_pagination_number_of_posts();
 
+			echo '<section class="archive__base">';
 			while ( have_posts() ) {
 				the_post();
 
@@ -27,6 +34,7 @@ get_header();
 
 			}
 			wp_reset_postdata();
+			echo '</section>';
 
 		} elseif ( is_search() ) {
 			?>
@@ -48,6 +56,8 @@ get_header();
 
 		get_template_part( 'template-parts/pagination' );
 	?>
+
+	</div>
 
 </main><!-- #site-content -->
 

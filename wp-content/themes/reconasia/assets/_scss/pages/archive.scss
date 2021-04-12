@@ -4,6 +4,20 @@
 .archive {
   background: $color-bg-light-200;
 
+  &__content {
+    max-width: $size__archive-max-width;
+    margin-right: auto;
+    margin-left: auto;
+
+    > *:not(.cards__container):last-child {
+      margin-bottom: rem(40);
+
+      @include breakpoint('large') {
+        margin-bottom: rem(56);
+      }
+    }
+  }
+
   &__featured {
     position: relative;
     margin: 0 calc(var(--container-padding) * -1);
@@ -75,12 +89,6 @@
         }
       }
 
-      // @include breakpoint('small') {
-      //   padding-right: rem(24);
-      //   padding-bottom: rem(24);
-      //   padding-left: rem(24);
-      // }
-
       @include breakpoint('medium') {
         @include shadow('lg');
       }
@@ -88,6 +96,7 @@
       @include breakpoint('large') {
         margin-bottom: rem(8);
         padding: rem(48);
+        column-gap: rem(40);
       }
     }
   }
@@ -117,15 +126,10 @@
   }
 
   &__results {
-    margin-top: rem(32);
     margin-bottom: rem(40);
     padding-bottom: rem(8);
     color: $color-black-190;
     border-bottom: 1px solid $color-border-dark-130;
-
-    @include breakpoint('medium') {
-      margin-top: rem(40);
-    }
 
     @include breakpoint('large') {
       padding-bottom: rem(16);
@@ -226,10 +230,12 @@
 }
 
 .cards__container {
+  margin-top: rem(40);
   @include csis-block-full-width-wrapper;
 
   @include breakpoint('large') {
     display: flex;
+    margin-top: rem(56);
   }
 }
 
@@ -239,18 +245,28 @@
   background-repeat: no-repeat;
   background-size: cover;
 
-  &__wrapper {
+  &__link {
+    display: block;
     max-width: rem(400);
     margin: auto;
     padding: rem(24);
     background-color: $color-bg-dark-290;
     @include shadow(md);
+
+    &:hover .card__title {
+      color: $color-link-primary-200;
+    }
+
+    &:focus .card__title {
+      background: $color-bg-light-400;
+    }
   }
 
   &__title {
     @extend %text-style-heading-large-strong;
     margin-bottom: rem(12);
     color: $color-white-100;
+    transition: color 0.3s ease-in-out;
   }
 
   .icon {
