@@ -139,6 +139,21 @@ function reconasia_theme_support() {
 add_action( 'after_setup_theme', 'reconasia_theme_support' );
 
 /**
+ * Register navigation menus uses wp_nav_menu in five places.
+ */
+function reconasia_menus() {
+
+	$locations = array(
+		'primary'  => __( 'Main Menu', 'reconasia' ),
+		'social'   => __( 'Social Menu', 'reconasia' ),
+	);
+
+	register_nav_menus( $locations );
+}
+
+add_action( 'init', 'reconasia_menus' );
+
+/**
  * REQUIRED FILES
  * Include required files.
  */
@@ -168,7 +183,7 @@ function reconasia_register_styles() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
-wp_enqueue_style( 'reconasia-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Public+Sans:wght@700&display=swap', array(), null );
+	wp_enqueue_style( 'reconasia-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Public+Sans:wght@700&display=swap', array(), null );
 
 	wp_enqueue_style( 'reconasia-style', get_stylesheet_directory_uri() . '/style.min.css', array(), $theme_version );
 

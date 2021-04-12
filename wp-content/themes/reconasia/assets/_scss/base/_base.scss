@@ -7,7 +7,7 @@
   --logo-height: 32px;
   --logo-color: #{$color-black-100};
 
-  @include breakpoint('medium') {
+  @include breakpoint('large') {
     --logo-width: 175px;
     --logo-height: 48px;
   }
