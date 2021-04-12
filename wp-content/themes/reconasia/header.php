@@ -32,7 +32,7 @@
 
 		<?php reconasia_get_svg_icons(); ?>
 
-		<div class="container">
+		<div class="container container--main-content">
 
 			<header id="site-header" class="header" role="banner">
 

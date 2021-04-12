@@ -44,20 +44,10 @@ body {
     --container-padding: #{rem(80)};
   }
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    left: calc(50% - (var(--logo-width) / 2));
-    width: var(--logo-width);
-    height: 2px;
-  }
-
-  &::before {
-    top: 0;
-  }
-
-  &::after {
-    bottom: 0;
+  /* This will keep the footer positioned at the bottom of the page, no matter the amount of content we have. From: https://moderncss.dev/keep-the-footer-at-the-bottom-flexbox-vs-grid/ */
+  &--main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 }

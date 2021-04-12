@@ -13,6 +13,7 @@
     'social'
     'copyright';
   grid-template-columns: 1fr;
+  margin-top: auto;
   padding-top: var(--padding-top);
   padding-bottom: var(--padding-bottom);
   @extend %text-style-paragraph-medium-short;
@@ -107,6 +108,7 @@
   }
 
   &__social-icons {
+    margin-left: rem(-8);
     color: $color-white-165;
     @include font-size(28px);
   }
@@ -157,12 +159,9 @@
     }
   }
 
-  &__newsletter-header {
-    margin-bottom: rem(8);
-  }
-
   &__newsletter-header,
   &__social-header {
+    margin-bottom: rem(8);
     font-weight: 700;
     font-size: rem(18);
   }
