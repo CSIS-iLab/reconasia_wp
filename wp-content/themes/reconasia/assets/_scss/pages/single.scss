@@ -177,8 +177,7 @@
 
     table {
       width: 100%;
-      margin-top: rem(16px);
-      margin-bottom: rem(8px);
+      margin-bottom: rem(24);
       @extend %text-style-paragraph-large-short-sans;
       border-collapse: collapse;
     }
