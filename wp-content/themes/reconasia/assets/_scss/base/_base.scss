@@ -6,10 +6,12 @@
   --logo-width: 120px;
   --logo-height: 32px;
   --logo-color: #{$color-black-100};
+  --site-header-height: #{rem(48)};
 
   @include breakpoint('large') {
     --logo-width: 175px;
     --logo-height: 48px;
+    --site-header-height: #{rem(56)};
   }
 }
 
@@ -50,4 +52,8 @@ body {
     flex-direction: column;
     min-height: 100vh;
   }
+}
+
+#site-content {
+  margin-top: var(--site-header-height);
 }
