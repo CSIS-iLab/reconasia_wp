@@ -198,7 +198,7 @@ function reconasia_authors() {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__authors">' . $authors . '</div>';
+	echo '<div class="post-meta post-meta__authors">By ' . $authors . '</div>';
 }
 
 if (! function_exists('reconasia_authors_list_extended')) :
@@ -249,7 +249,7 @@ if (! function_exists('reconasia_display_categories')) :
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list(', ');
+		$categories_list = get_the_category_list();
 
 		if ('Uncategorized' === $categories_list) {
 				return;
@@ -277,7 +277,7 @@ if (! function_exists('reconasia_display_tags')) :
 	function reconasia_display_tags() {
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list('<ul class="post-meta__tags"><li>', '</li><li>', '</li></ul>');
+		$tags_list = get_the_tag_list('<ul class="post-meta__tags"><li class="btn btn--dark btn--xsmall">', '</li><li class="btn btn--dark btn--xsmall">', '</li></ul>');
 
 		if ( $tags_list ) {
 			/* translators: 1: list of tags. */
@@ -311,3 +311,58 @@ if (! function_exists('reconasia_share')) :
 	}
 endif;
 
+/**
+ * Displays Page Description.
+ *
+ *
+ * @return string $html The description.
+ */
+if (! function_exists('reconasia_page_desc')) :
+	function reconasia_page_desc() {
+		$description = get_field( 'description' );
+
+		if ( !$description ) {
+			return;
+		}
+
+		printf( '<p class="entry-header__desc">' . esc_html__( '%1$s', 'reconasia' ) . '</p>', $description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+endif;
+
+/*
+ * Displays the number of items and pages on archive & search pages.
+ *
+ *
+ * @return string $html The share links.
+ */
+if (! function_exists('reconasia_pagination_number_of_posts')) :
+	function reconasia_pagination_number_of_posts() {
+		global $wp_query;
+		$total_posts = $wp_query->found_posts;
+		$page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		$pages = $wp_query->max_num_pages;
+
+		if ( $total_posts > 0 ) {
+			/* translators: 1: list of tags. */
+			printf( '<h2 class="pagination__results">' . esc_html__( '%1$s', 'reconasia' ) . ' Items, Page ' . esc_html__( '%2$s', 'reconasia' ) . ' of ' . esc_html__( '%3$s', 'reconasia' ) . '</h2>', $total_posts, $page, $pages ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+	}
+endif;
+
+if ( ! function_exists( 'reconasia_display_footnotes' ) ) :
+	/**
+	 * Returns HTML with easy footnotes.
+	 *
+	 */
+	function reconasia_display_footnotes() {
+		if ( class_exists( 'easyFootnotes' ) ) {
+			global $easyFootnotes;
+
+			$footnotes = $easyFootnotes->easy_footnote_after_content('');
+
+			if ( $footnotes != '' ) {
+				printf( '<div class="footnotes"><h2 class="footnotes__heading">' . esc_html( 'Footnotes', 'reconaisa') . '</h2><ol class="footnotes__list">%1$s</ol></div>', $footnotes ); // WPCS: XSS OK.
+				}
+		}
+	}
+endif;

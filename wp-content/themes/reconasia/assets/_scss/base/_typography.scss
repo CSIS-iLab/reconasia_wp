@@ -5,11 +5,10 @@ a {
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 
-  &:hover,
-  &:focus,
-  &:active {
+  &:not(.btn):hover,
+  &:not(.btn):focus,
+  &:not(.btn):active {
     color: inherit;
-    border: 0;
   }
 
   &:hover,

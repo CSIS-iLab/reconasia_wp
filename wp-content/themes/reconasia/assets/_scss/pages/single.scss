@@ -1,56 +1,12 @@
 @use '../abstracts' as *;
 
+@use '../blocks/post/definition-list';
+@use '../blocks/post/gray-section';
+@use '../blocks/post/members';
+@use '../blocks/post/partners';
+@use '../components/post-block-related';
+
 .single {
-  // .container {
-  //   @include breakpoint('large') {
-  //     --container-padding: #{rem(40px)};
-  //   }
-
-  //   @include breakpoint('xlarge') {
-  //     --container-padding: #{rem(56)};
-  //   }
-  // }
-
-  &__title {
-    // color: var(--page-title);
-  }
-
-  &__header {
-    position: relative;
-    margin-bottom: rem(48);
-
-    .single__excerpt {
-      --line-height: #{rem(10)};
-      position: relative;
-      // color: var(--page-excerpt);
-      // @extend %font-body-lg-post;
-
-      &::before {
-        content: '';
-        position: absolute;
-        display: block;
-        width: rem(60);
-        height: var(--line-height);
-        // background-color: var(--page-title-underline);
-      }
-    }
-  }
-
-  .featured-media__caption {
-    margin-bottom: rem(12);
-    // color: $color-text-gray-70;
-    // @extend %font-body-sm;
-
-    &::after {
-      content: '';
-      display: block;
-      width: rem(40);
-      height: 2px;
-      margin-top: rem(12);
-      background: $color-black-130;
-    }
-  }
-
   &__content {
     p:not([class]) {
       margin-bottom: rem(24);
@@ -59,95 +15,261 @@
     p:empty {
       display: none;
     }
-  }
-}
 
-.issues-template-default,
-.post-template-default {
-  .single__header {
-    display: flex;
-    flex-direction: column;
-  }
+    /*----------  Headings  ----------*/
 
-  .single__header-wrapper {
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: column;
-    justify-content: center;
-    padding: rem(40) 0;
-
-    @include breakpoint('medium') {
-      width: 75%;
-      max-width: 600px;
-      padding-bottom: rem(24);
+    h2:not(.footnotes__heading),
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: var(--heading-margin-top, rem(24));
+      margin-bottom: rem(8);
     }
 
-    @include breakpoint('large') {
-      margin-left: rem(24);
+    h2:not(.footnotes__heading) {
+      --heading-margin-top: #{rem(56)};
+      margin-bottom: rem(16);
+      @extend %text-style-heading-x-large;
     }
 
-    @include breakpoint('xlarge') {
-      margin-left: rem(70);
+    h3 {
+      --heading-margin-top: #{rem(32)};
+      @extend %text-style-heading-large-strong;
+    }
+
+    h4 {
+      --heading-margin-top: #{rem(32)};
+      @extend %text-style-paragraph-x-large-short-sans;
+    }
+
+    /*----------  Paragraphs & Lists  ----------*/
+
+    p,
+    ul {
+      color: $color-black-190;
+    }
+
+    p {
+      @extend %text-style-paragraph-large-long;
+    }
+
+    ul,
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper) {
+      margin-top: rem(16);
+      padding-left: rem(52);
+      @extend %text-style-paragraph-medium-long;
+      line-height: 1.4 !important;
+    }
+
+    li {
+      padding-left: rem(12);
+    }
+
+    li:not(.easy-footnote-single) + li {
+      margin-top: rem(8);
+    }
+
+    ol:not(.footnotes__list):not(.easy-footnotes-wrapper)::marker,
+    li::marker {
+      color: $color-link-primary-200;
+      @extend %text-style-label-large;
+    }
+
+    /*----------  Links  ----------*/
+    /* stylelint-disable */
+    a[href*='//']:not([class])
+    {
+      /* stylelint-enable */
+      color: $color-link-primary-200;
+      font-family: $font__merriweather;
+      @include font-size(18px);
+      font-weight: 400;
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-accent-light-primary-100;
+        text-decoration-color: transparent;
+      }
+
+      &:focus {
+        color: $color-accent-light-primary-100;
+        text-decoration-color: transparent;
+        background: $color-bg-light-400;
+      }
+    }
+
+    /* stylelint-disable */
+    a[href*="//"]:not([class]):not([href*="reconasia.local"]):not([href*="localhost"]):not([href*="reconasia"])
+    {
+      /* stylelint-enable */
+      &::after {
+        content: '';
+        position: relative;
+        top: 1px;
+        left: 5px;
+        display: inline-block;
+        width: 0.8em;
+        height: 0.8em;
+        margin-right: 5px;
+        background-image: url('/wp-content/themes/reconasia/assets/static/icons/arrow-external.svg');
+        background-size: 100% 100%;
+        filter: invert(38%) sepia(89%) saturate(439%) hue-rotate(133deg)
+          brightness(86%) contrast(85%);
+        transition: filter 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        filter: invert(33%) sepia(14%) saturate(1559%) hue-rotate(131deg)
+          brightness(95%) contrast(87%);
+      }
+    }
+
+    .entry__tags {
+      margin-top: rem(24);
+      margin-bottom: rem(24);
     }
   }
 
-  .single__header .featured-media {
-    position: absolute;
-    top: calc((var(--logo-height) + 4px) * -1);
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    // background-color: $color-primary-darkest;
+  /*----------  Table  ----------*/
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: calc(50% - 50vw);
-      display: block;
-      width: 100vw;
-      /* prettier-ignore */
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.26)), linear-gradient(90deg, rgba(0, 0, 0, 0.56) 0%, rgba(0, 0, 0, 0) 67.03%);
+  .wp-block-table {
+    color: $color-black-190;
+    border: 0 !important;
+
+    &.aligncenter,
+    &.alignleft,
+    &.alignright {
+      width: 100%;
     }
 
-    /* stylelint-disable-next-line */
-    img {
-      object-fit: cover;
-      width: 100vw;
-      max-width: unset;
-      height: 100%;
-      margin-left: calc(50% - 50vw);
+    &.is-style-stripes {
+      thead {
+        background-color: $color-bg-thead;
+      }
+
+      tbody {
+        /* stylelint-disable-next-line */
+        tr:nth-child(even) {
+          background-color: $color-bg-tbody;
+        }
+        /* stylelint-disable-next-line */
+        tr:nth-child(odd) {
+          background-color: $color-white-100;
+        }
+      }
+
+      th {
+        border-top: 1px solid $color-black-115;
+      }
+
+      /* stylelint-disable */
+      table td + td,
+      table th + th {
+        border-left: 1px solid $color-black-115;
+      }
+      /* stylelint-enable */
+
+      td {
+        border-bottom: 1px solid $color-black-115;
+      }
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: rem(24);
+      @extend %text-style-paragraph-large-short-sans;
+      border-collapse: collapse;
+    }
+
+    thead {
+      @extend %text-style-label-large-strong;
+
+      /* stylelint-disable-next-line */
+      th {
+        text-align: left;
+        border-bottom: 1px solid $color-black-130 !important;
+      }
+    }
+
+    th,
+    td {
+      padding: rem(12);
+    }
+
+    figcaption {
+      margin-top: 0.75rem;
+      color: $color-black-165;
+      @extend %text-style-label-medium;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 2.5rem;
+        height: 0.0625rem;
+        margin-top: 0.75rem;
+        background: $color-black-130;
+      }
     }
   }
 
-  .post-meta {
-    margin-bottom: rem(8);
+  &__content,
+  &__footer {
+    max-width: $size__content-max-width;
+    margin-right: auto;
+    margin-left: auto;
   }
 
-  .single__title {
-    margin-bottom: rem(32);
+  &__footer {
+    p + p {
+      margin-top: 1rem;
+    }
+
+    .heading {
+      margin-bottom: rem(8);
+      color: $color-black-100;
+      text-transform: uppercase;
+    }
   }
 
-  .single__header .single__excerpt {
-    padding-top: calc(var(--line-height) + 8px);
-
-    @include breakpoint('medium') {
+  &__related-posts {
+    margin-bottom: rem(23);
+    
+    &__container {
       display: grid;
-      grid-gap: rem(24);
-      grid-template-columns: repeat(2, auto);
-      padding-top: 0;
-    }
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+      row-gap: rem(32);
+      column-gap: rem(32);
 
-    &::before {
-      top: 0;
-      left: 0;
+      @include breakpoint('small') {
+        // Sets track width, ensures that columns break in groups of 2.
+        grid-template-columns: repeat(
+          auto-fill,
+          minmax(160px, 1fr) minmax(160px, 1fr)
+        );
+      }
 
       @include breakpoint('medium') {
-        position: relative;
-        top: 8px;
+        // Sets track width, ensures that columns break in groups of 2.
+        grid-template-columns: repeat(
+          auto-fill,
+          minmax(266px, 1fr) minmax(266px, 1fr)
+        );
       }
+
+      @include breakpoint('large') {
+        padding: 0;
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    &__label {
+      grid-area: related;
+      color: $color-accent-light-primary-100;
+      @extend %text-style-heading-medium;
+      font-weight: 700;
+      text-transform: uppercase;
     }
   }
 }

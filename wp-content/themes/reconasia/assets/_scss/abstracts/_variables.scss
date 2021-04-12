@@ -13,6 +13,7 @@ $color-white-190: rgba(255, 255, 255, 0.9);
 
 $color-black-100: rgba(0, 0, 0, 1);
 $color-black-115: rgba(0, 0, 0, 0.15);
+$color-black-200: rgba(0, 0, 0, 0.2);
 $color-black-130: rgba(0, 0, 0, 0.3);
 $color-black-140: rgba(0, 0, 0, 0.4);
 $color-black-150: rgba(0, 0, 0, 0.5);
@@ -48,6 +49,19 @@ $color-border-dark-115: $color-black-115;
 $color-border-dark-130: $color-black-130;
 $color-border-dark-150: $color-black-150;
 
+$color-page-header-triangle: rgba(53, 62, 66, 1);
+
+$color-bg-thead: rgb(230, 233, 236);
+$color-bg-tbody: rgb(241, 243, 245);
+
+/* stylelint-disable */
+$gradient-post-header: linear-gradient(
+  180deg,
+  #1e2429 0%,
+  rgba(26, 36, 40, 0.88) 100%
+);
+/* stylelint-enable */
+
 /*----------  Fonts  ----------*/
 $font__merriweather: 'Merriweather', serif;
 $font__lato: 'Lato', sans-serif;
@@ -62,18 +76,21 @@ $breakpoints: (
   'xxlarge': 87.5em,
 );
 
+// Used to calculate font size in font-clamp mixin.
+$container-min-width: 30rem;
+$container-max-width: 87.5rem;
+$container-width-diff: 57.5rem; // Difference in rems between small & large breakpoints
+
 $size__container-max-width: 1400px;
 $size__content-max-width: 680px;
 $size__content-wide-max-width: 1200px;
+$size__archive-max-width: 900px;
 
-/*----------  X Index  ----------*/
-// $z-index: (
-//   panel: 2,
-//   viewerControls: 2,
-//   header: 3,
-//   panelLeftTabs: 4,
-//   nav: 5,
-// );
+/*----------  Z-Index  ----------*/
+$z-index: (
+  postBG: -1,
+  hpHeaderImg: -1,
+);
 
 /*----------  Box Shadows  ----------*/
 $shadows: (
@@ -86,3 +103,9 @@ $shadows: (
     0 5px 20px rgba(0, 0, 0, 0.1),
   ),
 );
+
+/*----------  Shadows  ----------*/
+
+$shadow--1: drop-shadow(0 3px 4px rgba(2, 3, 3, 0.03))
+  drop-shadow(0 3px 3px rgba(2, 3, 3, 0.02))
+  drop-shadow(0 1px 8px rgba(2, 3, 3, 0.04));

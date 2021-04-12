@@ -36,6 +36,11 @@ function reconasia_body_classes( $classes ) {
 	global $post;
 	$post_type = isset( $post ) ? $post->post_type : false;
 
+	// Check if we're the "blog page" or search page, and make them look like the archives.
+	if ( is_home() || is_search() ) {
+		$classes[] = 'archive';
+	}
+
 	// Check whether we're singular.
 	if ( is_singular() ) {
 		$classes[] = 'singular';
@@ -254,13 +259,11 @@ add_filter('excerpt_more', 'new_excerpt_more');
  */
 function reconasia_archive_titles( $title ) {
     if( is_category() ) {
-        $title = single_cat_title( '<span class="archive-label">Category:</span> ', false );
+        $title = single_cat_title( '<span class="entry-header__title-label">Topic</span> ', false );
     } elseif( is_tag() ) {
-        $title = single_tag_title( '<span class="archive-label">Keyword:</span> ', false );
+        $title = single_tag_title( '<span class="entry-header__title-label">Tag</span> ', false );
     } elseif( is_author() ) {
-        $title = '<span class="archive-label">Author:</span> ' . get_the_author();
-    } elseif ( is_tax( 'system' ) ) {
-        $title = single_term_title( '', false );
+        $title = '<span class="entry-header__title-label">Author</span> ' . get_the_author();
     }
     return $title;
 }
@@ -302,3 +305,28 @@ if ( class_exists( 'easyFootnotes' ) ) {
     add_filter('the_content', 'reconasia_remove_easy_footnotes', 20);
 }
 
+/**
+ * Update Recon Asia archive to exclude any of the related/featured posts from showing up in the main loop.
+ *
+ * @param  array $query Query object.
+ */
+
+function reconasia_exclude_related__posts_from_archive( $query ) {
+
+	if ( $query->is_main_query() && ! is_admin() && is_archive() ) {
+        $term = get_queried_object();
+		$featured_post = get_field( 'featured_post', $term );
+
+		if ( $featured_post ) {
+				$excluded_post_ids = array();
+
+				foreach ($featured_post as $post) {
+					$excluded_post_ids[] = $post->ID;
+				}
+
+			$query->set( 'post__not_in', $excluded_post_ids);
+		}
+
+	}
+}
+add_action( 'pre_get_posts', 'reconasia_exclude_related__posts_from_archive' );

@@ -7,56 +7,76 @@
  * @since 1.0.0
  */
 
-$entry_header_classes = '';
+$is_archive = is_archive();
+$is_page = is_page();
+$has_thumbnail = has_post_thumbnail();
+$post_type = get_post_type();
+$is_404 = is_404();
+$is_search = is_search();
+$is_home = is_home();
 
-$is_issue = false;
-$show_reconasia_original = true;
-$show_issue_prefix = true;
+$template = get_page_template_slug( get_the_ID() );
+$isNoImageTemplate = false;
 
-if ( 'issues' === get_post_type() ) {
-	$is_issue = true;
-	$show_reconasia_original = false;
-	$show_issue_prefix = false;
+if ( $template === 'templates/template-no-image.php' ){
+	$isNoImageTemplate = true;
 }
 
 ?>
 
-<header class="single__header<?php echo esc_attr( $entry_header_classes ); ?>">
+<header class="entry-header">
 
-	<div class="single__header-wrapper">
+	<?php
+
+		if ( $is_archive ) {
+
+			the_archive_title( '<h1 class="entry-header__title">', '</h1>' );
+
+			the_archive_description('<div class="entry-header__desc">', '</div>');
+
+		} elseif ( $is_home ) {
+			$title = get_queried_object()->post_title;
+		?>
+			<h1 class="entry-header__title"><?php echo wp_kses_post( $title ); ?></h1>
+		<?php
+		} elseif ( $is_search ) {
+
+			$archive_title = sprintf(
+			'%1$s %2$s',
+			'<span class="entry-header__title-label">' . __( 'Search results for', 'reconasia' ) . '</span>',
+			'&lsquo;' . get_search_query() . '&rsquo;'
+		);
+
+		?>
+
+		<h1 class="entry-header__title"><?php echo wp_kses_post( $archive_title ); ?></h1>
 
 		<?php
 
-			the_title( '<h1 class="single__title">', '</h1>' );
+		} elseif ( $is_404 ) { ?>
 
-			if ( has_excerpt() && is_singular() ) {
-				the_excerpt();
-			}
+			<h1 class="entry-header__title"><?php _e( '404', 'reconasia' ); ?></h1>
 
-			if ( !$is_issue ) {
-				reconasia_authors();
-			}
+		<?php } else {
 
-			get_template_part( 'template-parts/featured-image' );
-		?>
+			the_title( '<h1 class="entry-header__title">', '</h1>' );
 
-	</div><!-- .entry-header-inner -->
-
-	<?php
-	if ( $is_issue ) {
-		$in_this_issue = get_field( 'in_this_issue' );
-
-		if ( $in_this_issue ) {
-			echo '
-			<div class="issue__overview">
-				<h2 class="issue__overview-title">In this Issue</h2>
-				' . $in_this_issue . '
-				<div class="issue__overview-marker"></div>
-			</div>';
+			reconasia_page_desc();
 		}
 
-		echo '<div class="issue__scroll">Scroll</div>';
-	}
+
+
+		if ( is_single() ) {
+
+			reconasia_authors();
+
+			reconasia_posted_on();
+
+			if ( !$isNoImageTemplate ) {
+				get_template_part( 'template-parts/featured-image' );
+			}
+
+		}
 	?>
 
 </header><!-- .entry-header -->

@@ -187,11 +187,11 @@ function reconasia_register_styles() {
 
 	wp_enqueue_style( 'reconasia-style', get_stylesheet_directory_uri() . '/style.min.css', array(), $theme_version );
 
-	if ( is_front_page() || is_home() ) {
+	if ( is_front_page() ) {
 		wp_enqueue_style( 'reconasia-style-home', get_stylesheet_directory_uri() . '/assets/css/pages/home.min.css', array(), $theme_version );
 	}
 
-	if ( is_archive() ) {
+	if ( is_archive() || is_search() || is_home() ) {
 		wp_enqueue_style( 'reconasia-style-archive', get_stylesheet_directory_uri() . '/assets/css/pages/archive.min.css', array(), $theme_version );
 	}
 
@@ -199,7 +199,15 @@ function reconasia_register_styles() {
 		wp_enqueue_style( 'reconasia-style-single', get_stylesheet_directory_uri() . '/assets/css/pages/single.min.css', array(), $theme_version );
 	}
 
-	if ( 'post' === get_post_type() ) {
+	if ( is_page() ) {
+		wp_enqueue_style( 'reconasia-style-page', get_stylesheet_directory_uri() . '/assets/css/pages/page.min.css', array(), $theme_version );
+	}
+
+	if ( is_404() ) {
+		wp_enqueue_style( 'reconasia-style-404', get_stylesheet_directory_uri() . '/assets/css/pages/404.min.css', array(), $theme_version );
+	}
+
+	if ( 'post' === get_post_type() && is_single() ) {
 		wp_enqueue_style( 'reconasia-style-post', get_stylesheet_directory_uri() . '/assets/css/pages/post.min.css', array(), $theme_version );
 
 		wp_enqueue_style( 'reconasia-style-post-blocks', get_stylesheet_directory_uri() . '/assets/css/blocks/post.min.css', array(), $theme_version );
@@ -317,6 +325,18 @@ function reconasia_sidebar_registration() {
 		)
 	);
 
+	// Footer #3.
+	register_sidebar(
+		array_merge(
+			$footer_shared_args,
+			array(
+				'name'        => __( 'Footer #3', 'reconasia' ),
+				'id'          => 'sidebar-3',
+				'description' => __( 'Widgets in this area will be displayed in the third column in the footer.', 'reconasia' ),
+			)
+		)
+	);
+
 	// Social Share
 	register_sidebar(
 		array(
@@ -341,13 +361,12 @@ function reconasia_block_editor_styles() {
 
 	// Enqueue the editor styles.
 	wp_enqueue_style( 'reconasia-block-editor-styles', get_theme_file_uri( '/assets/css/editor-style-block.css' ), $css_dependencies, wp_get_theme()->get( 'Version' ), 'all' );
-	wp_style_add_data( 'reconasia-block-editor-styles', 'rtl', 'replace' );
 
 	// Add inline style from the Customizer.
 	wp_add_inline_style( 'reconasia-block-editor-styles', reconasia_get_customizer_css( 'block-editor' ) );
 
 	// Enqueue the editor script.
-	wp_enqueue_script( 'reconasia-block-editor-script', get_theme_file_uri( '/assets/js/editor-script-block.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
+	// wp_enqueue_script( 'reconasia-block-editor-script', get_theme_file_uri( '/assets/js/editor-script-block.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
 }
 
 add_action( 'enqueue_block_editor_assets', 'reconasia_block_editor_styles', 1, 1 );

@@ -9,7 +9,7 @@
 
 function reconasia_keep_plugins_blocks( $allowed_block_types, $post ) {
 
-	if ( $post->post_type !== 'post' && $post->post_type !== 'issues' ) {
+	if ( $post->post_type !== 'post' ) {
 		return $allowed_block_types;
 	}
 
@@ -56,15 +56,6 @@ function reconasia_lzb_block_render_attributes( $attributes, $content, $block, $
 
 add_filter( 'lzb/block_render/attributes', 'reconasia_lzb_block_render_attributes', 10, 4 );
 
-
-// Set Text Overlay block to alignfull always
-function reconasia_lzb_block_post_text_overlay_render_attributes( $attributes, $content, $block, $context ) {
-    $attributes['className'] .= ' alignfull';
-
-    return $attributes;
-}
-
-add_filter( 'lazyblock/post-text-overlay/attributes', 'reconasia_lzb_block_post_text_overlay_render_attributes', 10, 4 );
 
 // Set Aside size class if Image is aligned to left or right
 function reconasia_lzb_block_post_image_render_attributes( $attributes, $content, $block, $context ) {

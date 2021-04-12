@@ -1,12 +1,8 @@
 @use '../abstracts' as *;
 
-@use 'post/audio';
 @use 'post/blockquote';
-@use 'post/interactive';
+@use 'post/download-btn';
 @use 'post/publications';
-@use 'post/share';
-@use 'post/stat';
-@use 'post/text-overlay';
 
 .csis-block {
   clear: both;
@@ -19,47 +15,12 @@
   }
 }
 
-/*----------  Captions  ----------*/
-.csis-block__footer {
-  display: grid !important;
-  grid-column-gap: rem(16);
-  grid-template-columns: auto max-content;
-  align-items: start;
-  max-width: $size__content-max-width;
-  margin: rem(12) auto 0;
-  @extend %text-style-paragraph-medium-short;
-  // color: $color-black-165;
-
-  &::after {
-    content: '';
-    display: block;
-    width: rem(40);
-    height: rem(1px);
-    margin-top: rem(12);
-    // background: $color-border-dark-130;
-  }
-}
-
-.alignfull .csis-block__footer,
-.alignwide .csis-block__footer {
-  --padding-sides: #{rem(20)};
-  padding-right: var(--padding-sides);
-  padding-left: var(--padding-sides);
-
-  @include breakpoint('small') {
-    --padding-sides: #{rem(24)};
-  }
-
-  @include breakpoint('large') {
-    --padding-sides: 0;
-  }
-}
-
 /*----------  Aside Sizes  ----------*/
 .csis-block--large,
-.wp-block-lazyblock-post-audio,
-.wp-block-lazyblock-post-video:not(.alignfull):not(.aligncenter),
-.wp-block-lazyblock-post-interactive:not(.alignfull):not(.alignwide):not(.aligncenter) {
+.wp-block-lazyblock-post-interactive.alignleft,
+.wp-block-lazyblock-post-interactive.alignright,
+.wp-block-image .alignleft,
+.wp-block-image .alignright {
   @include breakpoint('medium') {
     max-width: 38vw;
   }
@@ -74,14 +35,6 @@
 
   @include breakpoint('xxlarge') {
     max-width: rem(400px);
-  }
-}
-
-.csis-block--small,
-.wp-block-lazyblock-post-stat,
-.wp-block-lazyblock-post-publication {
-  @include breakpoint('small') {
-    max-width: rem(200px);
   }
 }
 
@@ -113,7 +66,7 @@
   @include breakpoint('medium') {
     --padding-sides: 0;
     max-width: 50%;
-    margin-top: 0;
+    margin-top: rem(16);
   }
 
   @include breakpoint('large') {

@@ -23,14 +23,19 @@
 
 	<div class="single__content">
 		<?php
-			the_content( __( 'Continue reading', 'reconasia' ) );
-		?>
+      the_content( __( 'Continue reading', 'reconasia' ) );
+      reconasia_display_footnotes();
+    ?>
 	</div><!-- .post-inner -->
 
 	<footer class="single__footer">
-		<?php get_template_part( 'template-parts/featured-image-caption' ); ?>
-		<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
-		<?php echo reconasia_authors_list_extended(); ?>
+		<?php
+			// reconasia_display_tags();
+			// get_template_part( 'template-parts/related-posts' );
+      get_template_part( 'template-parts/featured-image-caption' );
+			get_template_part( 'template-parts/post-related-content' );
+			if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); }
+		?>
 	</footer>
 
 </article><!-- .post -->
