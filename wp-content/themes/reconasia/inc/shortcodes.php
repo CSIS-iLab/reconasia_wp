@@ -54,10 +54,9 @@ function reconasia_shortcode_share_button( $atts, $content = null ) {
 add_shortcode( 'share', 'reconasia_shortcode_share_button' );
 
 /**
- * Return Related Posts in custom layout witha  shortcode
+ * Return Related Posts in custom layout with a  shortcode
  */
 function jetpackme_custom_related( $atts ) {
-	$relatedPosts = '';
 
 	if ( class_exists( 'Jetpack_RelatedPosts' ) && method_exists( 'Jetpack_RelatedPosts', 'init_raw' ) ) {
 			$related = Jetpack_RelatedPosts::init_raw()
@@ -66,8 +65,6 @@ function jetpackme_custom_related( $atts ) {
 							get_the_ID(),
 							array( 'size' => 4 )
 					);
-
-					var_dump($related);
 
 		if ( $related || has_tag() ) {
 			echo '<h2 class="single__footer-heading">';
@@ -78,24 +75,22 @@ function jetpackme_custom_related( $atts ) {
 
 			if ( $related ) {
 				echo '<ul class="related-posts" role="list">';
-					wp_reset_postdata();
-					foreach ( $related as $result) {
-							global $post;
-							$post = get_post($result['id']);
-							// $post = $result;
-
-							setup_postdata($post);
-
-							echo '<li>';
-							$relatedPosts .= get_template_part( 'template-parts/block-post-related', get_post_format() );
-							echo '</li>';
-					}
-					echo '</ul>';
+				foreach ( $related as $result) {
+					global $post;
+					$post = get_post($result['id']);
+					
+					setup_postdata($post);
+					
+					echo '<li>';
+					get_template_part( 'template-parts/block-post-related', get_post_format() );
+					echo '</li>';
+				}
+				echo '</ul>';
+				wp_reset_postdata();
 			}
 		}
 	}
 
-	return "<div class='post-relatedPost'>".$relatedPosts."</div>";
 }
 // Create a [jprel] shortcode
 add_shortcode( 'jprel', 'jetpackme_custom_related' );
