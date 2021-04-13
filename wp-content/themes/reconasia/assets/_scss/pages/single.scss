@@ -260,7 +260,6 @@
 
 .related-posts {
   display: grid;
-  justify-content: space-around;
   margin: 0 auto rem(40);
   padding: 0;
   row-gap: rem(32);
@@ -284,9 +283,5 @@
   @include breakpoint('large') {
     grid-auto-columns: 1fr;
     padding: 0;
-  }
-
-  > li {
-    max-width: rem(275);
   }
 }
