@@ -57,6 +57,7 @@ add_shortcode( 'share', 'reconasia_shortcode_share_button' );
  * Return Related Posts in custom layout with a  shortcode
  */
 function jetpackme_custom_related( $atts ) {
+	$relatedPosts = '';
 
 	if ( class_exists( 'Jetpack_RelatedPosts' ) && method_exists( 'Jetpack_RelatedPosts', 'init_raw' ) ) {
 			$related = Jetpack_RelatedPosts::init_raw()
@@ -65,6 +66,8 @@ function jetpackme_custom_related( $atts ) {
 							get_the_ID(),
 							array( 'size' => 4 )
 					);
+
+					var_dump($related);
 
 		if ( $related || has_tag() ) {
 			echo '<h2 class="single__footer-heading">';
@@ -82,7 +85,7 @@ function jetpackme_custom_related( $atts ) {
 					setup_postdata($post);
 					
 					echo '<li>';
-					get_template_part( 'template-parts/block-post-related', get_post_format() );
+					$relatedPosts .= get_template_part( 'template-parts/block-post-related', get_post_format() );
 					echo '</li>';
 				}
 				echo '</ul>';
@@ -90,7 +93,7 @@ function jetpackme_custom_related( $atts ) {
 			}
 		}
 	}
-
+	return "<div class='post-relatedPost'>".$relatedPosts."</div>";
 }
 // Create a [jprel] shortcode
 add_shortcode( 'jprel', 'jetpackme_custom_related' );
