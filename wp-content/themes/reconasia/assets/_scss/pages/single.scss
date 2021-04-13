@@ -269,10 +269,10 @@
     --track-min-width: 160px;
     // Sets track width, ensures that columns break in groups of 2.
     /* stylelint-disable */
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(var(--track-min-width), 1fr) minmax(var(--track-min-width), 1fr)
-    );
+    // grid-template-columns: repeat(
+    //   auto-fill,
+    //   minmax(var(--track-min-width), 1fr) minmax(var(--track-min-width), 1fr)
+    // );
     /* stylelint-enable */
   }
 
@@ -281,7 +281,7 @@
   }
 
   @include breakpoint('large') {
-    grid-template-columns: repeat(4, 1fr);
+    // grid-template-columns: repeat(4, 1fr);
     padding: 0;
   }
 }
