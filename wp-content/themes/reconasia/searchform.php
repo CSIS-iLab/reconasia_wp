@@ -24,5 +24,11 @@ $aria_label = ! empty( $args['label'] ) ? 'aria-label="' . esc_attr( $args['labe
 		<span class="screen-reader-text"><?php _e( 'Search for:', 'reconasia' ); // phpcs:ignore: WordPress.Security.EscapeOutput.UnsafePrintingFunction -- core trusts translations ?></span>
 		<input type="search" id="<?php echo esc_attr( $unique_id ); ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'reconasia' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
 	</label>
-	<input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'reconasia' ); ?>" />
+	<label for="searchInput">
+    <button id="search-trigger" class="search-trigger">
+      <span class="screen-reader-text">Open search</span><?php echo reconasia_get_svg( 'search' ); ?>
+    </button>
+  </label>
+	<button id="search-close" class="search-close" type='reset' aria-label='Close Search Form'><span class="screen-reader-text">Close search form</span><?php echo reconasia_get_svg( 'close' ); ?>
+	</button>
 </form>

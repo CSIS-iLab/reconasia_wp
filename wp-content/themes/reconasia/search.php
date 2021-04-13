@@ -21,6 +21,7 @@ get_header();
 	<div class='archive__content'>
 
 	<?php
+	$archive_subtitle    = '';
 
 		if ( have_posts() ) {
 
@@ -40,20 +41,27 @@ get_header();
 			?>
 
 			<div class="no-search-results-form section-inner thin">
-
+		
 				<?php
 				get_search_form(
 					array(
 						'label' => __( 'search again', 'reconasia' ),
+						'class' => 'class="screen-reader-text"'
 					)
 				);
-				?>
 
+				?>
+				
+				<h2><?php esc_html_e( 'Nothing Found', 'reconasia' ); ?></h2>
+
+				<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'reconasia' ); ?></p>
 			</div><!-- .no-search-results -->
 
 			<?php
 		}
-
+		?>
+	
+		<?php
 		get_template_part( 'template-parts/pagination' );
 	?>
 
