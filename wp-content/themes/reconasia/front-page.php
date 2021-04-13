@@ -45,7 +45,7 @@ get_header();
 		$most_recent_args = array(
 			'post_type' => 'post',
 			'post_status' => 'publish',
-			'posts_per_page' => 4
+			'posts_per_page' => 3
 		);
 
 		$most_recent_posts = new WP_Query( $most_recent_args );
