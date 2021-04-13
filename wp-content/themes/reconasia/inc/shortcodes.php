@@ -52,3 +52,48 @@ function reconasia_shortcode_share_button( $atts, $content = null ) {
 }
 
 add_shortcode( 'share', 'reconasia_shortcode_share_button' );
+
+/**
+ * Return Related Posts in custom layout witha  shortcode
+ */
+function jetpackme_custom_related( $atts ) {
+	$relatedPosts = '';
+
+	if ( class_exists( 'Jetpack_RelatedPosts' ) && method_exists( 'Jetpack_RelatedPosts', 'init_raw' ) ) {
+			$related = Jetpack_RelatedPosts::init_raw()
+					->set_query_name( 'jetpackme-shortcode' ) // Optional, name can be anything
+					->get_for_post_id(
+							get_the_ID(),
+							array( 'size' => 4 )
+					);
+
+		if ( $related || has_tag() ) {
+			echo '<h2 class="single__footer-heading">';
+			echo reconasia_get_svg( "3-arrows" );
+			_e( 'Related Content', 'reconasia' );
+			echo '</h2>';
+			reconasia_display_tags();
+
+			if ( $related ) {
+				echo '<ul class="related-posts" role="list">';
+					wp_reset_postdata();
+					foreach ( $related as $result) {
+							global $post;
+							$result = get_post($result['id']);
+							$post = $result;
+
+							setup_postdata($post);
+
+							echo '<li>';
+							$relatedPosts .= get_template_part( 'template-parts/block-post-related', get_post_format() );
+							echo '</li>';
+					}
+					echo '</ul>';
+			}
+		}
+	}
+
+	return "<div class='post-relatedPost'>".$relatedPosts."</div>";
+}
+// Create a [jprel] shortcode
+add_shortcode( 'jprel', 'jetpackme_custom_related' );
