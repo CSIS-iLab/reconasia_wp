@@ -67,6 +67,8 @@ function jetpackme_custom_related( $atts ) {
 							array( 'size' => 4 )
 					);
 
+					var_dump($related);
+
 		if ( $related || has_tag() ) {
 			echo '<h2 class="single__footer-heading">';
 			echo reconasia_get_svg( "3-arrows" );
