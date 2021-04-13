@@ -353,3 +353,6 @@ function jetpackme_more_related_posts( $options ) {
 	return $options;
 	}
 	add_filter( 'jetpack_relatedposts_filter_options', 'jetpackme_more_related_posts' );
+
+	// remove category and tag context text
+add_filter( 'jetpack_relatedposts_filter_post_context', '__return_empty_string' );
