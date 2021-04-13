@@ -76,6 +76,7 @@ function jetpackme_custom_related( $atts ) {
 			reconasia_display_tags();
 
 			if ( $related ) {
+				wp_reset_postdata();
 				echo '<ul class="related-posts" role="list">';
 				foreach ( $related as $result) {
 					global $post;
@@ -88,7 +89,6 @@ function jetpackme_custom_related( $atts ) {
 					echo '</li>';
 				}
 				echo '</ul>';
-				wp_reset_postdata();
 			}
 		}
 	}
