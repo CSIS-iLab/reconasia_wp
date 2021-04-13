@@ -13,6 +13,7 @@
 
 ?>
 <?php
+
 	$term = get_queried_object();
 	// vars
 	$related_posts = get_field( 'related_posts', $term );
