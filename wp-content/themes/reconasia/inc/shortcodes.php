@@ -81,8 +81,8 @@ function jetpackme_custom_related( $atts ) {
 					wp_reset_postdata();
 					foreach ( $related as $result) {
 							global $post;
-							$result = get_post($result['id']);
-							$post = $result;
+							$post = get_post($result['id']);
+							// $post = $result;
 
 							setup_postdata($post);
 
