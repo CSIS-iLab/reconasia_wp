@@ -344,8 +344,12 @@ function jetpackme_remove_rp() {
 }
 add_filter( 'wp', 'jetpackme_remove_rp', 20 );
 
+/*
+ * Set the number of Jetpack related posts to show
+ */
+
 function jetpackme_more_related_posts( $options ) {
 	$options['size'] = 4;
 	return $options;
 	}
-	add_filter( 'jetpack_relatedposts_filter_options', 'jetpackme_more_related_posts'
+	add_filter( 'jetpack_relatedposts_filter_options', 'jetpackme_more_related_posts' );
