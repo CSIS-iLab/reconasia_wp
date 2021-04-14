@@ -42,9 +42,9 @@ get_header();
 
 			<div class="no-search-results-form section-inner thin">
 		
-			<h2 class="search-form__title"><?php esc_html_e( 'Nothing Found', 'reconasia' ); ?></h2>
+			<h2 class="search-form__title"><?php esc_html_e( 'No Results', 'reconasia' ); ?></h2>
 
-			<p class="search-form__desc"><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'reconasia' ); ?></p>
+			<p class="search-form__desc"><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with different keywords.', 'reconasia' ); ?></p>
 
 				<?php
 				get_search_form(
@@ -59,9 +59,7 @@ get_header();
 
 			<?php
 		}
-		?>
-	
-		<?php
+
 		get_template_part( 'template-parts/pagination' );
 	?>
 
