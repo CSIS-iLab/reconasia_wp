@@ -81,6 +81,11 @@
     background-color: $color-bg-dark-200;
     border: 0;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-accent-dark-primary-400;
+    }
 
     @include breakpoint('large') {
       color: $color-white-165;
@@ -97,7 +102,6 @@
     padding: rem(6) rem(4);
     border: 0;
     border-radius: 0;
-    outline: 0;
 
     @include breakpoint('large') {
       width: rem(375px);
@@ -111,11 +115,22 @@
 
   &__search-submit {
     margin-left: 8px;
-    padding: rem(5);
+    padding: rem(5) rem(6.5);
     color: $color-white-100;
     background-color: $color-accent-light-primary-200;
     border: 0;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-white-165;
+    }
+
+    &:focus {
+      color: $color-link-primary-200;
+      background: $color-bg-light-200;
+      outline: 0;
+    }
 
     .icon {
       position: relative;
@@ -131,6 +146,11 @@
     background-color: $color-bg-dark-200;
     border: 0;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-white-190;
+    }
 
     .icon {
       position: relative;
