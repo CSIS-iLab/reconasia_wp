@@ -43,12 +43,14 @@
 
     ul {
       margin: 0;
+      margin-top: rem(-4);
       padding: 0;
       list-style: none;
     }
 
     li {
-      display: inline;
+      display: inline-block;
+      margin-top: rem(4);
     }
 
     li:not(:last-of-type) {
