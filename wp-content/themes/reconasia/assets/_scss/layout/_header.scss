@@ -107,10 +107,6 @@
       @extend %text-style-label-large;
       color: $color-black-140;
     }
-
-    &:focus {
-      outline: 2px solid $color-link-primary-200;
-    }
   }
 
   &__search-submit {
