@@ -344,9 +344,10 @@
       padding-left: rem(8);
     }
 
-    &:hover .sub-menu {
+    &:hover .sub-menu,
+    .sub-menu.focus {
       position: relative;
-      visibility: visible;
+      // visibility: visible;
       clip-path: inset(0);
 
       @include breakpoint('large') {
@@ -360,7 +361,7 @@
     width: 200px;
     padding-bottom: 0.5rem;
     list-style: none;
-    visibility: hidden;
+    // visibility: hidden;
     transition: clip-path 0.3s linear, visibility 0.3s linear;
     clip-path: inset(0 0 100% 0);
 
