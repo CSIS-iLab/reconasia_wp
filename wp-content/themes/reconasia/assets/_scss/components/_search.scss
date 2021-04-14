@@ -1,0 +1,48 @@
+@use 'abstracts' as *;
+
+.search-form {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+
+
+  #search-form-1 {
+    padding: rem(8) rem(16) rem(16);
+    border: 0.5px solid $color-bg-light-300;
+    border-radius: 0;
+    @extend %text-style-label-large;
+    width: $size__archive-max-width;
+
+    &::placeholder {
+      color: $color-black-140;
+    }
+  }
+
+  &__submit {
+    margin-left: 8px;
+    padding: .75rem 1.25rem;
+    color: $color-white-100;
+    background-color: $color-accent-light-primary-200;
+    border: 0;
+    cursor: pointer;
+    @extend %text-style-label-small-strong-caps;
+  }
+
+  &__title {
+    margin-bottom: rem(40);
+    text-align: center;
+    @extend %text-style-heading-large-strong-caps;
+  }
+
+  &__desc {
+    margin-bottom: rem(24);
+    @extend %text-style-paragraph-large-long;
+  }
+
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+
