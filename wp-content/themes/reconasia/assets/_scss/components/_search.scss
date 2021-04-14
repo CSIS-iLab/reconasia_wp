@@ -7,11 +7,14 @@
 
 
   #search-form-1 {
-    padding: rem(8) rem(16) rem(16);
+    padding: rem(8) rem(4);
     border: 0.5px solid $color-bg-light-300;
     border-radius: 0;
     @extend %text-style-label-large;
-    width: $size__archive-max-width;
+
+    @include breakpoint('large') {
+      width: $size__archive-max-width;
+    }
 
     &::placeholder {
       color: $color-black-140;
@@ -20,7 +23,7 @@
 
   &__submit {
     margin-left: 8px;
-    padding: .75rem 1.25rem;
+    padding: .375rem 1.25rem;
     color: $color-white-100;
     background-color: $color-accent-light-primary-200;
     border: 0;
