@@ -87,6 +87,10 @@
       color: $color-accent-dark-primary-400;
     }
 
+    &:focus {
+      color: $color-white-100;
+    }
+
     @include breakpoint('large') {
       color: $color-white-165;
 
@@ -140,8 +144,6 @@
   }
 
   &__search-close {
-    width: rem(36);
-    height: rem(36);
     color: $color-white-165;
     background-color: $color-bg-dark-200;
     border: 0;
@@ -150,6 +152,10 @@
 
     &:hover {
       color: $color-white-190;
+    }
+
+    &:focus {
+      color: $color-white-100;
     }
 
     .icon {
