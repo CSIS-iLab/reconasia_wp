@@ -85,9 +85,15 @@
     .archive__featured & {
       color: $color-white-190;
 
-      a:focus {
-        color: $color-white-100;
-        background: $color-border-light-130;
+      a {
+        &:hover {
+          color: $color-accent-dark-primary-400;
+        }
+
+        &:focus {
+          color: $color-white-100;
+          background: $color-border-light-130;
+        }
       }
     }
   }
@@ -114,7 +120,7 @@
         color: $color-white-190;
 
         &:hover {
-          color: $color-white-100;
+          color: $color-accent-dark-primary-400;
         }
 
         &:focus {
