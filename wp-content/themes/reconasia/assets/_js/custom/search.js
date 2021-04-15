@@ -3,11 +3,13 @@ const Search = () => {
   const searchEl = document.querySelector('#searchform')
   const close = document.querySelector('#search-close')
   const algolia = document.getElementsByClassName('aa-dropdown-menu')
+  const searchInput = document.querySelector('#navSearchInput')
 
   trigger.addEventListener('click', function () {
     searchEl.classList.add('is-active')
     this.setAttribute('aria-expanded', 'true')
     this.classList.add('is-active')
+    searchInput.focus()
   })
 
   close.addEventListener('click', function () {
