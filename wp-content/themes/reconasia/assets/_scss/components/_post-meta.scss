@@ -42,15 +42,16 @@
     @extend %text-style-label-x-small-strong-caps;
 
     ul {
+      display: flex;
+      flex-wrap: wrap;
       margin: 0;
-      margin-top: rem(-4);
       padding: 0;
+      row-gap: rem(4);
       list-style: none;
     }
 
     li {
       display: inline-block;
-      margin-top: rem(4);
     }
 
     li:not(:last-of-type) {
