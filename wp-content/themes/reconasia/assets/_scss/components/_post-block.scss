@@ -77,8 +77,10 @@
       }
 
       &:focus {
-        color: $color-white-100;
-        background: $color-white-130;
+        // color: $color-white-100;
+        // background: $color-white-130;
+        color: black;
+          background: $color-bg-light-400;
       }
     }
 
