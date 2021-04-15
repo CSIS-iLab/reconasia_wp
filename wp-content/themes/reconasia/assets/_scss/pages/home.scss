@@ -15,7 +15,7 @@
     @include breakpoint('large') {
       display: grid;
       grid-template-columns: minmax(50%, auto) rem(330);
-      align-items: flex-start;
+      align-items: start;
       margin-top: rem(24);
     }
 
