@@ -26,6 +26,7 @@
       &:focus {
         color: $color-bg-dark-100;
         background: $color-bg-light-300;
+        outline: 0;
       }
     }
   }
@@ -71,6 +72,7 @@
       &:focus {
         color: $color-bg-dark-100;
         background: $color-bg-light-300;
+        outline: 0;
       }
     }
   }
