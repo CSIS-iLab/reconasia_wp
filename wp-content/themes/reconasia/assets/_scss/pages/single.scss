@@ -114,14 +114,12 @@
         margin-right: 5px;
         background-image: url('/wp-content/themes/reconasia/assets/static/icons/arrow-external.svg');
         background-size: 100% 100%;
-        filter: invert(38%) sepia(89%) saturate(439%) hue-rotate(133deg)
-          brightness(86%) contrast(85%);
+        filter: invert(38%) sepia(89%) saturate(439%) hue-rotate(133deg) brightness(86%) contrast(85%);
         transition: filter 0.3s ease-in-out;
       }
 
       &:hover::after {
-        filter: invert(33%) sepia(14%) saturate(1559%) hue-rotate(131deg)
-          brightness(95%) contrast(87%);
+        filter: invert(33%) sepia(14%) saturate(1559%) hue-rotate(131deg) brightness(95%) contrast(87%);
       }
     }
 
@@ -270,10 +268,7 @@
     --track-min-width: 160px;
     // Sets track width, ensures that columns break in groups of 2.
     /* stylelint-disable */
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(var(--track-min-width), 1fr) minmax(var(--track-min-width), 1fr)
-    );
+    grid-template-columns: repeat(auto-fill, minmax(var(--track-min-width), 1fr) minmax(var(--track-min-width), 1fr));
     /* stylelint-enable */
   }
 
@@ -282,7 +277,8 @@
   }
 
   @include breakpoint('large') {
-    grid-auto-columns: 1fr;
+    display: flex;
+    justify-content: center;
     padding: 0;
   }
 
