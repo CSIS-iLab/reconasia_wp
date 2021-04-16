@@ -9,30 +9,33 @@ const nav = document.querySelector('.site-nav__menu')
 const parentMenus = document.querySelectorAll('.sub-menu')
 
 const Navigation = () => {
+  menuFocus()
   toggleMenu()
   closeMenu()
 }
 
-parentMenus.forEach((parentMenu) => {
-  const topLevelLinks = parentMenu.querySelectorAll('a')
-  topLevelLinks.forEach((link) => {
-    link.addEventListener('focus', function () {
-      this.parentElement.parentElement.classList.add('focus')
-    })
-    const subMenuItem = link.parentElement
-
-    if (subMenuItem.nextElementSibling) {
-      const subMenu = subMenuItem.nextElementSibling
-      const subMenuLinks = subMenu.querySelectorAll('a')
-      const lastLinkIndex = subMenuLinks.length - 1
-      const lastLink = subMenuLinks[lastLinkIndex]
-
-      lastLink.addEventListener('blur', function () {
-        this.parentElement.parentElement.classList.remove('focus')
+const menuFocus = () => {
+  parentMenus.forEach((parentMenu) => {
+    const topLevelLinks = parentMenu.querySelectorAll('a')
+    topLevelLinks.forEach((link) => {
+      link.addEventListener('focus', function () {
+        this.parentElement.parentElement.classList.add('focus')
       })
-    }
+      const subMenuItem = link.parentElement
+
+      if (subMenuItem.nextElementSibling) {
+        const subMenu = subMenuItem.nextElementSibling
+        const subMenuLinks = subMenu.querySelectorAll('a')
+        const lastLinkIndex = subMenuLinks.length - 1
+        const lastLink = subMenuLinks[lastLinkIndex]
+
+        lastLink.addEventListener('blur', function () {
+          this.parentElement.parentElement.classList.remove('focus')
+        })
+      }
+    })
   })
-})
+}
 
 // change the hamburger icon to close icon on mobile
 const toggleMenu = () => {
