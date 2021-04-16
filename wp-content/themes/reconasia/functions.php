@@ -618,3 +618,13 @@ function reconasia_filter_excerpt ($post_excerpt) {
   return $post_excerpt;
 }
 add_filter ('get_the_excerpt','reconasia_filter_excerpt');
+
+/**
+ * Add options page for advanced custom fields.
+ */
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page();
+	
+}
