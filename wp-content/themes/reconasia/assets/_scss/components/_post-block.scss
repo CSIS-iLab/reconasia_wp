@@ -77,7 +77,8 @@
       }
 
       &:focus {
-        background: $color-bg-light-400;
+        color: $color-white-100;
+        background: $color-white-130;
         outline: 0;
       }
     }
