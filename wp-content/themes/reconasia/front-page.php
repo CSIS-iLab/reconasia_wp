@@ -42,13 +42,47 @@ get_header();
 		echo reconasia_get_svg( "3-arrows" );
 
 		echo '<div class="home__recent-posts">';
+
+		// var_dump($featured_primary_post);
+		// var_dump($featured_secondary_posts);
+
+		$test = get_posts(array(
+			'posts_per_page'	=> 3,
+			'post_type' => 'post',
+			'post_status' => 'publish',
+			'meta_key' => 'primary_featured_post'
+			'meta_value' => 'a:1:{i:0;s:3:"422";}'
+		));
+		var_dump($test);
+
 		$most_recent_args = array(
 			'post_type' => 'post',
 			'post_status' => 'publish',
-			'posts_per_page' => 3
+			'posts_per_page' => 3,
+			'tax_query' => array(
+				array(
+					'meta_key' => 'primary_featured_post',
+				),	
+			),
+			// 'meta_key' => 'secondary_featured_posts',
+			// 'tax_query' => array(
+			// 	'relation' => 'OR',
+			// 	array(
+			// 		'field' => 'name',
+			// 		'terms' => 'secondary_featured_posts',
+			// 		'operator' => 'NOT IN',
+			// 	),
+			// ),
 		);
 
+		// var_dump($most_recent_args);
+		/*
+		** And you should be able to do it by excluding the relevant
+		** post IDs in the $most_recent_args parameters.
+		*/
+
 		$most_recent_posts = new WP_Query( $most_recent_args );
+		// var_dump($most_recent_posts);
 
 		if ( $most_recent_posts->have_posts() ) {
 			while ( $most_recent_posts->have_posts() ) {
@@ -64,7 +98,6 @@ get_header();
 
 	<?php
 	$featured_secondary_posts = get_field( 'secondary_featured_posts' );
-
 	if ( $featured_secondary_posts ) :
 
 		echo '<section class="home__featured-secondary">';
