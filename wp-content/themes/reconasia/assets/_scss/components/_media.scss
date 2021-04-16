@@ -59,6 +59,13 @@
     margin-top: rem(12);
     background: $color-border-dark-130;
   }
+
+  /* stylelint-disable */
+  a[href*='//']:not([class])
+  {
+    /* stylelint-enable */
+    @extend %text-style-paragraph-medium-short;
+  }
 }
 
 .wp-block-image {

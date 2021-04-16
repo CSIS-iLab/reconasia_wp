@@ -72,16 +72,18 @@
     .post-block__title,
     .post-meta__authors {
       a {
+        /* stylelint-disable-next-line */
         &:hover {
           color: $color-accent-dark-primary-400;
         }
 
+        /* stylelint-disable-next-line */
         &:focus {
           color: $color-white-100;
           background: $color-bg-dark-400;
         }
       }
-    } 
+    }
   }
 
   &__recent {
