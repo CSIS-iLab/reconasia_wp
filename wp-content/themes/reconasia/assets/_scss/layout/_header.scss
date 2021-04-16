@@ -103,6 +103,7 @@
   }
 
   #navSearchInput {
+    flex: 1 1 auto;
     padding: rem(6) rem(4);
     border: 0;
     border-radius: 0;
@@ -144,6 +145,7 @@
   }
 
   &__search-close {
+    width: rem(36);
     color: $color-white-165;
     background-color: $color-bg-dark-200;
     border: 0;
@@ -168,12 +170,19 @@
   .input-group {
     display: flex;
     align-items: center;
+    width: 90%;
     height: 100%;
     margin: auto;
 
     @include breakpoint('large') {
+      width: unset;
       margin: 0;
     }
+  }
+
+  #navSearchLabel,
+  .header__search-close {
+    flex: 0 0 auto;
   }
 
   button:focus {
