@@ -358,14 +358,13 @@ function jetpackme_more_related_posts( $options ) {
 	/**
  * Remove certain categories on post loop for a specific post
  * @param array $categories Array of categories
- * @return array $categories filtred categories
+ * @return array $categories filtered categories
  * Adapted from https://developer.wordpress.org/reference/hooks/get_the_categories/#user-contributed-notes
  */
 function reconasia_remove_selected_categories( $categories ) {
-	$term = get_queried_object();
-	$excluded_topics = get_field( 'excluded_topic', $term );
+	$excluded_topics = get_field( 'excluded_topic', 'option' );
 	$excluded_topic_names = array();
-
+	
 	foreach ( $excluded_topics as $topic ) {
 		$excluded_topic_names[] = $topic->slug;
 	}
