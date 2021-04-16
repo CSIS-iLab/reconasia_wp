@@ -81,6 +81,15 @@
     background-color: $color-bg-dark-200;
     border: 0;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-accent-dark-primary-400;
+    }
+
+    &:focus {
+      color: $color-white-100;
+    }
 
     @include breakpoint('large') {
       color: $color-white-165;
@@ -94,9 +103,14 @@
   }
 
   #navSearchInput {
-    padding: rem(8) rem(4);
+    flex: 1 1 auto;
+    padding: rem(6) rem(4);
     border: 0;
     border-radius: 0;
+
+    @include breakpoint('large') {
+      width: rem(375px);
+    }
 
     &::placeholder {
       @extend %text-style-label-large;
@@ -106,11 +120,22 @@
 
   &__search-submit {
     margin-left: 8px;
-    padding: rem(7);
+    padding: rem(5) rem(6.5);
     color: $color-white-100;
     background-color: $color-accent-light-primary-200;
     border: 0;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-white-165;
+    }
+
+    &:focus {
+      color: $color-link-primary-200;
+      background: $color-bg-light-200;
+      outline: 0;
+    }
 
     .icon {
       position: relative;
@@ -121,11 +146,19 @@
 
   &__search-close {
     width: rem(36);
-    height: rem(36);
     color: $color-white-165;
     background-color: $color-bg-dark-200;
     border: 0;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-white-190;
+    }
+
+    &:focus {
+      color: $color-white-100;
+    }
 
     .icon {
       position: relative;
@@ -137,12 +170,19 @@
   .input-group {
     display: flex;
     align-items: center;
+    width: 90%;
     height: 100%;
     margin: auto;
 
     @include breakpoint('large') {
+      width: unset;
       margin: 0;
     }
+  }
+
+  #navSearchLabel,
+  .header__search-close {
+    flex: 0 0 auto;
   }
 
   button:focus {
@@ -179,7 +219,7 @@
       top: unset;
       right: unset;
       left: unset;
-      z-index: 2;
+      @include z-index(navContainer);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -208,7 +248,7 @@
     border: 0;
     transform: rotate(0deg);
     cursor: pointer;
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease-in-out;
 
     &.is-active {
       margin-left: 650%;
@@ -308,48 +348,42 @@
   }
 
   .menu-item-has-children {
-    > a::after {
-      content: '\25be';
-      padding-left: rem(8);
-    }
-
-    &:hover .sub-menu {
-      position: relative;
-      visibility: visible;
-      clip-path: inset(0);
-
-      @include breakpoint('large') {
+    @include breakpoint('large') {
+      &:hover .sub-menu,
+      .sub-menu.focus {
         position: absolute;
+        clip-path: inset(0);
+      }
+
+      > a::after {
+        content: '\25be';
+        padding-left: rem(8);
       }
     }
   }
 
   .sub-menu {
-    position: absolute;
     width: 200px;
     padding-bottom: 0.5rem;
-    visibility: hidden;
-    transition: clip-path 0.3s linear, visibility 0.3s linear;
-    clip-path: inset(0 0 100% 0);
+    list-style: none;
 
     @include breakpoint('large') {
       position: absolute;
       top: 100%;
       left: calc(-0.5rem + 1px);
-      padding-right: 0.5rem;
-      padding-left: 0.5rem;
-      list-style: none;
+      padding: 0.5rem;
       background-color: $color-bg-dark-200;
       @include font-size(18px);
       @include shadow('lg');
+      transition: clip-path 0.3s linear, visibility 0.3s linear;
+      clip-path: inset(0 0 100% 0);
     }
 
     a {
-      padding: 0.75rem 0 0.75rem 4rem;
+      padding: 0.75rem 0 0.75rem 1rem;
 
       @include breakpoint('large') {
         padding-right: 1rem;
-        padding-left: 1rem;
       }
     }
   }

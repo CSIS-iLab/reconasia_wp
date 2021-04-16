@@ -27,7 +27,7 @@
 				'theme_location'  => 'primary',
 				'menu_class'      => 'site-nav__menu',
 				'container_class' => 'site-nav__container',
-				'items_wrap'      => '<ul id="primary-menu-list" class="%2$s">%3$s</ul>',
+				'items_wrap'      => '<ul role="list" id="primary-menu-list" class="%2$s">%3$s</ul>',
 				'fallback_cb'     => false,
 			)
 		);

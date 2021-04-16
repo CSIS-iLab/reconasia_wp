@@ -37,6 +37,11 @@
       <?php get_template_part( 'template-parts/site-nav' );?>
 
       <div class="search">
+        <label for="navSearchInput">
+          <button id="search-trigger" class="header__search-trigger">
+            <span class="screen-reader-text">Open search</span><?php echo reconasia_get_svg( 'search' ); ?>
+          </button>
+        </label>
         <form method="get" id="searchform" action="/">
           <div class="input-group">
             <label class="screen-reader-text" for="navSearchInput">Search for:</label>
@@ -47,11 +52,6 @@
             <button id="search-close" class="header__search-close" type='reset' aria-label='Close Search Form'><span class="screen-reader-text">Close search form</span><?php echo reconasia_get_svg( 'close' ); ?></button>
           </div>
         </form>
-        <label for="navSearchInput">
-          <button id="search-trigger" class="header__search-trigger">
-            <span class="screen-reader-text">Open search</span><?php echo reconasia_get_svg( 'search' ); ?>
-          </button>
-        </label>
       </div>
     </div>
 	</header>
