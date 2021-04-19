@@ -177,6 +177,18 @@ require get_template_directory() . '/inc/custom-blocks.php';
 require get_template_directory() . '/inc/shortcodes.php';
 
 /**
+ * Register and Enqueue Admin Styles.
+ */
+function reconasia_register_admin_styles() {
+
+	$theme_version = wp_get_theme()->get( 'Version' );
+
+	wp_enqueue_style( 'reconasia-style-admin', get_stylesheet_directory_uri() . '/assets/css/base/admin.min.css', array(), $theme_version );
+}
+
+add_action( 'admin_enqueue_scripts', 'reconasia_register_admin_styles' );
+
+/**
  * Register and Enqueue Styles.
  */
 function reconasia_register_styles() {
