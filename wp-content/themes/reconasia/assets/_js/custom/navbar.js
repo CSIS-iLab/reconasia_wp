@@ -54,8 +54,7 @@ const toggleMenu = () => {
 
 const closeMenu = () => {
   document.addEventListener('click', function (e) {
-    const buttonClicked =
-      e.target === trigger || e.target.parentElement === trigger
+    const buttonClicked = e.target === trigger || e.target.parentElement === trigger
 
     if (!nav.contains(e.target) && !buttonClicked) {
       trigger.setAttribute('aria-expanded', 'false')
