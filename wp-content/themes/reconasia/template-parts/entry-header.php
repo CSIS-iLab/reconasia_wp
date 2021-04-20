@@ -57,21 +57,19 @@ if ( $template === 'templates/template-no-image.php' ){
 
 			<h1 class="entry-header__title"><?php _e( '404', 'reconasia' ); ?></h1>
 
-		<?php } else {
-
+		<?php } elseif ( $is_page ) {
 			the_title( '<h1 class="entry-header__title">', '</h1>' );
 
 			reconasia_page_desc();
 		}
 
-
-
-		if ( is_single() ) {
-
-			reconasia_authors();
-
-			reconasia_posted_on();
-
+		elseif ( is_single() ) {
+			echo '<div class="entry-header__header-content">';
+				the_title( '<h1 class="entry-header__title">', '</h1>' );
+				reconasia_page_desc();
+				reconasia_authors();
+				reconasia_posted_on();
+			echo '</div>';
 			if ( !$isNoImageTemplate ) {
 				get_template_part( 'template-parts/featured-image' );
 			}
