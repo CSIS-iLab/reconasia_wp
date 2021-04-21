@@ -8,6 +8,9 @@
 
 .single {
   &__content {
+    background: $color-white-100;
+    @include full-width-background($color-white-100);
+
     p:not([class]) {
       margin-bottom: rem(24);
     }
