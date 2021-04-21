@@ -1,3 +1,1 @@
-wp-content/themes/reconasia/style.css
-wp-content/themes/reconasia/style.min.css
-wp-content/themes/reconasia/assets
+wp-content/themes/reconasia/*.css
