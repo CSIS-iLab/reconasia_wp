@@ -26,14 +26,8 @@ const setScrollbarSize = () => {
   // Get the scrollbar dimension
   const scrollbar = getScrollbarSize()
   // Set a custom property with the value we calculated
-  document.documentElement.style.setProperty(
-    '--scrollbarX',
-    `${scrollbar.width}px`
-  )
-  document.documentElement.style.setProperty(
-    '--scrollbarY',
-    `${scrollbar.height}px`
-  )
+  document.documentElement.style.setProperty('--scrollbarX', `${scrollbar.width}px`)
+  document.documentElement.style.setProperty('--scrollbarY', `${scrollbar.height}px`)
 }
 
 export { setScrollbarSize }

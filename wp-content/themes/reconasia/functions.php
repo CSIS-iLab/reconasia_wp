@@ -360,7 +360,7 @@ function reconasia_block_editor_styles() {
 	$css_dependencies = array();
 
 	// Enqueue the editor styles.
-	wp_enqueue_style( 'reconasia-block-editor-styles', get_theme_file_uri( '/assets/css/editor-style-block.css' ), $css_dependencies, wp_get_theme()->get( 'Version' ), 'all' );
+	wp_enqueue_style( 'reconasia-block-editor-styles', get_theme_file_uri( 'editor-style-block.css' ), $css_dependencies, wp_get_theme()->get( 'Version' ), 'all' );
 
 	// Add inline style from the Customizer.
 	wp_add_inline_style( 'reconasia-block-editor-styles', reconasia_get_customizer_css( 'block-editor' ) );
@@ -455,24 +455,24 @@ add_action( 'customize_controls_enqueue_scripts', 'reconasia_customize_controls_
  *
  * @return void
  */
-function reconasia_customize_preview_init() {
-	$theme_version = wp_get_theme()->get( 'Version' );
+// function reconasia_customize_preview_init() {
+// 	$theme_version = wp_get_theme()->get( 'Version' );
 
-	wp_enqueue_script( 'reconasia-customize-preview', get_theme_file_uri( '/assets/js/customize-preview.js' ), array( 'customize-preview', 'customize-selective-refresh', 'jquery' ), $theme_version, true );
-	wp_localize_script( 'reconasia-customize-preview', 'twentyTwentyBgColors', reconasia_get_customizer_color_vars() );
-	wp_localize_script( 'reconasia-customize-preview', 'twentyTwentyPreviewEls', reconasia_get_elements_array() );
+// 	wp_enqueue_script( 'reconasia-customize-preview', get_theme_file_uri( '/assets/js/customize-preview.js' ), array( 'customize-preview', 'customize-selective-refresh', 'jquery' ), $theme_version, true );
+// 	wp_localize_script( 'reconasia-customize-preview', 'twentyTwentyBgColors', reconasia_get_customizer_color_vars() );
+// 	wp_localize_script( 'reconasia-customize-preview', 'twentyTwentyPreviewEls', reconasia_get_elements_array() );
 
-	wp_add_inline_script(
-		'reconasia-customize-preview',
-		sprintf(
-			'wp.customize.selectiveRefresh.partialConstructor[ %1$s ].prototype.attrs = %2$s;',
-			wp_json_encode( 'cover_opacity' ),
-			wp_json_encode( reconasia_customize_opacity_range() )
-		)
-	);
-}
+// 	wp_add_inline_script(
+// 		'reconasia-customize-preview',
+// 		sprintf(
+// 			'wp.customize.selectiveRefresh.partialConstructor[ %1$s ].prototype.attrs = %2$s;',
+// 			wp_json_encode( 'cover_opacity' ),
+// 			wp_json_encode( reconasia_customize_opacity_range() )
+// 		)
+// 	);
+// }
 
-add_action( 'customize_preview_init', 'reconasia_customize_preview_init' );
+// add_action( 'customize_preview_init', 'reconasia_customize_preview_init' );
 
 /**
  * Get accessible color for an area.
