@@ -360,7 +360,7 @@ function reconasia_block_editor_styles() {
 	$css_dependencies = array();
 
 	// Enqueue the editor styles.
-	wp_enqueue_style( 'reconasia-block-editor-styles', get_theme_file_uri( 'editor-style-block.css' ), $css_dependencies, wp_get_theme()->get( 'Version' ), 'all' );
+	wp_enqueue_style( 'reconasia-block-editor-styles', get_theme_file_uri( '/editor-style-block.css' ), $css_dependencies, wp_get_theme()->get( 'Version' ), 'all' );
 
 	// Add inline style from the Customizer.
 	wp_add_inline_style( 'reconasia-block-editor-styles', reconasia_get_customizer_css( 'block-editor' ) );
