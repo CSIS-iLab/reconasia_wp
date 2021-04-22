@@ -240,6 +240,7 @@
 
   &__trigger {
     position: relative;
+    left: 0;
     @include z-index(navTrigger);
     display: block;
     width: 40px;
@@ -248,19 +249,25 @@
     border: 0;
     transform: rotate(0deg);
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s linear;
+
+    &:focus {
+      .line {
+        background: $color-white-100;
+      }
+    }
 
     &:hover {
       .line {
-        background: $color-white-165;
+        background: $color-accent-dark-primary-400;
       }
     }
 
     &.is-active {
-      margin-left: 620%;
+      left: rem(230px);
 
       @include breakpoint('medium') {
-        margin-left: 570%;
+        left: rem(200px);
       }
     }
 
@@ -274,7 +281,7 @@
       display: block;
       width: 20px;
       height: 2px;
-      background: $color-white-100;
+      background: $color-white-190;
       transform: rotate(0deg);
       opacity: 1;
       transition: 0.25s ease-in-out;
