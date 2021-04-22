@@ -64,6 +64,15 @@
   &__img {
     grid-area: img;
     margin-bottom: rem(24);
+    transition: all 0.3s ease-in-out;
+
+    &:hover ~ .post-block__title {
+      color: $color-link-primary-200;
+
+      .archive__featured & {
+        color: $color-accent-dark-primary-400;
+      }
+    }
   }
 
   &__title {
