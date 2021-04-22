@@ -112,7 +112,7 @@
     margin-top: rem(8);
     margin-bottom: rem(16);
     color: $color-black-165;
-    word-break: break-all;
+    word-wrap: break-word;
     @extend %text-style-paragraph-large-short-sans;
 
     .archive__featured & {
