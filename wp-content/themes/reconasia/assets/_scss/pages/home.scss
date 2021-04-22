@@ -358,6 +358,23 @@
       &:not(:last-child) {
         margin-bottom: rem(40);
       }
+
+      .post-meta__authors {
+        /* stylelint-disable */
+        a {
+          
+          &:hover {
+            /* stylelint-enable */
+            color: $color-link-primary-200;
+          }
+  
+          /* stylelint-disable-next-line */
+          &:focus {
+            color: $color-black-190;
+            background: $color-bg-light-400;
+          }
+        }
+      }
     }
   }
 
