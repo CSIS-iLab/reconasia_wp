@@ -55,11 +55,7 @@ $color-bg-thead: rgb(230, 233, 236);
 $color-bg-tbody: rgb(241, 243, 245);
 
 /* stylelint-disable */
-$gradient-post-header: linear-gradient(
-  180deg,
-  #1e2429 0%,
-  rgba(26, 36, 40, 0.88) 100%
-);
+$gradient-post-header: linear-gradient(180deg, #1e2429 0%, rgba(26, 36, 40, 0.88) 100%);
 /* stylelint-enable */
 
 /*----------  Fonts  ----------*/
@@ -91,6 +87,7 @@ $z-index: (
   postBG: -1,
   hpHeaderImg: -1,
   navContainer: 2,
+  navTrigger: 3,
 );
 
 /*----------  Box Shadows  ----------*/
@@ -107,6 +104,4 @@ $shadows: (
 
 /*----------  Shadows  ----------*/
 
-$shadow--1: drop-shadow(0 3px 4px rgba(2, 3, 3, 0.03))
-  drop-shadow(0 3px 3px rgba(2, 3, 3, 0.02))
-  drop-shadow(0 1px 8px rgba(2, 3, 3, 0.04));
+$shadow--1: drop-shadow(0 3px 4px rgba(2, 3, 3, 0.03)) drop-shadow(0 3px 3px rgba(2, 3, 3, 0.02)) drop-shadow(0 1px 8px rgba(2, 3, 3, 0.04));

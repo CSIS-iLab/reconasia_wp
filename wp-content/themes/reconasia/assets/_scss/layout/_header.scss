@@ -240,7 +240,7 @@
 
   &__trigger {
     position: relative;
-    z-index: 3;
+    @include z-index(navTrigger);
     display: block;
     width: 40px;
     height: 40px;
@@ -252,6 +252,10 @@
 
     &.is-active {
       margin-left: 650%;
+
+      @include breakpoint('medium') {
+        margin-left: 570%;
+      }
     }
 
     @include breakpoint('large') {
