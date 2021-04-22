@@ -250,6 +250,12 @@
     cursor: pointer;
     transition: 0.3s ease-in-out;
 
+    &:hover {
+      .line {
+        background: $color-white-165;
+      }
+    }
+
     &.is-active {
       margin-left: 650%;
 
