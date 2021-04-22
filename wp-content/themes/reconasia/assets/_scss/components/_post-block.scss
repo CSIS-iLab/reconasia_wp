@@ -129,6 +129,19 @@
         }
       }
     }
+
+    a {
+      &:hover {
+        color: $color-link-primary-200;
+      }
+
+      /* stylelint-disable-next-line */
+      &:focus {
+        color: $color-link-primary-200;
+        background: $color-bg-light-400;
+      }
+    }
+
   }
 
   .post-meta__date {
