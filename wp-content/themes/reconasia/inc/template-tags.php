@@ -188,6 +188,15 @@ function reconasia_last_updated() {
  *
  */
 function reconasia_authors() {
+
+	/*
+	* This will show or not the author. If ACF show_author is checked won't show the author.
+	*/
+	$showAuthor = get_field('show_author');
+	if( $showAuthor ) {
+		return;
+	}
+
 	if ( function_exists( 'coauthors' ) ) {
 		$authors = coauthors_posts_links( ', ', ' and ', null, null, false );
 	} else {
