@@ -193,8 +193,10 @@ function reconasia_authors() {
 	* This will show or not the author information. If ACF hide_author_info is checked won't show the author.
 	*/
 	$hide_author_info = get_field('hide_author_info');
-	if( $hide_author_info ) {
-		return;
+	if ( class_exists('ACF') ) {
+		if( $hide_author_info ) {
+			return;
+		}
 	}
 
 	if ( function_exists( 'coauthors' ) ) {
