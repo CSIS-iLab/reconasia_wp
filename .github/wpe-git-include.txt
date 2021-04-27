@@ -1,1 +1,2 @@
 wp-content/themes/reconasia/*.css
+wp-content/themes/reconasia/assets

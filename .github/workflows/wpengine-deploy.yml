@@ -26,7 +26,7 @@ jobs:
 
       - name: Build
         working-directory: ./wp-content/themes/reconasia
-        run: npm run build
+        run: npm run build && rm -rf node_modules
 
       - name: Git fetch
         run: git fetch --prune --unshallow
