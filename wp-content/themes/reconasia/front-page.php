@@ -14,7 +14,7 @@ get_header();
 
 <main id="site-content" role="main">
 	<?php
-
+	$excluded_featured_post_ids_from_recent = array();
 	$featured_primary_post = get_field( 'primary_featured_post' );
 
 	if ( $featured_primary_post ) :
@@ -22,8 +22,8 @@ get_header();
 		echo '<section class="home__featured-primary">';
 		echo '<h2 class="home__featured-primary-label">Featured</h2>';
 
-
 		foreach ( $featured_primary_post as $post ) :
+			$excluded_featured_post_ids_from_recent[] = $post->ID;
 
 			setup_postdata( $post );
 			get_template_part( 'template-parts/block', get_post_type() );
@@ -34,16 +34,17 @@ get_header();
 
 		echo '</section>';
 
-	endif; ?>
+	endif; 
 
-	<?php
-		$secondary_featured_post = get_field( 'secondary_featured_posts' );
-		if ( $secondary_featured_post ) {
-				$excluded_post_ids = array();
-				foreach ($secondary_featured_post as $post) {
-					$excluded_post_ids[] = $post->ID;
-				}
+
+	$secondary_featured_post = get_field( 'secondary_featured_posts' );
+
+	if ( $secondary_featured_post ) {
+		foreach ($secondary_featured_post as $post) {
+			$excluded_featured_post_ids_from_recent[] = $post->ID;
 		}
+	}
+	
 	?>
 
 	<section class="home__recent">
@@ -51,14 +52,12 @@ get_header();
 		<?php
 		echo reconasia_get_svg( "3-arrows" );
 
-
 		echo '<div class="home__recent-posts">';
-		var_dump($excluded_post_ids);
 		$most_recent_args = array(
 			'post_type' => 'post',
 			'post_status' => 'publish',
-			'posts_per_page' => 5,
-			'post__not_in' => $excluded_post_ids
+			'posts_per_page' => 3,
+			'post__not_in' => $excluded_featured_post_ids_from_recent
 		);
 
 		$most_recent_posts = new WP_Query( $most_recent_args );
@@ -76,6 +75,7 @@ get_header();
 	</section>
 
 	<?php
+	$featured_secondary_posts = get_field( 'secondary_featured_posts' );
 	if ( $featured_secondary_posts ) :
 
 		echo '<section class="home__featured-secondary">';
