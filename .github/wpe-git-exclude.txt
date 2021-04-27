@@ -1,1 +1,1 @@
-node_modules/
+wp-content/themes/reconasia/node_modules/
