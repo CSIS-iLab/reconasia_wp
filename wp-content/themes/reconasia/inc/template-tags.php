@@ -190,10 +190,10 @@ function reconasia_last_updated() {
 function reconasia_authors() {
 
 	/*
-	* This will show or not the author. If ACF show_author is checked won't show the author.
+	* This will show or not the author information. If ACF hide_author_info is checked won't show the author.
 	*/
-	$showAuthor = get_field('show_author');
-	if( $showAuthor ) {
+	$hide_author_info = get_field('hide_author_info');
+	if( $hide_author_info ) {
 		return;
 	}
 
