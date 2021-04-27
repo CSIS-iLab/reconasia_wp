@@ -36,14 +36,6 @@ function reconasia_theme_support() {
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
-	// Custom background color.
-	add_theme_support(
-		'custom-background',
-		array(
-			'default-color' => 'f5efe0',
-		)
-	);
-
 	// Set content-width.
 	global $content_width;
 	if ( ! isset( $content_width ) ) {
@@ -166,9 +158,6 @@ require get_template_directory() . '/inc/svg-icons.php';
 
 // Custom script loader class.
 require get_template_directory() . '/classes/class-csis-script-loader.php';
-
-// Custom CSS.
-require get_template_directory() . '/inc/custom-css.php';
 
 // Custom Blocks.
 require get_template_directory() . '/inc/custom-blocks.php';
@@ -362,11 +351,6 @@ function reconasia_block_editor_styles() {
 	// Enqueue the editor styles.
 	wp_enqueue_style( 'reconasia-block-editor-styles', get_theme_file_uri( '/editor-style-block.css' ), $css_dependencies, wp_get_theme()->get( 'Version' ), 'all' );
 
-	// Add inline style from the Customizer.
-	wp_add_inline_style( 'reconasia-block-editor-styles', reconasia_get_customizer_css( 'block-editor' ) );
-
-	// Enqueue the editor script.
-	// wp_enqueue_script( 'reconasia-block-editor-script', get_theme_file_uri( '/assets/js/editor-script-block.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
 }
 
 add_action( 'enqueue_block_editor_assets', 'reconasia_block_editor_styles', 1, 1 );
@@ -386,225 +370,6 @@ function reconasia_classic_editor_styles() {
 
 add_action( 'init', 'reconasia_classic_editor_styles' );
 
-/**
- * Output Customizer settings in the classic editor.
- * Adds styles to the head of the TinyMCE iframe. Kudos to @Otto42 for the original solution.
- *
- * @param array $mce_init TinyMCE styles.
- *
- * @return array $mce_init TinyMCE styles.
- */
-function reconasia_add_classic_editor_customizer_styles( $mce_init ) {
-
-	$styles = reconasia_get_customizer_css( 'classic-editor' );
-
-	if ( ! isset( $mce_init['content_style'] ) ) {
-		$mce_init['content_style'] = $styles . ' ';
-	} else {
-		$mce_init['content_style'] .= ' ' . $styles . ' ';
-	}
-
-	return $mce_init;
-
-}
-
-add_filter( 'tiny_mce_before_init', 'reconasia_add_classic_editor_customizer_styles' );
-
-/**
- * Block Editor Settings.
- * Add custom colors and font sizes to the block editor.
- */
-function reconasia_block_editor_settings() {
-	// If we have a dark background color then add support for dark editor style.
-	// We can determine if the background color is dark by checking if the text-color is white.
-	if ( '#ffffff' === strtolower( reconasia_get_color_for_area( 'content', 'text' ) ) ) {
-		add_theme_support( 'dark-editor-style' );
-	}
-
-}
-
-add_action( 'after_setup_theme', 'reconasia_block_editor_settings' );
-
-/**
- * Enqueues scripts for customizer controls & settings.
- *
- * @since 1.0.0
- *
- * @return void
- */
-function reconasia_customize_controls_enqueue_scripts() {
-	$theme_version = wp_get_theme()->get( 'Version' );
-
-	// Add main customizer js file.
-	wp_enqueue_script( 'reconasia-customize', get_template_directory_uri() . '/assets/js/customize.js', array( 'jquery' ), $theme_version, false );
-
-	// Add script for color calculations.
-	wp_enqueue_script( 'reconasia-color-calculations', get_template_directory_uri() . '/assets/js/color-calculations.js', array( 'wp-color-picker' ), $theme_version, false );
-
-	// Add script for controls.
-	wp_enqueue_script( 'reconasia-customize-controls', get_template_directory_uri() . '/assets/js/customize-controls.js', array( 'reconasia-color-calculations', 'customize-controls', 'underscore', 'jquery' ), $theme_version, false );
-	wp_localize_script( 'reconasia-customize-controls', 'twentyTwentyBgColors', reconasia_get_customizer_color_vars() );
-}
-
-add_action( 'customize_controls_enqueue_scripts', 'reconasia_customize_controls_enqueue_scripts' );
-
-/**
- * Enqueue scripts for the customizer preview.
- *
- * @since 1.0.0
- *
- * @return void
- */
-// function reconasia_customize_preview_init() {
-// 	$theme_version = wp_get_theme()->get( 'Version' );
-
-// 	wp_enqueue_script( 'reconasia-customize-preview', get_theme_file_uri( '/assets/js/customize-preview.js' ), array( 'customize-preview', 'customize-selective-refresh', 'jquery' ), $theme_version, true );
-// 	wp_localize_script( 'reconasia-customize-preview', 'twentyTwentyBgColors', reconasia_get_customizer_color_vars() );
-// 	wp_localize_script( 'reconasia-customize-preview', 'twentyTwentyPreviewEls', reconasia_get_elements_array() );
-
-// 	wp_add_inline_script(
-// 		'reconasia-customize-preview',
-// 		sprintf(
-// 			'wp.customize.selectiveRefresh.partialConstructor[ %1$s ].prototype.attrs = %2$s;',
-// 			wp_json_encode( 'cover_opacity' ),
-// 			wp_json_encode( reconasia_customize_opacity_range() )
-// 		)
-// 	);
-// }
-
-// add_action( 'customize_preview_init', 'reconasia_customize_preview_init' );
-
-/**
- * Get accessible color for an area.
- *
- * @since 1.0.0
- *
- * @param string $area The area we want to get the colors for.
- * @param string $context Can be 'text' or 'accent'.
- * @return string Returns a HEX color.
- */
-function reconasia_get_color_for_area( $area = 'content', $context = 'text' ) {
-
-	// Get the value from the theme-mod.
-	$settings = get_theme_mod(
-		'accent_accessible_colors',
-		array(
-			'content'       => array(
-				'text'      => '#000000',
-				'accent'    => '#cd2653',
-				'secondary' => '#6d6d6d',
-				'borders'   => '#dcd7ca',
-			),
-			'header-footer' => array(
-				'text'      => '#000000',
-				'accent'    => '#cd2653',
-				'secondary' => '#6d6d6d',
-				'borders'   => '#dcd7ca',
-			),
-		)
-	);
-
-	// If we have a value return it.
-	if ( isset( $settings[ $area ] ) && isset( $settings[ $area ][ $context ] ) ) {
-		return $settings[ $area ][ $context ];
-	}
-
-	// Return false if the option doesn't exist.
-	return false;
-}
-
-/**
- * Returns an array of variables for the customizer preview.
- *
- * @since 1.0.0
- *
- * @return array
- */
-function reconasia_get_customizer_color_vars() {
-	$colors = array(
-		'content'       => array(
-			'setting' => 'background_color',
-		),
-		'header-footer' => array(
-			'setting' => 'header_footer_background_color',
-		),
-	);
-	return $colors;
-}
-
-/**
- * Get an array of elements.
- *
- * @since 1.0
- *
- * @return array
- */
-function reconasia_get_elements_array() {
-
-	// The array is formatted like this:
-	// [key-in-saved-setting][sub-key-in-setting][css-property] = [elements].
-	$elements = array(
-		'content'       => array(
-			'accent'     => array(
-				'color'            => array( '.color-accent', '.color-accent-hover:hover', '.color-accent-hover:focus', ':root .has-accent-color', '.has-drop-cap:not(:focus):first-letter', '.wp-block-button.is-style-outline', 'a' ),
-				'border-color'     => array( 'blockquote', '.border-color-accent', '.border-color-accent-hover:hover', '.border-color-accent-hover:focus' ),
-				'background-color' => array( 'button:not(.toggle)', '.button', '.faux-button', '.wp-block-button__link', '.wp-block-file .wp-block-file__button', 'input[type="button"]', 'input[type="reset"]', 'input[type="submit"]', '.bg-accent', '.bg-accent-hover:hover', '.bg-accent-hover:focus', ':root .has-accent-background-color', '.comment-reply-link' ),
-				'fill'             => array( '.fill-children-accent', '.fill-children-accent *' ),
-			),
-			'background' => array(
-				'color'            => array( ':root .has-background-color', 'button', '.button', '.faux-button', '.wp-block-button__link', '.wp-block-file__button', 'input[type="button"]', 'input[type="reset"]', 'input[type="submit"]', '.wp-block-button', '.comment-reply-link', '.has-background.has-primary-background-color:not(.has-text-color)', '.has-background.has-primary-background-color *:not(.has-text-color)', '.has-background.has-accent-background-color:not(.has-text-color)', '.has-background.has-accent-background-color *:not(.has-text-color)' ),
-				'background-color' => array( ':root .has-background-background-color' ),
-			),
-			'text'       => array(
-				'color'            => array( 'body', '.entry-title a', ':root .has-primary-color' ),
-				'background-color' => array( ':root .has-primary-background-color' ),
-			),
-			'secondary'  => array(
-				'color'            => array( 'cite', 'figcaption', '.wp-caption-text', '.post-meta', '.entry-content .wp-block-archives li', '.entry-content .wp-block-categories li', '.entry-content .wp-block-latest-posts li', '.wp-block-latest-comments__comment-date', '.wp-block-latest-posts__post-date', '.wp-block-embed figcaption', '.wp-block-image figcaption', '.wp-block-pullquote cite', '.comment-metadata', '.comment-respond .comment-notes', '.comment-respond .logged-in-as', '.pagination .dots', '.entry-content hr:not(.has-background)', 'hr.styled-separator', ':root .has-secondary-color' ),
-				'background-color' => array( ':root .has-secondary-background-color' ),
-			),
-			'borders'    => array(
-				'border-color'        => array( 'pre', 'fieldset', 'input', 'textarea', 'table', 'table *', 'hr' ),
-				'background-color'    => array( 'caption', 'code', 'code', 'kbd', 'samp', '.wp-block-table.is-style-stripes tbody tr:nth-child(odd)', ':root .has-subtle-background-background-color' ),
-				'border-bottom-color' => array( '.wp-block-table.is-style-stripes' ),
-				'border-top-color'    => array( '.wp-block-latest-posts.is-grid li' ),
-				'color'               => array( ':root .has-subtle-background-color' ),
-			),
-		),
-		'header-footer' => array(
-			'accent'     => array(
-				'color'            => array( 'body:not(.overlay-header) .primary-menu > li > a', 'body:not(.overlay-header) .primary-menu > li > .icon', '.modal-menu a', '.footer-menu a, .footer-widgets a', '#site-footer .wp-block-button.is-style-outline', '.wp-block-pullquote:before', '.singular:not(.overlay-header) .entry-header a', '.archive-header a', '.header-footer-group .color-accent', '.header-footer-group .color-accent-hover:hover' ),
-				'background-color' => array( '.social-icons a', '#site-footer button:not(.toggle)', '#site-footer .button', '#site-footer .faux-button', '#site-footer .wp-block-button__link', '#site-footer .wp-block-file__button', '#site-footer input[type="button"]', '#site-footer input[type="reset"]', '#site-footer input[type="submit"]' ),
-			),
-			'background' => array(
-				'color'            => array( '.social-icons a', 'body:not(.overlay-header) .primary-menu ul', '.header-footer-group button', '.header-footer-group .button', '.header-footer-group .faux-button', '.header-footer-group .wp-block-button:not(.is-style-outline) .wp-block-button__link', '.header-footer-group .wp-block-file__button', '.header-footer-group input[type="button"]', '.header-footer-group input[type="reset"]', '.header-footer-group input[type="submit"]' ),
-				'background-color' => array( '#site-header', '.footer-nav-widgets-wrapper', '#site-footer', '.menu-modal', '.menu-modal-inner', '.search-modal-inner', '.archive-header', '.singular .entry-header', '.singular .featured-media:before', '.wp-block-pullquote:before' ),
-			),
-			'text'       => array(
-				'color'               => array( '.header-footer-group', 'body:not(.overlay-header) #site-header .toggle', '.menu-modal .toggle' ),
-				'background-color'    => array( 'body:not(.overlay-header) .primary-menu ul' ),
-				'border-bottom-color' => array( 'body:not(.overlay-header) .primary-menu > li > ul:after' ),
-				'border-left-color'   => array( 'body:not(.overlay-header) .primary-menu ul ul:after' ),
-			),
-			'secondary'  => array(
-				'color' => array( '.site-description', 'body:not(.overlay-header) .toggle-inner .toggle-text', '.widget .post-date', '.widget .rss-date', '.widget_archive li', '.widget_categories li', '.widget cite', '.widget_pages li', '.widget_meta li', '.widget_nav_menu li', '.powered-by-wordpress', '.to-the-top', '.singular .entry-header .post-meta', '.singular:not(.overlay-header) .entry-header .post-meta a' ),
-			),
-			'borders'    => array(
-				'border-color'     => array( '.header-footer-group pre', '.header-footer-group fieldset', '.header-footer-group input', '.header-footer-group textarea', '.header-footer-group table', '.header-footer-group table *', '.footer-nav-widgets-wrapper', '#site-footer', '.menu-modal nav *', '.footer-widgets-outer-wrapper', '.footer-top' ),
-				'background-color' => array( '.header-footer-group table caption', 'body:not(.overlay-header) .header-inner .toggle-wrapper::before' ),
-			),
-		),
-	);
-
-	/**
-	* Filters Reconnecting Asia theme elements
-	*
-	* @since 1.0.0
-	*
-	* @param array Array of elements
-	*/
-	return apply_filters( 'reconasia_get_elements_array', $elements );
-}
 
 /** Modify Excerpt Classes */
 function reconasia_filter_excerpt ($post_excerpt) {
@@ -624,7 +389,7 @@ add_filter ('get_the_excerpt','reconasia_filter_excerpt');
  */
 
 if( function_exists('acf_add_options_page') ) {
-	
+
 	acf_add_options_page();
-	
+
 }
