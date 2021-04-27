@@ -36,16 +36,29 @@ get_header();
 
 	endif; ?>
 
+	<?php
+		$secondary_featured_post = get_field( 'secondary_featured_posts' );
+		if ( $secondary_featured_post ) {
+				$excluded_post_ids = array();
+				foreach ($secondary_featured_post as $post) {
+					$excluded_post_ids[] = $post->ID;
+				}
+		}
+	?>
+
 	<section class="home__recent">
 		<h2 class="home__recent-label"><?php _e( 'Recent Posts', 'reconasia' ); ?></h2>
 		<?php
 		echo reconasia_get_svg( "3-arrows" );
 
+
 		echo '<div class="home__recent-posts">';
+		var_dump($excluded_post_ids);
 		$most_recent_args = array(
 			'post_type' => 'post',
 			'post_status' => 'publish',
-			'posts_per_page' => 3
+			'posts_per_page' => 5,
+			'post__not_in' => $excluded_post_ids
 		);
 
 		$most_recent_posts = new WP_Query( $most_recent_args );
@@ -63,8 +76,6 @@ get_header();
 	</section>
 
 	<?php
-	$featured_secondary_posts = get_field( 'secondary_featured_posts' );
-
 	if ( $featured_secondary_posts ) :
 
 		echo '<section class="home__featured-secondary">';
