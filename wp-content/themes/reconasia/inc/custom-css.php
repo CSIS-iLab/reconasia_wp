@@ -74,7 +74,7 @@ if ( ! function_exists( 'reconasia_get_customizer_css' ) ) {
 
 		// Background.
 		$background         = sanitize_hex_color_no_hash( get_theme_mod( 'background_color' ) );
-		$background_default = 'f5efe0';
+		$background_default = 'ffffff';
 
 		ob_start();
 
