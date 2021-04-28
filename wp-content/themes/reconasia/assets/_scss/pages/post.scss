@@ -79,10 +79,6 @@
     @include breakpoint('large') {
       margin-bottom: rem(24);
     }
-
-    .post-template-default & {
-      align-self: end;
-    }
   }
 
   &__desc {
