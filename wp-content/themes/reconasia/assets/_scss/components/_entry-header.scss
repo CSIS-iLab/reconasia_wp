@@ -2,18 +2,22 @@
 
 .entry-header {
   --header-margin-bottom: #{rem(32)};
+  --header-padding-bottom: #{rem(32)};
   --cutout-width: #{rem(36)};
   --cutout-height: #{rem(24)};
 
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   max-width: $size__content-max-width;
-  margin: 0 auto calc(var(--header-margin-bottom) + var(--cutout-width));
-  padding: rem(24) 0 rem(32);
+  min-height: 250px;
+  margin: 0 auto var(--header-margin-bottom);
+  padding: rem(24) 0 calc(var(--header-padding-bottom) + var(--cutout-height));
   text-align: center;
 
   @include breakpoint('medium') {
     --header-margin-bottom: #{rem(40)};
-    padding-bottom: rem(40);
   }
 
   @include breakpoint('large') {
@@ -31,29 +35,20 @@
     @include z-index(postBG);
     display: block;
     @include csis-block-full-width-wrapper();
-    background: linear-gradient(180deg, #1e2429 28.79%, rgba(53, 62, 66, 0) 100%), url('../../img/geo_bg.png'), linear-gradient(180deg, #1e2429 0%, rgba(26, 36, 40, 0.88) 100%);
+    background: linear-gradient(180deg, #1e2429 2.5%, transparent 100%), url('../../img/geo_bg.png'), linear-gradient(180deg, #1e2429 0%, rgba(26, 36, 40, 0.88) 100%);
     background-repeat: repeat;
     background-size: cover;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    display: block;
-    width: 0;
-    height: 0;
-    border-width: var(--cutout-height) calc(var(--cutout-width) / 2) 0;
-    border-style: solid;
-    border-color: $color-page-header-triangle transparent transparent transparent;
-    transform: translate(-50%, 0);
+    // Creates triangle cutout
+    clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - var(--cutout-height)), calc(50% + var(--cutout-width) / 2) calc(100% - var(--cutout-height)), 50% 100%, calc(50% - var(--cutout-width) / 2) calc(100% - var(--cutout-height)), 0% calc(100% - var(--cutout-height)));
   }
 
   &__title {
-    margin-bottom: rem(16);
     color: $color-white-190;
     @extend %text-style-heading-3-x-large;
+
+    &:not(:only-child) {
+      margin-bottom: rem(16);
+    }
 
     &-label {
       display: block;
