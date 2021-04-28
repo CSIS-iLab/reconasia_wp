@@ -166,7 +166,8 @@
 }
 
 %text-style-paragraph-medium-long {
-  @extend %text-style-paragraph-medium-short;
+  @include font-clamp(14px, 16px);
+  font-family: $font__merriweather;
   line-height: 1.6;
 }
 
