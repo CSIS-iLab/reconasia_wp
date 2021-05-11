@@ -134,6 +134,7 @@
 
   .wp-block-table {
     color: $color-black-190;
+    word-break: normal;
     border: 0 !important;
 
     &.aligncenter,
