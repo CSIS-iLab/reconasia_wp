@@ -17,7 +17,9 @@
 }
 
 /* Images */
-img.aligncenter {
+/* stylelint-disable-next-line */
+img.aligncenter,
+.wp-block-image .aligncenter img {
   width: 100%;
 }
 
