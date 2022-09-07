@@ -41,7 +41,9 @@
   &__archived-text {
     @extend %text-style-label-medium;
     margin-bottom: rem(24);
-    color: $color-white-190;
+    padding: rem(24);
+    color: $color-black-165;
+    background-color: $color-white-190;
     font-style: italic;
 
     a {
